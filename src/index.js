@@ -1,7 +1,12 @@
-import DataAndObjectHelpers from "./DataAndObjectHelpers"
-import MathHelpers from "./MathHelpers"
+const ArrayHelpers = require('./ArrayHelpers')
+const ObjectHelpers = require('./ObjectHelpers')
+const MathHelpers = require('./MathHelpers')
 
-export default {
-  DataAndObjectHelpers,
-  MathHelpers
+module.exports = {
+  ArrayHelpers,
+  ...ArrayHelpers,
+  ObjectHelpers,
+  ...ObjectHelpers,
+  MathHelpers,
+  ...MathHelpers
 }
