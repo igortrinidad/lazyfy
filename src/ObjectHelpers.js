@@ -13,15 +13,15 @@ const checkObjMatch = (item, query) => {
     if(Array.isArray(query[key])) {
       return !remapArrayToLowerCaseIfString(query[key]).includes(attrQuery)
     }
-    return checkIsNotEqual(attrQuery, query[key])
+    return !checkIsEqual(attrQuery, query[key])
   })
   if(diffKeys.length) return false
   return item
 }
 
-const checkIsNotEqual = (value, query) => {
-  if(typeof(query) === 'string') return value.toLowerCase() != query.toLowerCase()
-  return value != query
+const checkIsEqual = (value, query) => {
+  if(typeof(query) === 'string') return value.toLowerCase() == query.toLowerCase()
+  return value == query
 }
 
 const initClassData = (fillable, instance, obj = {}) => {  
@@ -56,7 +56,7 @@ const deepMergeObject = (objToAdd = {}, objToMergeFrom = {}, clone = false) => {
 
 module.exports = {
   filterObjectKeys,
-  checkIsNotEqual,
+  checkIsEqual,
   checkObjMatch,
   initClassData,
   deepMergeObject
