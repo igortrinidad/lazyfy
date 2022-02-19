@@ -1,0 +1,23 @@
+{
+  "name": "@igortrindade/lazyfy",
+  "version": "1.0.0",
+  "description": "Someone once said: \"I choose a lazy person to do a hard job. Because a lazy person will find an easy way to do it.\"",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igortrinidad/lazyfy.git"
+  },
+  "author": "igortrindade.dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/igortrinidad/lazyfy/issues"
+  },
+  "homepage": "https://github.com/igortrinidad/lazyfy#readme",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
