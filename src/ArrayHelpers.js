@@ -68,6 +68,12 @@ const uniqueByKey = (arr, query) => {
   return uniqueItems
 }
 
+const objArrayToCsv = (arr, delimiter = ',') => {
+  if(!Array.isArray(arr) || typeof(arr[0]) != 'object') throw new Error(`First parameter must be an array of objects`)
+  const header = Object.keys(arr[0])
+	return [header.join(delimiter) , arr.map(row => header.map(key => row[key]).join(delimiter)).join("\n")].join("\n")
+}
+
 module.exports = {
   findByObj,
   findByString,
@@ -75,5 +81,6 @@ module.exports = {
   findIndex,
   findAll,
   removeAll,
-  uniqueByKey
+  uniqueByKey,
+  objArrayToCsv
 }

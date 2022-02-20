@@ -1,6 +1,7 @@
 const ArrayHelpers = require('./ArrayHelpers')
 const ObjectHelpers = require('./ObjectHelpers')
 const MathHelpers = require('./MathHelpers')
+const CommonHelpers = require('./CommonHelpers')
 
 module.exports = {
   ArrayHelpers,
@@ -8,5 +9,7 @@ module.exports = {
   ObjectHelpers,
   ...ObjectHelpers,
   MathHelpers,
-  ...MathHelpers
+  ...MathHelpers,
+  CommonHelpers,
+  ...CommonHelpers
 }
