@@ -74,6 +74,16 @@ const objArrayToCsv = (arr, delimiter = ',') => {
 	return [header.join(delimiter) , arr.map(row => header.map(key => row[key]).join(delimiter)).join("\n")].join("\n")
 }
 
+const toggleInArray = (arr, obj) => {
+  const finded = findIndex(arr, obj)
+  if(finded > -1) {
+    arr.splice(finded, 1)
+  } else {
+    arr.push(obj)
+  }
+  return arr
+}
+
 module.exports = {
   findByObj,
   findByString,
@@ -82,5 +92,6 @@ module.exports = {
   findAll,
   removeAll,
   uniqueByKey,
-  objArrayToCsv
+  objArrayToCsv,
+  toggleInArray
 }
