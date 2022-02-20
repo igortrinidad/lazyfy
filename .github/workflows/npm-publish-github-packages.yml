@@ -16,7 +16,7 @@ jobs:
       - run: npm install
       - run: npm test
 
-  publish-gpr:
+  publish-npm:
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -27,7 +27,11 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 14.17.1
-          registry-url: https://registry.npmjs.org
+      - run: npm install
+      - run: npm test
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
