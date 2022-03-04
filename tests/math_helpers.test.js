@@ -9,12 +9,13 @@ test('get 34.50% as percentage of 100', () => {
 })
 
 test('get value of a amount percentage', () => {
+  expect(MathHelpers.getAmountOfPercentage(1250, 10)).toBe(125);
   expect(MathHelpers.getAmountOfPercentage(1250, 12.45)).toBe(155.625);
+  expect(MathHelpers.getAmountOfPercentage(10924, 0.0127)).toBe(1.3873479999999998);
 })
 
 test('add proportional percetange value for a given amount', () => {
   expect(MathHelpers.addPercentage(2450, 10)).toBe(2695);
-  expect(MathHelpers.addPercentage(5580, 25)).toBe(6975);
 })
 
 test('get value or min percetange of a given amount', () => {

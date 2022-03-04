@@ -12,8 +12,8 @@ module.exports.getAmountOfPercentage = getAmountOfPercentage
  * 
  * get the % of a given amount and value
  */
-const getPercentageOfAmount = (amount, percentage, percentageSign = false) => {
-  const result = 100 / amount * percentage
+const getPercentageOfAmount = (amount, value, percentageSign = false) => {
+  const result = 100 / amount * value
   if(!percentageSign) return result
   return Number(result/100).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2})
 }
