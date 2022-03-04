@@ -39,28 +39,28 @@ const initClassData = (fillable, instance, obj = {}) => {
   }
 }
 
+const defineProperty = (object, key, value) => {
+  Object.defineProperty(object, key, {
+    value: value,
+    writable: true,
+    enumerable: true,
+    configurable: true
+  })
+  return object
+}
+
 const deepMergeObject = (objToAdd = {}, objToMergeFrom = {}, clone = true) => {
   if(clone) objToMergeFrom = JSON.parse(JSON.stringify(objToMergeFrom))
   for (const [key, val] of Object.entries(objToAdd)) {
     if(Array.isArray(val)) {
-      objToMergeFrom[key] = JSON.parse(JSON.stringify(val))
+      defineProperty(objToMergeFrom, key, JSON.parse(JSON.stringify(val)))
     } else if (val !== null && typeof val === `object`) {
       if (objToMergeFrom[key] === undefined) {
-        Object.defineProperty(objToMergeFrom, key, {
-          value: val,
-          writable: true,
-          enumerable: true,
-          configurable: true
-        })
+        defineProperty(objToMergeFrom, key, val)
       }
       deepMergeObject(val, objToMergeFrom[key])
     } else {
-      Object.defineProperty(objToMergeFrom, key, {
-        value: val,
-        writable: true,
-        enumerable: true,
-        configurable: true
-      })
+      defineProperty(objToMergeFrom, key, val)
     }
   }
   return objToMergeFrom
@@ -71,5 +71,6 @@ module.exports = {
   checkIsEqual,
   checkObjMatch,
   initClassData,
-  deepMergeObject
+  deepMergeObject,
+  defineProperty
 }
