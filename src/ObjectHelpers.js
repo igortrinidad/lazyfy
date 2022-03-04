@@ -42,13 +42,25 @@ const initClassData = (fillable, instance, obj = {}) => {
 const deepMergeObject = (objToAdd = {}, objToMergeFrom = {}, clone = true) => {
   if(clone) objToMergeFrom = JSON.parse(JSON.stringify(objToMergeFrom))
   for (const [key, val] of Object.entries(objToAdd)) {
-    if (val !== null && typeof val === `object`) {
+    if(Array.isArray(val)) {
+      objToMergeFrom[key] = JSON.parse(JSON.stringify(val))
+    } else if (val !== null && typeof val === `object`) {
       if (objToMergeFrom[key] === undefined) {
-        objToMergeFrom[key] = new val.__proto__.constructor()
+        Object.defineProperty(objToMergeFrom, key, {
+          value: val,
+          writable: true,
+          enumerable: true,
+          configurable: true
+        })
       }
       deepMergeObject(val, objToMergeFrom[key])
     } else {
-      objToMergeFrom[key] = val
+      Object.defineProperty(objToMergeFrom, key, {
+        value: val,
+        writable: true,
+        enumerable: true,
+        configurable: true
+      })
     }
   }
   return objToMergeFrom

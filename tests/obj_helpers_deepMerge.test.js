@@ -10,7 +10,10 @@ const objFrom = {
     deepAction: () => {
       console.log('Some deep action')
     }
-  }
+  },
+  arr: [{
+    arrTitle: 'Some arr title'
+  }]
 }
 
 test('Returns a merged object with same attributes', () => {
@@ -33,5 +36,20 @@ test('Returns a merged object an changing the attributes of the main object', ()
   const mergedObj = ObjectHelpers.deepMergeObject(objToMerge, objFrom, false)
   expect(objFrom.title).toBe(mergedObj.title)
   expect(objFrom.deep.title).toBe(mergedObj.deep.title)
+})
+
+test('it should test if the obj from keep the same array structure without changing after the merge', () => {
+  const objToMerge = {
+    title: 'New title',
+    deep: {
+      deepTitle: 'New deep title'
+    },
+    arr: [{
+      arrTitle: 'Some new arr title'
+    }]
+  }
+  const mergedObj = ObjectHelpers.deepMergeObject(objToMerge, objFrom)
+  expect(objFrom.arr[0].title).toBe(objFrom.arr[0].title)
+  expect(mergedObj.arr[0].title).toBe(objToMerge.arr[0].title)
 })
 
