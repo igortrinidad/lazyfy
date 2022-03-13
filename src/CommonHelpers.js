@@ -10,6 +10,16 @@ const downloadRawData = (data, fileName = 'file.txt') => {
 }
 module.exports.downloadRawData = downloadRawData
 
+const copyToClipboard = (string) => {
+  const dummy = document.createElement("input")
+  document.body.appendChild(dummy)
+  dummy.value = string
+  dummy.select()
+  document.execCommand("copy")
+  document.body.removeChild(dummy)
+}
+
 module.exports = {
-  downloadRawData
+  downloadRawData,
+	copyToClipboard
 }
