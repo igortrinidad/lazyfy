@@ -49,21 +49,30 @@ const defineProperty = (object, key, value) => {
   return object
 }
 
-const deepMergeObject = (objToAdd = {}, objToMergeFrom = {}, clone = true) => {
-  if(clone) objToMergeFrom = JSON.parse(JSON.stringify(objToMergeFrom))
-  for (const [key, val] of Object.entries(objToAdd)) {
-    if(Array.isArray(val)) {
-      defineProperty(objToMergeFrom, key, JSON.parse(JSON.stringify(val)))
-    } else if (val !== null && typeof val === `object`) {
-      if (objToMergeFrom[key] === undefined) {
-        defineProperty(objToMergeFrom, key, val)
+const isObject = (item) => {
+  return (item && typeof item === 'object' && !Array.isArray(item));
+}
+
+const deepMergeObject = (target, ...sources) => {
+  if (!sources.length) return target;
+  const source = sources.shift();
+
+  if (isObject(target) && isObject(source)) {
+    for (const key in source) {
+      if (isObject(source[key])) {
+        if (!target[key]) Object.assign(target, {
+          [key]: {}
+        });
+        deepMergeObject(target[key], source[key]);
+      } else {
+        Object.assign(target, {
+          [key]: source[key]
+        });
       }
-      deepMergeObject(val, objToMergeFrom[key])
-    } else {
-      defineProperty(objToMergeFrom, key, val)
     }
   }
-  return objToMergeFrom
+
+  return deepMergeObject(target, ...sources);
 }
 
 module.exports = {

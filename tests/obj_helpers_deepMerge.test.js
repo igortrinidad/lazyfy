@@ -20,7 +20,7 @@ test('Returns a merged object with same attributes', () => {
   const objToMerge = {
     title: 'New title'
   }
-  const mergedObj = ObjectHelpers.deepMergeObject(objToMerge, objFrom)
+  const mergedObj = ObjectHelpers.deepMergeObject(objFrom, objToMerge)
   expect(mergedObj.title).toBe(objToMerge.title)
   expect(mergedObj.deep.title).toBe(objFrom.deep.title)
   expect(objFrom.title).toBe(objFrom.title)
@@ -33,7 +33,7 @@ test('Returns a merged object an changing the attributes of the main object', ()
       deepTitle: 'New deep title'
     }
   }
-  const mergedObj = ObjectHelpers.deepMergeObject(objToMerge, objFrom, false)
+  const mergedObj = ObjectHelpers.deepMergeObject(objFrom, objToMerge, false)
   expect(objFrom.title).toBe(mergedObj.title)
   expect(objFrom.deep.title).toBe(mergedObj.deep.title)
 })
@@ -48,7 +48,7 @@ test('it should test if the obj from keep the same array structure without chang
       arrTitle: 'Some new arr title'
     }]
   }
-  const mergedObj = ObjectHelpers.deepMergeObject(objToMerge, objFrom)
+  const mergedObj = ObjectHelpers.deepMergeObject(objFrom, objToMerge)
   expect(objFrom.arr[0].title).toBe(objFrom.arr[0].title)
   expect(mergedObj.arr[0].title).toBe(objToMerge.arr[0].title)
 })
