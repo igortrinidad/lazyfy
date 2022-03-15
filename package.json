@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/igortrinidad/lazyfy.git"
+    "url": "git://github.com/igortrinidad/lazyfy.git"
   },
   "author": "igortrindade.dev",
   "license": "ISC",
