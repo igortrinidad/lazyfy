@@ -28,13 +28,9 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16.x'
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: 'https://registry.npmjs.org/'
           scope: '@igortrindade'
-      - run: |
-          echo '//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN} \n
-          registry=https://registry.npmjs.org/ \n
-          always-auth=true \n
-          ' > .npmrc
+      - run: | 
           cat .npmrc
       - run: npm publish --access public
         env:
