@@ -30,7 +30,6 @@ jobs:
           node-version: '14.17.1'
           registry-url: 'https://registry.npmjs.org'
           scope: "@igortrindade"
-      - run: node gpr-hack.js
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
