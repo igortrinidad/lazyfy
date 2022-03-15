@@ -30,7 +30,11 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org/'
           scope: '@igortrindade'
-      - run: | 
+      - run: |
+          echo '//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN} \n
+          registry=https://registry.npmjs.org/ \n
+          always-auth=true \n
+          ' > .npmrc
           cat .npmrc
       - run: npm publish --access public
         env:
