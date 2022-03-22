@@ -12,10 +12,11 @@ module.exports.getAmountOfPercentage = getAmountOfPercentage
  * 
  * get the % of a given amount and value
  */
-const getPercentageOfAmount = (amount, value, percentageSign = false) => {
+const getPercentageOfAmount = (amount, value, percentageSign = false, digits = 2) => {
   const result = 100 / amount * value
   if(!percentageSign) return result
-  return Number(result/100).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2})
+  if(isNaN(Number(result/100))) return Number(result/100)
+  return Number(result/100).toLocaleString(undefined,{ style: 'percent', minimumFractionDigits: digits })
 }
 module.exports.getPercentageOfAmount = getPercentageOfAmount
 
