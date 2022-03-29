@@ -53,6 +53,13 @@ const removeAll = (arr, query) => {
   })
 }
 
+const remove = (arr, query) => {
+  if (!query) return arr
+  const index = findIndex(arr, query)
+  if(index > -1) arr.splice(index, 1)
+  return arr
+}
+
 const uniqueByKey = (arr, query) => {
   const uniqueItems = []
   for(const item of arr) {
@@ -91,6 +98,7 @@ module.exports = {
   findIndex,
   findAll,
   removeAll,
+  remove,
   uniqueByKey,
   objArrayToCsv,
   toggleInArray
