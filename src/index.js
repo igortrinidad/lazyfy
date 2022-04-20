@@ -3,6 +3,7 @@ const ObjectHelpers = require('./ObjectHelpers')
 const MathHelpers = require('./MathHelpers')
 const CommonHelpers = require('./CommonHelpers')
 const StringHelpers = require('./StringHelpers')
+const NumberHelpers = require('./NumberHelpers')
 
 module.exports = {
   ArrayHelpers,
@@ -15,4 +16,6 @@ module.exports = {
   ...CommonHelpers,
   StringHelpers,
   ...StringHelpers,
+  NumberHelpers,
+  ...NumberHelpers
 }
