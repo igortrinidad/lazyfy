@@ -91,6 +91,22 @@ const toggleInArray = (arr, obj) => {
   return arr
 }
 
+const compareArray = (arrFrom, arrToCompare, key = null) => {
+  if(arrFrom.length !== arrToCompare.length) return false
+  for(const item of arrFrom) {
+    let search
+    if(typeof(item) === 'string') {
+      search = item
+    } else {
+      if(typeof(key) !== 'string') throw new Error('Third parameter must be a string')
+      search ={ [key]: item[key] }
+    }
+    const finded = find(arrToCompare, search)
+    if(!finded) return false
+  }
+  return true
+}
+
 module.exports = {
   findByObj,
   findByString,
@@ -101,5 +117,6 @@ module.exports = {
   remove,
   uniqueByKey,
   objArrayToCsv,
-  toggleInArray
+  toggleInArray,
+  compareArray
 }

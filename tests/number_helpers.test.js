@@ -8,6 +8,8 @@ test('Format a given number as default options', () => {
 test('Format a given number as default options', () => {
   expect(NumberHelpers.unformatNumber('US$ 100,123.45')).toEqual(100123.45)
   expect(NumberHelpers.unformatNumber('1.230,66')).toEqual(1230.66)
+  expect(NumberHelpers.unformatNumber('1.985,00')).toEqual(1985)
+  expect(NumberHelpers.unformatNumber('1.985,00')).toEqual(1985.00)
 })
 
 
