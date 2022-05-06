@@ -4,6 +4,7 @@ const { fruits, books } = require('./helpers/example_arrays')
 test('Find array objs based obj query', () => {
   expect(ArrayHelpers.find(books, { id: 1 })).toEqual(books[0])
   expect(ArrayHelpers.find(books, { ...books[1] })).toEqual(books[1])
+  expect(ArrayHelpers.find(books, { ...books[1] }, true)).toEqual(true)
 })
 
 test('Find array objs based obj query', () => {
@@ -21,5 +22,13 @@ test('Returns false if has array on query parameter', () => {
 
 test('Return false finding undefined item on array', () => {
   expect(ArrayHelpers.find(fruits, 'lemon')).toEqual(false)
+})
+
+test('Return false finding undefined item on array', () => {
+  const arrToTestTypes = ['1', 2, 3]
+  expect(ArrayHelpers.find(arrToTestTypes, 2)).toEqual(2)
+  expect(ArrayHelpers.find(arrToTestTypes, '2')).toEqual(2)
+  expect(ArrayHelpers.find(arrToTestTypes, 1)).toEqual('1')
+  expect(ArrayHelpers.find(arrToTestTypes, '1', true)).toEqual(true)
 })
 

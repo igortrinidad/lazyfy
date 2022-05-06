@@ -20,7 +20,7 @@ const checkObjMatch = (item, query) => {
 }
 
 const checkIsEqual = (value, query) => {
-  if(typeof(query) === 'string') return value.toLowerCase() == query.toLowerCase()
+  if(typeof(query) === 'string' && typeof(value) === 'string') return value.toLowerCase() == query.toLowerCase()
   return value == query
 }
 

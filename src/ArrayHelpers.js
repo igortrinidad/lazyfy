@@ -1,27 +1,31 @@
 const { checkObjMatch, checkIsEqual } = require('./ObjectHelpers')
 const { remapArrayToLowerCaseIfString } = require('./Util')
 
-const findByObj = (arr, obj) => {
+const findByObj = (arr, obj, asBoolean = false) => {
   for(const item of arr) {
     if(!checkObjMatch(item, obj)) continue
-    return item
+    return asBoolean ? true : item
   }
   return false
 }
 
 const findByString = (arr, item, asBoolean = false) => {
   for(const arrItem of arr) {
-    if(arrItem.toLowerCase() === item.toLowerCase()) {
+    if(typeof(arrItem) === 'string' && typeof(item) === 'string') {
+      if(arrItem.toLowerCase() === item.toLowerCase()) return asBoolean ? true : arrItem
+    } 
+
+    if(arrItem == item) {
       return asBoolean ? true : arrItem
     }
   }
   return false
 }
 
-const find = (arr, query) => {
+const find = (arr, query, asBoolean = false) => {
   if(Array.isArray(query) ) return false
-  if(typeof(query) === 'object') return findByObj(arr, query)
-  return findByString(arr, query)
+  if(typeof(query) === 'object') return findByObj(arr, query, asBoolean)
+  return findByString(arr, query, asBoolean)
 }
 
 const findIndex = (arr, query) => {
