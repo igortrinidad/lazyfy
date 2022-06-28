@@ -53,3 +53,20 @@ test('it should test if the obj from keep the same array structure without chang
   expect(mergedObj.arr[0].title).toBe(objToMerge.arr[0].title)
 })
 
+test('it should merge a complex where object', () => {
+  const objFrom = {
+    where: {
+      name: 'foo'
+    }
+  }
+
+  const objToMerge = {
+    where: {
+      surname: 'bar'
+    }
+  }
+  const mergedObj = ObjectHelpers.deepMergeObject(objFrom, objToMerge)
+  expect(mergedObj.where.name).toBe('foo')
+  expect(mergedObj.where.surname).toBe('bar')
+})
+
