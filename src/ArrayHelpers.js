@@ -57,7 +57,7 @@ const removeAll = (arr, query) => {
   })
 }
 
-const remove = (arr, query) => {
+const remove = (arr, query = null) => {
   if (!query) return arr
   const index = findIndex(arr, query)
   if(index > -1) arr.splice(index, 1)
@@ -68,7 +68,9 @@ const uniqueByKey = (arr, query) => {
   const uniqueItems = []
   for(const item of arr) {
     let search
-    if(typeof(query) === 'string') {
+    if(!query) {
+      search = item
+    } else if(typeof(query) === 'string') {
       search = { [query]: item[query] }
     } else {
       search = query

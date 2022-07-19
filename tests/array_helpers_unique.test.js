@@ -12,9 +12,12 @@ test('Returns array with unique items based on query using the object key id', (
   expect(ArrayHelpers.uniqueByKey(duplicated, { id: 1 }).length).toEqual(1)
 })
 
-test('Returns array with unique item based on query using the object key id', () => {
+test('Returns array of strings with unique items', () => {
   const duplicated = [ ...fruits, ...fruits ]
-  expect(ArrayHelpers.uniqueByKey(duplicated, 'strawberry')).toEqual([fruits[0]])
+
+  console.log(duplicated)
+  console.log(ArrayHelpers.uniqueByKey(duplicated))
+  expect(ArrayHelpers.uniqueByKey(duplicated).length).toEqual(fruits.length)
 })
 
 
