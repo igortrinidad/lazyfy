@@ -14,9 +14,6 @@ test('Returns array with unique items based on query using the object key id', (
 
 test('Returns array of strings with unique items', () => {
   const duplicated = [ ...fruits, ...fruits ]
-
-  console.log(duplicated)
-  console.log(ArrayHelpers.uniqueByKey(duplicated))
   expect(ArrayHelpers.uniqueByKey(duplicated).length).toEqual(fruits.length)
 })
 
