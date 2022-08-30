@@ -20,6 +20,17 @@ const getPercentageOfAmount = (amount, value, percentageSign = false, digits = 2
 }
 module.exports.getPercentageOfAmount = getPercentageOfAmount
 
+const round = (number, decimals = 2) => {
+  var p = Math.pow(10, decimals)
+  return Math.round(number * p) / p
+}
+module.exports.round = round
+
+const randomInt = (max, min = 0) => {
+	return min + Math.floor((max - min) * Math.random());
+}
+module.exports.randomInt = randomInt
+
 /**
  * add a raw percentage value to a number
  */
@@ -42,5 +53,7 @@ module.exports = {
   getAmountOfPercentage,
   getPercentageOfAmount,
   addPercentage,
-  getValueOrMinPercentage
+  getValueOrMinPercentage,
+  round,
+  randomInt
 }

@@ -28,3 +28,7 @@ test('get value or min percetange of a given amount', () => {
   expect(MathHelpers.getValueOrMinPercentage(100, 20, 10)).toBe(20);
   expect(MathHelpers.getValueOrMinPercentage(2000, 5, 10)).toBe(200);
 })
+
+test('get percentage and round the number', () => {
+  expect(MathHelpers.round(MathHelpers.getPercentageOfAmount(100, 12.3456, false), 2)).toBe(12.35)
+})
