@@ -1,0 +1,12 @@
+{
+  "types": [
+    { "type":"feat","section":"Features (feat:)" },
+    { "type":"fix","section":"Bug Fixes (fix:)" },
+    { "type":"test","section":"Tests (test:)" },
+    { "type":"chore","section":"Routine tasks (chore:)" },
+    { "type":"docs","section":"Documentation (docs:)" },
+    { "type":"merge","section":"Merge branchs (merge:)" },
+    { "type":"build","section":"Build System (build:)", "hidden": true },
+    { "type":"ci", "section":"Continuous Integration (ci:)", "hidden": true}
+  ]
+}
