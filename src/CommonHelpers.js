@@ -19,7 +19,15 @@ const copyToClipboard = (string) => {
   document.body.removeChild(dummy)
 }
 
+const getLetterByNumber = (number) => {
+  const string = 'abcdefghijklmnopqrstuvwxyz'
+  if(string.length-1 < number) return '--'
+  return string[number]
+}
+module.exports.getLetterByNumber = getLetterByNumber
+
 module.exports = {
   downloadRawData,
-	copyToClipboard
+	copyToClipboard,
+  getLetterByNumber
 }
