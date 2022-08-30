@@ -1,0 +1,17 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## 1.2.0 (2022-08-30)
+
+
+### Features (feat:)
+
+* Added CommonHelpers getLetterByNumber ([ec52485](https://github.com/igortrinidad/lazyfy/commit/ec52485968943993ffad701a1ee97e1427764fb2))
+* Added round and randomInt MathHelpers ([ea4b079](https://github.com/igortrinidad/lazyfy/commit/ea4b0790574ecfc84656b912bc5080f0e236d1c1))
+* Added standard-version ([c45e68a](https://github.com/igortrinidad/lazyfy/commit/c45e68aa46640e2d5c890ff3ebf6f6bdd3a526ef))
+
+
+### Routine tasks (chore:)
+
+* Removed console.log in tests ([92b49b1](https://github.com/igortrinidad/lazyfy/commit/92b49b14a7576146ffd9eed369df682b1b34627c))
