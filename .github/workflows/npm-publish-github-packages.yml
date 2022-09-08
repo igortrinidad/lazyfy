@@ -15,6 +15,7 @@ jobs:
           node-version: '16.14.2'
           registry-url: 'https://registry.npmjs.org'
           scope: '@igortrindade'
+          always-auth: true
       - run: git config --global user.email "igortrindademe@gmail.com"
       - run: git config --global user.name "Igor Trindade"
       - run: pwd && npm ci
