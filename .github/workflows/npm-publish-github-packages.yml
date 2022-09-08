@@ -22,6 +22,7 @@ jobs:
       # - run: git push --follow-tags origin ${{ github.ref_name }}
       - run: npm config list
       - run: cat ./.npmrc
+      - run: npm adduser --registry=https://registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
