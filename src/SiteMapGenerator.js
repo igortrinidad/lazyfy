@@ -2,16 +2,19 @@ class SiteMapGenerator {
 
   constructor(baseUrl) {
     this.baseUrl = baseUrl
+    this.items = []
   }
 
-  init = `
-    <?xml-stylesheet href="/assets/xml_stylesheet.xsl" type="text/xsl"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-  `
+  get init () {
+    return `
+      <?xml-stylesheet href="/assets/xml_stylesheet.xsl" type="text/xsl"?>
+      <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+    `
+  }
 
-  end = `</urlset>`
-
-  items = []
+  get end () {
+    return `</urlset>`
+  }
 
   addItem({url, lastModified, changeFreq = 'monthly', priority = '1.0', image = null}) {
     if(url[0] == '/') {

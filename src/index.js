@@ -4,7 +4,7 @@ const MathHelpers = require('./MathHelpers')
 const CommonHelpers = require('./CommonHelpers')
 const StringHelpers = require('./StringHelpers')
 const NumberHelpers = require('./NumberHelpers')
-const SitemapGenerator = require('./SitemapGenerator')
+const SiteMapGenerator = require('./SiteMapGenerator')
 
 module.exports = {
   ArrayHelpers,
@@ -19,5 +19,5 @@ module.exports = {
   ...StringHelpers,
   NumberHelpers,
   ...NumberHelpers,
-  SitemapGenerator
+  SiteMapGenerator
 }
