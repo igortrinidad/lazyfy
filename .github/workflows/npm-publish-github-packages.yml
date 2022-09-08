@@ -10,6 +10,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
           node-version: '16.14.2'
@@ -21,7 +23,7 @@ jobs:
       - run: pwd && npm ci
       - run: npm run test
       - run: npm run generate:types
-      - run: npm run release
+      - run: npm run release --commit-all
       - run: git push --follow-tags origin ${{ github.ref_name }}
       - run: npm publish --access public --tolerate-republish
         env:
