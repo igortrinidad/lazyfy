@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.2.5 (2022-09-08)
+
+
+### Bug Fixes (fix:)
+
+* Fix run npm commands ([903189d](https://github.com/igortrinidad/lazyfy/commit/903189d523b7db351cf3e2bd39ef6a1806c63d87))
+
 ### 1.2.4 (2022-09-08)
 
 ### 1.2.3 (2022-09-08)
