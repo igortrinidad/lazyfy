@@ -20,8 +20,8 @@ jobs:
       - run: git config --global user.name "Igor Trindade"
       - run: pwd && npm ci
       - run: npm test
-      # - run: npm run release
-      # - run: git push --follow-tags origin ${{ github.ref_name }}
+      - run: npm run release
+      - run: git push --follow-tags origin ${{ github.ref_name }}
       - run: npm publish --access public --tolerate-republish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
