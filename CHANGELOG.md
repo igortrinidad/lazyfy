@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.7](https://github.com/igortrinidad/lazyfy/compare/v1.2.6...v1.2.7) (2022-09-08)
+
+
+### Routine tasks (chore:)
+
+* Added typescript and tsconfig to generate  types ([611879f](https://github.com/igortrinidad/lazyfy/commit/611879fe7dbbc9307d327f5b13edb8dc5d79dc34))
+
 ### [1.2.6](https://github.com/igortrinidad/lazyfy/compare/v1.2.5...v1.2.6) (2022-09-08)
 
 
