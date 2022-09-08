@@ -6,36 +6,27 @@ name: Node.js Package
 on: [push]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14.17.1
-      - run: npm install
-      - run: npm test
 
-  publish-npm:
-    needs: build
+  build-and-publish-npm:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v2
-      # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '14.17.1'
           registry-url: 'https://registry.npmjs.org/'
           scope: '@igortrindade'
-      - run: |
-          echo '//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
-          registry=https://registry.npmjs.org/
-          always-auth=true
-          ' > .npmrc
-          cat .npmrc
+      
+      - run: git config --global user.email "igortrindademe@gmail.com"
+      - run: git config --global user.name "Igor Trindade"
+      - run: pwd && npm ci
+      - run: npm test
+      - run: npm run release
+      - run: git push --follow-tags origin ${{ github.ref_name }}
+
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
