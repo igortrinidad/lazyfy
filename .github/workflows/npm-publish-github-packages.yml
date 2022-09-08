@@ -26,7 +26,6 @@ jobs:
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
       - run: echo "registry=https://registry.npmjs.org/" >> ~/.npmrc
       - run: echo "always-auth=true" >> ~/.npmrc
-      - run: npm whoami
       - run: npx npm@8.17.0 publish --access public --tolerate-republish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
