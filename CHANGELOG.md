@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.2.1 (2022-09-08)
+
+
+### Bug Fixes (fix:)
+
+* Build ([3eba833](https://github.com/igortrinidad/lazyfy/commit/3eba833e9c19f52a5a2203888cf9fbbbad981b10))
+
 ## 1.2.0 (2022-08-30)
 
 
