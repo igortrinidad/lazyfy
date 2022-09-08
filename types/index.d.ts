@@ -1,4 +1,5 @@
 declare const _exports: {
+    SitemapGenerator: typeof SitemapGenerator;
     formatNumber: (input?: number, opt?: {
         prefix: string;
         suffix: string;
@@ -17,10 +18,13 @@ declare const _exports: {
     titleCaseString: (str: any) => any;
     StringHelpers: typeof StringHelpers;
     downloadRawData: (data: any, fileName?: string) => void;
+    getLetterByNumber: (number: any) => string;
     copyToClipboard: (string: any) => void;
     CommonHelpers: typeof CommonHelpers;
     getAmountOfPercentage: (amount: any, percentage: any) => number;
     getPercentageOfAmount: (amount: any, value: any, percentageSign?: boolean, digits?: number) => string | number;
+    round: (number: any, decimals?: number) => number;
+    randomInt: (max: any, min?: number) => number;
     addPercentage: (value: any, percentage: any) => number;
     getValueOrMinPercentage: (amount: any, value: any, percentage?: number) => any;
     MathHelpers: typeof MathHelpers;
@@ -31,19 +35,21 @@ declare const _exports: {
     deepMergeObject: (target: any, ...sources: any[]) => any;
     defineProperty: (object: any, key: any, value: any) => any;
     ObjectHelpers: typeof ObjectHelpers;
-    findByObj: (arr: any, obj: any) => any;
+    findByObj: (arr: any, obj: any, asBoolean?: boolean) => any;
     findByString: (arr: any, item: any, asBoolean?: boolean) => any;
-    find: (arr: any, query: any) => any;
+    find: (arr: any, query: any, asBoolean?: boolean) => any;
     findIndex: (arr: any, query: any) => any;
     findAll: (arr: any, query: any) => any;
     removeAll: (arr: any, query: any) => any;
-    remove: (arr: any, query: any) => any;
+    remove: (arr: any, query?: any) => any;
     uniqueByKey: (arr: any, query: any) => any[];
     objArrayToCsv: (arr: any, delimiter?: string) => string;
     toggleInArray: (arr: any, obj: any) => any;
+    compareArray: (arrFrom: any, arrToCompare: any, key?: any) => boolean;
     ArrayHelpers: typeof ArrayHelpers;
 };
 export = _exports;
+import SitemapGenerator = require("./SitemapGenerator");
 import NumberHelpers = require("./NumberHelpers");
 import StringHelpers = require("./StringHelpers");
 import CommonHelpers = require("./CommonHelpers");

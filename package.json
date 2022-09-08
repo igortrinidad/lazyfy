@@ -7,7 +7,7 @@
     "test": "jest",
     "test-watch": "jest --watchAll",
     "release": "standard-version",
-    "generate:types": "npx -p typescript tsc src/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir types"
+    "generate:types": "rm -rf ./types && tsc"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/igortrinidad/lazyfy#readme",
   "devDependencies": {
     "jest": "^27.5.1",
-    "standard-version": "^9.5.0"
+    "standard-version": "^9.5.0",
+    "typescript": "^4.8.2"
   }
 }

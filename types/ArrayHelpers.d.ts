@@ -1,10 +1,11 @@
-export function findByObj(arr: any, obj: any): any;
+export function findByObj(arr: any, obj: any, asBoolean?: boolean): any;
 export function findByString(arr: any, item: any, asBoolean?: boolean): any;
-export function find(arr: any, query: any): any;
+export function find(arr: any, query: any, asBoolean?: boolean): any;
 export function findIndex(arr: any, query: any): any;
 export function findAll(arr: any, query: any): any;
 export function removeAll(arr: any, query: any): any;
-export function remove(arr: any, query: any): any;
+export function remove(arr: any, query?: any): any;
 export function uniqueByKey(arr: any, query: any): any[];
 export function objArrayToCsv(arr: any, delimiter?: string): string;
 export function toggleInArray(arr: any, obj: any): any;
+export function compareArray(arrFrom: any, arrToCompare: any, key?: any): boolean;
