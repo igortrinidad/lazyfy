@@ -21,7 +21,7 @@ jobs:
       # - run: npm run release
       # - run: git push --follow-tags origin ${{ github.ref_name }}
       - run: npm config list
-
+      - run: cat ./.npmrc
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
