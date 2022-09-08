@@ -18,8 +18,9 @@ jobs:
       - run: git config --global user.name "Igor Trindade"
       - run: pwd && npm ci
       - run: npm test
-      - run: npm run release
-      - run: git push --follow-tags origin ${{ github.ref_name }}
+      # - run: npm run release
+      # - run: git push --follow-tags origin ${{ github.ref_name }}
+      - run: npm config list
 
       - run: npm publish --access public
         env:
