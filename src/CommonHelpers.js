@@ -26,8 +26,24 @@ const getLetterByNumber = (number) => {
 }
 module.exports.getLetterByNumber = getLetterByNumber
 
+
+const clearBrowserCache = (hotKey = 'KeyX') => {
+  if(document) {
+    document.addEventListener("keydown", function(event) {
+      if (event.altKey && event.code === hotKey) {
+        event.preventDefault()
+        localStorage.clear()
+        sessionStorage.clear()
+        window.location.reload()
+        document.cookie.replace(/(?<=^|;).+?(?=\=|;|$)/g, name => location.hostname.split('.').reverse().reduce(domain => (domain=domain.replace(/^\.?[^.]+/, ''),document.cookie=`${name}=;max-age=0;path=/;domain=${domain}`,domain), location.hostname));
+      }
+    })
+  }
+}
+
 module.exports = {
   downloadRawData,
 	copyToClipboard,
-  getLetterByNumber
+  getLetterByNumber,
+  clearBrowserCache
 }
