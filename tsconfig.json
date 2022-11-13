@@ -1,16 +1,17 @@
 {
   "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist/main",
+    "target": "es2020",
+    "module": "es2020",
+    "moduleResolution": "node",
     "declaration": true,
-    "emitDeclarationOnly": true,
-    "allowJs": true,
-    "outDir": "types",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["node_modules/@types", "src/types"]
   },
-  "include": [
-    "src/*.js",
-    "src/**/*.js"
-  ],
-  "exclude": [
-    "node_modules",
-    "test/**/*.ts"
-  ]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules/**"],
 }
