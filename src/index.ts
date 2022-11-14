@@ -7,3 +7,8 @@ import * as CommonHelpersVars from './CommonHelpers'
 export const CommonHelpers = CommonHelpersVars
 
 export { SiteMapGenerator } from './SiteMapGenerator'
+
+export * from './StringHelpers'
+import * as StringHelpersVars from './StringHelpers'
+export const StringHelpers = StringHelpersVars
+
