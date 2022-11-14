@@ -1,4 +1,4 @@
-import * as MathHelpers from '../src/MathHelpers'
+import { MathHelpers } from '../src'
 
 test('get 25 as percentage of 100', () => {
   expect(MathHelpers.getPercentageOfAmount(100, 25)).toBe(25);
@@ -29,6 +29,7 @@ test('get value or min percetange of a given amount', () => {
   expect(MathHelpers.getValueOrMinPercentage(2000, 5, 10)).toBe(200);
 })
 
-test('get percentage and round the number', () => {
-  expect(MathHelpers.round(MathHelpers.getPercentageOfAmount(100, 12.3456, false), 2)).toBe(12.35)
+test('get percentage of given amount', () => {
+  expect(MathHelpers.getPercentageOfAmount(100, 12.3456)).toBe(12.3456)
+  expect(MathHelpers.getPercentageOfAmount(200, 25)).toBe(12.5)
 })

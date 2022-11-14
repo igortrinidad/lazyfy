@@ -3,9 +3,8 @@
  * 
  * get amount of a given % of a value
  */
-export const getAmountOfPercentage = (amount: number | null, percentage: number) => {
-  if(typeof amount === null) return NaN
-  return amount / 100 * percentage
+export const getAmountOfPercentage = (amount: number | null, percentage: number | null) => {
+  return Number(amount / 100 * percentage)
 }
 
 /**
@@ -13,10 +12,10 @@ export const getAmountOfPercentage = (amount: number | null, percentage: number)
  * get the % of a given amount and value
  */
 export const getPercentageOfAmount = (amount: number, value: number, percentageSign: boolean = false, digits:number = 2): number | string => {
-  const result = 100 / amount * value
+  const result = Number(100 / amount * value)
   if(!percentageSign) return result
-  if(isNaN(Number(result/100))) return Number(result/100)
-  return Number(result/100).toLocaleString(undefined,{ style: 'percent', minimumFractionDigits: digits })
+  if(isNaN(Number( result / 100 ))) return Number(result/100)
+  return Number( result / 100 ).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: digits })
 }
 
 export const round = (value: number, decimals: number = 2) => {
