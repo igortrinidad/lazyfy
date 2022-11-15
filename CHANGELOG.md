@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.6.2](https://github.com/igortrinidad/lazyfy/compare/v2.6.1...v2.6.2) (2022-11-15)
+
+
+### Tests (test:)
+
+* Testing eval access scope ([4c435ee](https://github.com/igortrinidad/lazyfy/commit/4c435eecc6841e7830692847250148766dd4fbb5))
+
 ### [2.6.1](https://github.com/igortrinidad/lazyfy/compare/v2.6.0...v2.6.1) (2022-11-15)
 
 
