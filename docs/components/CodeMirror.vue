@@ -3,7 +3,6 @@
 
   <div class="w-full flex flex-col">
     <div :id="id" class="bg-gray-300 dark:bg-gray-600"></div>
-    {{ id }}
     <div class="mt-4 border border-zinc-300 dark:border-zinc-700/70 p-4 pt-8 relative">
       <span class="absolute top-0 left-0 mt-2 ml-2 text-gray-400">result:</span>
       <pre>{{ resultCode }}</pre>
