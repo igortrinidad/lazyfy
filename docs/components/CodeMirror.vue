@@ -60,7 +60,7 @@
 
     const el = document.getElementById(id.value)
 
-    view = new EditorView({
+    const view = new EditorView({
       state: startState,
       parent: el
     })
@@ -73,7 +73,6 @@
       let result
       eval(currentCode)
       highlightCode(result)
-      console.log(result)
     } catch (err) {
       highlightCode(err.message)
     }
