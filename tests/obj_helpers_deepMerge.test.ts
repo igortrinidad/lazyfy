@@ -1,6 +1,6 @@
-const ObjectHelpers = require('../src/ObjectHelpers')
+import { ObjectHelpers } from '../src'
 
-const objFrom = {
+const objFrom: any = {
   title: 'Some title',
   action: () => {
     console.log('Some action')
@@ -39,7 +39,7 @@ test('Returns a merged object an changing the attributes of the main object', ()
 })
 
 test('it should test if the obj from keep the same array structure without changing after the merge', () => {
-  const objToMerge = {
+  const objToMerge: any = {
     title: 'New title',
     deep: {
       deepTitle: 'New deep title'

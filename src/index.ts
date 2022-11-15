@@ -1,3 +1,11 @@
+export * from './ArrayHelpers'
+import * as ArrayHelpersVars from './ArrayHelpers'
+export const ArrayHelpers = ArrayHelpersVars
+
+export * from './ObjectHelpers'
+import * as ObjectHelpersVars from './ObjectHelpers'
+export const ObjectHelpers = ObjectHelpersVars
+
 export * from './MathHelpers'
 import * as MathHelpersVars from './MathHelpers'
 export const MathHelpers = MathHelpersVars
@@ -5,6 +13,10 @@ export const MathHelpers = MathHelpersVars
 export * from './CommonHelpers'
 import * as CommonHelpersVars from './CommonHelpers'
 export const CommonHelpers = CommonHelpersVars
+
+export * from './NumberFormat'
+import * as NumberFormatVars from './NumberFormat'
+export const NumberFormat = NumberFormatVars
 
 export { SiteMapGenerator } from './SiteMapGenerator'
 

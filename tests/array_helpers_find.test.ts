@@ -1,5 +1,5 @@
-const ArrayHelpers = require('../src/ArrayHelpers')
-const { fruits, books } = require('./helpers/example_arrays')
+import { ArrayHelpers } from '../src'
+import { books, fruits } from './helpers/example_arrays'
 
 test('Find array objs based obj query', () => {
   expect(ArrayHelpers.find(books, { id: 1 })).toEqual(books[0])

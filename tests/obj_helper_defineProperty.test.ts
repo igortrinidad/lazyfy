@@ -1,4 +1,4 @@
-const ObjectHelpers = require('../src/ObjectHelpers')
+import { ObjectHelpers } from '../src'
 
 const objFrom = {
   title: 'Some title'

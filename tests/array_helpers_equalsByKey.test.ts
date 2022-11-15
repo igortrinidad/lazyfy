@@ -1,5 +1,5 @@
-const ArrayHelpers = require('../src/ArrayHelpers')
-const { books, fruits } = require('./helpers/example_arrays')
+import { ArrayHelpers } from '../src'
+import { books, fruits } from './helpers/example_arrays'
 
 test('Returns false in different array length', () => {
   const duplicated = [ ...books, ...books ]

@@ -1,8 +1,8 @@
-const ArrayHelpers = require('../src/ArrayHelpers')
-const { books, fruits } = require('./helpers/example_arrays')
+import { ArrayHelpers } from '../src'
+import { BookInterface, books, fruits } from './helpers/example_arrays'
 
 test('Toggle obj in array twice', () => {
-  const toggleArr = []
+  const toggleArr: BookInterface[] = []
   const item = books[0]
   expect(ArrayHelpers.toggleInArray(toggleArr, item).length).toBe(1)
   expect(ArrayHelpers.toggleInArray(toggleArr, item).length).toBe(0)

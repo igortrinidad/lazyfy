@@ -1,13 +1,13 @@
-const { remapArrayToLowerCaseIfString } = require('./Util')
+import { remapArrayToLowerCaseIfString } from './Util'
 
-const filterObjectKeys = (allowed, object) => {
+export const filterObjectKeys = (allowed: any[], object: any): any => {
   return allowed.reduce((acc, allowedAttribute) => {
     if (object && Object.prototype.hasOwnProperty.call(object, allowedAttribute)) { acc[allowedAttribute] = object[allowedAttribute] }
     return acc
   }, {})
 }
 
-const checkObjMatch = (item, query) => {
+export const checkObjMatch = (item: any, query: any): any => {
   const diffKeys = Object.keys(query).filter((key) => {
     const attrQuery = typeof(item[key]) === 'string' ? item[key].toLowerCase() : item[key]
     if(Array.isArray(query[key])) {
@@ -19,12 +19,12 @@ const checkObjMatch = (item, query) => {
   return item
 }
 
-const checkIsEqual = (value, query) => {
+export const checkIsEqual = (value: any, query: any): boolean => {
   if(typeof(query) === 'string' && typeof(value) === 'string') return value.toLowerCase() == query.toLowerCase()
   return value == query
 }
 
-const initClassData = (fillable, instance, obj = {}) => {  
+export const initClassData = (fillable: any[], instance: any, obj: any = {}) => {  
   for(const attr of fillable) {
     if(typeof(obj[attr.key]) != 'undefined') {
       instance[attr.key] = obj[attr.key]
@@ -39,7 +39,7 @@ const initClassData = (fillable, instance, obj = {}) => {
   }
 }
 
-const defineProperty = (object, key, value) => {
+export const defineProperty = (object: any, key: string, value: any) => {
   Object.defineProperty(object, key, {
     value: value,
     writable: true,
@@ -49,11 +49,11 @@ const defineProperty = (object, key, value) => {
   return object
 }
 
-const isObject = (item) => {
+export const isObject = (item: any): boolean => {
   return (item && typeof item === 'object' && !Array.isArray(item));
 }
 
-const deepMergeObject = (target, ...sources) => {
+export const deepMergeObject = (target: any, ...sources: any): any => {
   if (!sources.length) return target;
   const source = sources.shift();
 
@@ -73,13 +73,4 @@ const deepMergeObject = (target, ...sources) => {
   }
 
   return deepMergeObject(target, ...sources);
-}
-
-module.exports = {
-  filterObjectKeys,
-  checkIsEqual,
-  checkObjMatch,
-  initClassData,
-  deepMergeObject,
-  defineProperty
 }

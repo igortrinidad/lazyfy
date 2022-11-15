@@ -1,5 +1,5 @@
-const ArrayHelpers = require('../src/ArrayHelpers')
-const { fruits, books } = require('./helpers/example_arrays')
+import { ArrayHelpers } from '../src'
+import { books, fruits } from './helpers/example_arrays'
 
 test('Remove all items that match based obj query', () => {
   expect(ArrayHelpers.removeAll(books, { category: 'programming' }).length).toBe(1)

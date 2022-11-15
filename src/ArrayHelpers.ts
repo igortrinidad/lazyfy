@@ -1,7 +1,7 @@
-const { checkObjMatch, checkIsEqual } = require('./ObjectHelpers')
-const { remapArrayToLowerCaseIfString } = require('./Util')
+import { checkObjMatch, checkIsEqual } from './ObjectHelpers'
+import { remapArrayToLowerCaseIfString } from './Util'
 
-const findByObj = (arr, obj, asBoolean = false) => {
+export const findByObj = (arr: any[], obj: any, asBoolean: boolean = false): any => {
   for(const item of arr) {
     if(!checkObjMatch(item, obj)) continue
     return asBoolean ? true : item
@@ -9,7 +9,7 @@ const findByObj = (arr, obj, asBoolean = false) => {
   return false
 }
 
-const findByString = (arr, item, asBoolean = false) => {
+export const findByString = (arr: any[], item: any, asBoolean: boolean = false): any => {
   for(const arrItem of arr) {
     if(typeof(arrItem) === 'string' && typeof(item) === 'string') {
       if(arrItem.toLowerCase() === item.toLowerCase()) return asBoolean ? true : arrItem
@@ -22,13 +22,13 @@ const findByString = (arr, item, asBoolean = false) => {
   return false
 }
 
-const find = (arr, query, asBoolean = false) => {
+export const find = (arr: any[], query: any, asBoolean: boolean = false): any => {
   if(Array.isArray(query) ) return false
   if(typeof(query) === 'object') return findByObj(arr, query, asBoolean)
   return findByString(arr, query, asBoolean)
 }
 
-const findIndex = (arr, query) => {
+export const findIndex = (arr: any[], query: any): number => {
   if(typeof(query) === 'object') {
     const findedByObj = findByObj(arr, query)
     return findedByObj != false ? arr.indexOf(findedByObj) : -1 
@@ -37,7 +37,7 @@ const findIndex = (arr, query) => {
   return findedByString !== false ? arr.indexOf(findedByString) : -1  
 }
 
-const findAll = (arr, query) => {
+export const findAll = (arr: any[], query: any): any[] => {
   if (!query) return arr
   return arr.filter((item) => {
     const itemToMatch = typeof(item) === 'string' ? item.toLowerCase() : item
@@ -47,7 +47,7 @@ const findAll = (arr, query) => {
   })
 }
 
-const removeAll = (arr, query) => {
+export const removeAll = (arr: any[], query: any): any[] => {
   if (!query) return arr
   return arr.filter((item) => {
     const itemToMatch = typeof(item) === 'string' ? item.toLowerCase() : item
@@ -57,14 +57,14 @@ const removeAll = (arr, query) => {
   })
 }
 
-const remove = (arr, query = null) => {
+export const remove = (arr: any[], query: any = null): any => {
   if (!query) return arr
   const index = findIndex(arr, query)
   if(index > -1) arr.splice(index, 1)
   return arr
 }
 
-const uniqueByKey = (arr, query) => {
+export const uniqueByKey = (arr: any[], query: any = null): any[] => {
   const uniqueItems = []
   for(const item of arr) {
     let search
@@ -81,13 +81,13 @@ const uniqueByKey = (arr, query) => {
   return uniqueItems
 }
 
-const objArrayToCsv = (arr, delimiter = ',') => {
+export const objArrayToCsv = (arr: any[], delimiter: string = ','): string => {
   if(!Array.isArray(arr) || typeof(arr[0]) != 'object') throw new Error(`First parameter must be an array of objects`)
   const header = Object.keys(arr[0])
 	return [header.join(delimiter) , arr.map(row => header.map(key => row[key]).join(delimiter)).join("\n")].join("\n")
 }
 
-const toggleInArray = (arr, obj) => {
+export const toggleInArray = (arr: any[], obj: any): any[] => {
   const finded = findIndex(arr, obj)
   if(finded > -1) {
     arr.splice(finded, 1)
@@ -97,7 +97,7 @@ const toggleInArray = (arr, obj) => {
   return arr
 }
 
-const compareArray = (arrFrom, arrToCompare, key = null) => {
+export const compareArray = (arrFrom: any[], arrToCompare: any[], key: string = null): boolean => {
   if(arrFrom.length !== arrToCompare.length) return false
   for(const item of arrFrom) {
     let search
@@ -111,18 +111,4 @@ const compareArray = (arrFrom, arrToCompare, key = null) => {
     if(!finded) return false
   }
   return true
-}
-
-module.exports = {
-  findByObj,
-  findByString,
-  find,
-  findIndex,
-  findAll,
-  removeAll,
-  remove,
-  uniqueByKey,
-  objArrayToCsv,
-  toggleInArray,
-  compareArray
 }
