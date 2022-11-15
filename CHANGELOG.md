@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.6](https://github.com/igortrinidad/lazyfy/compare/v2.2.5...v2.2.6) (2022-11-15)
+
+
+### Bug Fixes (fix:)
+
+* Removed static gh example ([bdb8d28](https://github.com/igortrinidad/lazyfy/commit/bdb8d2837745f3545cd1129878b3004d351a588b))
+
 ### [2.2.5](https://github.com/igortrinidad/lazyfy/compare/v2.2.4...v2.2.5) (2022-11-15)
 
 
