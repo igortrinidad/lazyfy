@@ -1,4 +1,4 @@
-import * as ArrayFind from './ArrayFind'
-import * as StringHelpers from './StringHelpers'
+import * as ArrayFindExamples from './ArrayFindExamples'
+import * as StringHelpersExample from './StringHelpersExample'
 
-export default [ ...Object.keys(ArrayFind).map((key) => ArrayFind[key]), ...Object.keys(StringHelpers).map((key) => StringHelpers[key]) ]
+export default [ ...Object.values(ArrayFindExamples), ...Object.values(StringHelpersExample) ]
