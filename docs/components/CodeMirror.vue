@@ -65,7 +65,8 @@
   const run = () => {
     try {
       let result
-      eval(currentCode)
+      console.log(this)
+      eval(currentCode)({ ArrayHelpers })
       highlightCode(result)
     } catch (err) {
       highlightCode(err.message)
