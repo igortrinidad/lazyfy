@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.7.8](https://github.com/igortrinidad/lazyfy/compare/v2.7.6...v2.7.8) (2022-11-15)
+
+
+### Routine tasks (chore:)
+
+* **release:** 2.7.7 ([4b1826d](https://github.com/igortrinidad/lazyfy/commit/4b1826dea4c0640589d30e1c45031e10bf80d3cb))
+
+
+### Bug Fixes (fix:)
+
+* Finished fix and handling code mirror element not found ([a2b2df1](https://github.com/igortrinidad/lazyfy/commit/a2b2df1f5aba53d489b7030a1c3913e914f9d104))
+* Removed debug id ([3149ab8](https://github.com/igortrinidad/lazyfy/commit/3149ab8c07b79aa4eba742393d9c6d81e99c38cf))
+* Testing fix string helpers ([97c9ad5](https://github.com/igortrinidad/lazyfy/commit/97c9ad592d219f335a5762756d4f5f8cafffa9fe))
+
 ### [2.7.7](https://github.com/igortrinidad/lazyfy/compare/v2.7.6...v2.7.7) (2022-11-15)
 
 
