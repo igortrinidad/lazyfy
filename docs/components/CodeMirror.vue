@@ -29,7 +29,9 @@
   console.log(ArrayHelpers, StringHelpers)
 
   const resultCode = ref('')
-  const id = ref(StringHelpers.randomString(32))
+
+  const staticId = StringHelpers.randomString(32)
+  const id = ref(staticId)
   let currentCode = props.example.code
   let running = null
 
@@ -59,6 +61,8 @@
   let view
   const initCodeMirror = () => {
     const el = document.getElementById(id.value)
+    console.log(id.value)
+    console.log(el)
     view = new EditorView({
       state: startState,
       parent: el
