@@ -29,44 +29,42 @@
   console.log(ArrayHelpers, StringHelpers)
 
   const resultCode = ref('')
-
-  const staticId = StringHelpers.randomString(32)
-  const id = ref(staticId)
-  let currentCode = props.example.code
+  const id = ref(StringHelpers.randomString(32))
+  let currentCode = ''
   let running = null
 
-  let startState = EditorState.create({
-    doc: currentCode,
-    extensions: [
-      javascript(),
-      materialDark,
-      keymap.of(defaultKeymap), 
-      lineNumbers(), 
-      gutter({class: "cm-mygutter"}),
-      EditorView.updateListener.of((e) => {
-        currentCode = e.state.doc.toString()
-        if(running) clearTimeout(running)
-        running = setTimeout(() => {
-          run()
-        }, 600)
-      })
-    ]
-  })
-  
   onMounted(() => {
-    currentCode = props.example
-    setTimeout(initCodeMirror, 200)
+    currentCode = props.example.code
+    setTimeout(initCodeMirror, 300)
   })
 
-  let view
   const initCodeMirror = () => {
+
+    let startState = EditorState.create({
+      doc: currentCode,
+      extensions: [
+        javascript(),
+        materialDark,
+        keymap.of(defaultKeymap), 
+        lineNumbers(), 
+        gutter({class: "cm-mygutter"}),
+        EditorView.updateListener.of((e) => {
+          currentCode = e.state.doc.toString()
+          if(running) clearTimeout(running)
+          running = setTimeout(() => {
+            run()
+          }, 600)
+        })
+      ]
+    })
+
     const el = document.getElementById(id.value)
-    console.log(id.value)
-    console.log(el)
+
     view = new EditorView({
       state: startState,
       parent: el
     })
+
     run()
   }
 
