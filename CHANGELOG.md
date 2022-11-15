@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.2](https://github.com/igortrinidad/lazyfy/compare/v2.2.1...v2.2.2) (2022-11-15)
+
+
+### Bug Fixes (fix:)
+
+* npm run command on deploy ([1ac2c20](https://github.com/igortrinidad/lazyfy/commit/1ac2c202c953fc3f759ffe3a05a31d0f9ec39c33))
+
 ### [2.2.1](https://github.com/igortrinidad/lazyfy/compare/v2.2.0...v2.2.1) (2022-11-15)
 
 
