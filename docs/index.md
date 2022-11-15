@@ -19,11 +19,13 @@ Play around with the examples below. The code run 1s after changing the snippets
 </div>
 
 <script setup>
-
+  import { ArrayHelpers, StringHelpers } from '../src'
   import { ref, computed } from 'vue'
   import CodeMirror from './components/CodeMirror.vue'
   import examplesSource from './examples'
 
   const examples = ref(examplesSource)
+
+  console.log(ArrayHelpers, StringHelpers)
 
 </script>

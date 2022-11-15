@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-  import { ArrayHelpers, StringHelpers } from '../../src'
+  import { StringHelpers } from '../../src'
   import {  ref, onMounted } from 'vue'
   import { EditorState } from "@codemirror/state"
   import { EditorView, keymap, lineNumbers, gutter } from "@codemirror/view"
@@ -25,16 +25,13 @@
     example: Object
   })
 
-  console.log(ArrayHelpers, StringHelpers)
-
   const resultCode = ref('')
   const id = ref('')
   let currentCode = ''
   let running = null
 
   onMounted(() => {
-    const idStatic = StringHelpers.randomString(32)
-    id.value = idStatic
+    id.value = StringHelpers.randomString(32)
     currentCode = props.example.code
     setTimeout(initCodeMirror, 300)
   })
@@ -73,7 +70,6 @@
 
   const run = () => {
     try {
-      console.log(StringHelpers.randomString(32))
       let result
       eval(currentCode)
       highlightCode(result)
@@ -84,10 +80,6 @@
 
   const highlightCode = (result) => {
     resultCode.value = result
-  }
-
-  const guaranteeScope = () => {
-    return { ArrayHelpers, StringHelpers }
   }
 
 </script>
