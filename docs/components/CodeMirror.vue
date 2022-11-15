@@ -60,9 +60,8 @@
     })
 
     const el = document.getElementById(id.value)
-
-    console.log(id.value)
-    console.log(el)
+    
+    if(!el) throw new Error(`Element id ${id.value} not found, please inspect what's wrong.`)
 
     const view = new EditorView({
       state: startState,
