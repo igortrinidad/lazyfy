@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/igortrinidad/lazyfy/compare/v2.1.0...v2.2.0) (2022-11-15)
+
+
+### Features (feat:)
+
+* Added VitePress docs ([f591897](https://github.com/igortrinidad/lazyfy/commit/f591897278e2eb3e2a42bf99f8256ac9a937199b))
+
 ## [2.1.0](https://github.com/igortrinidad/lazyfy/compare/v1.4.0...v2.1.0) (2022-11-15)
 
 
