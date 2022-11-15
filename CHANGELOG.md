@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.7.10](https://github.com/igortrinidad/lazyfy/compare/v2.7.9...v2.7.10) (2022-11-15)
+
+
+### Routine tasks (chore:)
+
+* Cleaning some console logs ([40879df](https://github.com/igortrinidad/lazyfy/commit/40879df00e2418aac6bdd54ca46b6da44e6c67d6))
+
 ### [2.7.9](https://github.com/igortrinidad/lazyfy/compare/v2.7.8...v2.7.9) (2022-11-15)
 
 
