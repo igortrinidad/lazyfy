@@ -2,9 +2,10 @@
 <template>
 
   <div class="w-full flex flex-col">
-    <div :id="example.id" class="bg-gray-300 dark:bg-gray-600"></div>
+    <div :id="id" class="bg-gray-300 dark:bg-gray-600"></div>
 
-    <div class="mt-4 border p-4">
+    <div class="mt-4 border border-zinc-300 dark:border-zinc-700/70 p-4 pt-8 relative">
+      <span class="absolute top-0 left-0 mt-2 ml-2 text-gray-400">result:</span>
       <pre>{{ resultCode }}</pre>
     </div>
 
@@ -13,7 +14,7 @@
 </template>
 
 <script setup>
-  import { ArrayHelpers } from '../../src'
+  import { ArrayHelpers, StringHelpers } from '../../src'
   import {  ref, onMounted } from 'vue'
   import { EditorState } from "@codemirror/state"
   import { EditorView, keymap, lineNumbers, gutter } from "@codemirror/view"
@@ -26,6 +27,7 @@
   })
 
   const resultCode = ref('')
+  const id = ref(StringHelpers.randomString(32))
   let currentCode = props.example.code
   let running = null
 
@@ -42,7 +44,7 @@
         if(running) clearTimeout(running)
         running = setTimeout(() => {
           run()
-        }, 1000)
+        }, 600)
       })
     ]
   })
@@ -54,7 +56,7 @@
 
   let view
   const initCodeMirror = () => {
-    const el = document.getElementById(props.example.id)
+    const el = document.getElementById(id.value)
     view = new EditorView({
       state: startState,
       parent: el
@@ -65,7 +67,6 @@
   const run = () => {
     try {
       let result
-      console.log(ArrayHelpers)
       eval(currentCode)
       highlightCode(result)
     } catch (err) {
@@ -75,6 +76,10 @@
 
   const highlightCode = (result) => {
     resultCode.value = result
+  }
+
+  const guaranteeScope = () => {
+    return { ArrayHelpers, StringHelpers }
   }
 
 </script>

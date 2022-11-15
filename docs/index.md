@@ -4,6 +4,7 @@
 
 ## Playground
 
+Play around with the examples below. The code run 1s after changing the snippets.
 
 <div 
   class="w-full mb-4"
@@ -21,8 +22,8 @@
 
   import { ref, computed } from 'vue'
   import CodeMirror from './components/CodeMirror.vue'
-  import { arrayFindExamples } from './examples/array_find'
-  
-  const examples = ref(arrayFindExamples)
+  import examplesSource from './examples'
+
+  const examples = ref(examplesSource)
 
 </script>

@@ -1,6 +1,6 @@
 
 export const arrays = `
-// The result var is available inside this scope
+// The 'result' and 'ArrayHelpers' is available inside this scope
 const books = [
   { id: '1', title: 'Clean Code', category: 'Programming' },
   { id: '2', title: 'Clean Archtecture', category: 'Programming' },
