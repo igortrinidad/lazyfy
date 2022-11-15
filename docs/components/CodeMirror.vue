@@ -33,7 +33,8 @@
   let running = null
 
   onMounted(() => {
-    id.value = StringHelpers.randomString(32)
+    const idStatic = StringHelpers.randomString(32)
+    id.value = idStatic
     currentCode = props.example.code
     setTimeout(initCodeMirror, 300)
   })
@@ -72,6 +73,7 @@
 
   const run = () => {
     try {
+      console.log(StringHelpers.randomString(32))
       let result
       eval(currentCode)
       highlightCode(result)
