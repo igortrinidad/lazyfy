@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.0](https://github.com/igortrinidad/lazyfy/compare/v2.6.2...v2.7.0) (2022-11-15)
+
+
+### Features (feat:)
+
+* Added string generate random string to doc ([3ef1e8f](https://github.com/igortrinidad/lazyfy/commit/3ef1e8f2a2ddb790c6347904ff83325f1a71608f))
+
 ### [2.6.2](https://github.com/igortrinidad/lazyfy/compare/v2.6.1...v2.6.2) (2022-11-15)
 
 
