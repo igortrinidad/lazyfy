@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.3](https://github.com/igortrinidad/lazyfy/compare/v2.2.2...v2.2.3) (2022-11-15)
+
+
+### Tests (test:)
+
+* Testing base config for vitepress ([62f05f2](https://github.com/igortrinidad/lazyfy/commit/62f05f23da256265d4ce4c6487827d4585f90cc4))
+
 ### [2.2.2](https://github.com/igortrinidad/lazyfy/compare/v2.2.1...v2.2.2) (2022-11-15)
 
 
