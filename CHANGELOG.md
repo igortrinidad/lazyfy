@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.7.4](https://github.com/igortrinidad/lazyfy/compare/v2.7.3...v2.7.4) (2022-11-15)
+
+
+### Bug Fixes (fix:)
+
+* Minor fix on code mirror init state ([c6f965f](https://github.com/igortrinidad/lazyfy/commit/c6f965fb5f4c7cfe9d07162e7c60f228f6a589d8))
+
 ### [2.7.3](https://github.com/igortrinidad/lazyfy/compare/v2.7.2...v2.7.3) (2022-11-15)
 
 
