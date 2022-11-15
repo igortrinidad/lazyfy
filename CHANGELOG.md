@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.7.9](https://github.com/igortrinidad/lazyfy/compare/v2.7.8...v2.7.9) (2022-11-15)
+
+
+### Bug Fixes (fix:)
+
+* Trying to fix string helpers ([b77583d](https://github.com/igortrinidad/lazyfy/commit/b77583da734d3d359e38fc70b6a54fd7e93a29b8))
+
 ### [2.7.8](https://github.com/igortrinidad/lazyfy/compare/v2.7.6...v2.7.8) (2022-11-15)
 
 
