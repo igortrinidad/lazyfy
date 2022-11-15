@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.7.7](https://github.com/igortrinidad/lazyfy/compare/v2.7.6...v2.7.7) (2022-11-15)
+
+
+### Bug Fixes (fix:)
+
+* Finished fix and handling code mirror element not found ([a2b2df1](https://github.com/igortrinidad/lazyfy/commit/a2b2df1f5aba53d489b7030a1c3913e914f9d104))
+
 ### [2.7.6](https://github.com/igortrinidad/lazyfy/compare/v2.7.5...v2.7.6) (2022-11-15)
 
 
