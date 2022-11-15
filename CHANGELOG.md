@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.7.2](https://github.com/igortrinidad/lazyfy/compare/v2.7.1...v2.7.2) (2022-11-15)
+
+
+### Bug Fixes (fix:)
+
+* Testing fix auto map module ([d17e92a](https://github.com/igortrinidad/lazyfy/commit/d17e92a2493a76d3281b6ff3ce56c3e59315b26c))
+
 ### [2.7.1](https://github.com/igortrinidad/lazyfy/compare/v2.7.0...v2.7.1) (2022-11-15)
 
 
