@@ -12,7 +12,7 @@ export const findByObj = (arr: any[], obj: any, asBoolean: boolean = false): any
 export const findByString = (arr: any[], item: any, asBoolean: boolean = false): any => {
   for(const arrItem of arr) {
     if(typeof(arrItem) === 'string' && typeof(item) === 'string') {
-      if(arrItem.toLowerCase() === item.toLowerCase()) return asBoolean ? true : arrItem
+      if(arrItem.toLowerCase() == item.toLowerCase()) return asBoolean ? true : arrItem
     } 
 
     if(arrItem == item) {
