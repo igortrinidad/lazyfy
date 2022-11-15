@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.7.5](https://github.com/igortrinidad/lazyfy/compare/v2.7.4...v2.7.5) (2022-11-15)
+
+
+### Tests (test:)
+
+* Test fix ([c2ff384](https://github.com/igortrinidad/lazyfy/commit/c2ff384a33facef76356e43c9a795e41ac133a50))
+
 ### [2.7.4](https://github.com/igortrinidad/lazyfy/compare/v2.7.3...v2.7.4) (2022-11-15)
 
 
