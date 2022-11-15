@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/igortrinidad/lazyfy/compare/v1.4.0...v2.1.0) (2022-11-15)
+
+
+### Features (feat:)
+
+* Added ts for other modules ([d33775f](https://github.com/igortrinidad/lazyfy/commit/d33775f80d1ee5e3feb325f565ad7e20742a92cb))
+* Starting rewrite library using ts ([7592506](https://github.com/igortrinidad/lazyfy/commit/759250689b8d3a194a8ce27920590deddf2be399))
+* ts CommonHelpers ([93c39aa](https://github.com/igortrinidad/lazyfy/commit/93c39aa883de1f6ba5e82add8141cf0748c5e18e))
+* ts Math helpers ([7ecc646](https://github.com/igortrinidad/lazyfy/commit/7ecc6468b457ceccd47d7e4024abd0434617f3c8))
+* ts Sitemap ([b86991b](https://github.com/igortrinidad/lazyfy/commit/b86991b79a735b13b92c755140ec44799fb3bc6e))
+* ts StringHelpers ([1b15780](https://github.com/igortrinidad/lazyfy/commit/1b1578041e018aea2b59d67b3fc110a3e2313b50))
+
+
+### Bug Fixes (fix:)
+
+* Added github action scope ([ed3ae6b](https://github.com/igortrinidad/lazyfy/commit/ed3ae6b79089289ff5d7efbfb557b6333b6fe067))
+* Fixed percentage and parsed strings as flots on all parameters ([aa12df2](https://github.com/igortrinidad/lazyfy/commit/aa12df290c7dfb61959efff033bb37a486cd1dc3))
+
 ## [1.4.0](https://github.com/igortrinidad/lazyfy/compare/v1.3.0...v1.4.0) (2022-11-01)
 
 
