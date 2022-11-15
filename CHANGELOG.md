@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/igortrinidad/lazyfy/compare/v2.3.0...v2.4.0) (2022-11-15)
+
+
+### Features (feat:)
+
+* Added Function dynamic ([9fc0f4d](https://github.com/igortrinidad/lazyfy/commit/9fc0f4da69405fbbbee16381fffa2c81486d07e1))
+
 ## [2.3.0](https://github.com/igortrinidad/lazyfy/compare/v2.2.8...v2.3.0) (2022-11-15)
 
 
