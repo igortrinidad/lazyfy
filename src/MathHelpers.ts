@@ -3,8 +3,10 @@
  * 
  * get amount of a given % of a value
  */
-export const getAmountOfPercentage = (amount: number | null, percentage: number | null) => {
-  return Number(amount / 100 * percentage)
+export const getAmountOfPercentage = (amount: number, percentage: number | string) => {
+  const pct = getParsedValue(percentage)
+  const amt = getParsedValue(amount)
+  return Number(amt / 100 * pct)
 }
 
 /**
@@ -12,27 +14,30 @@ export const getAmountOfPercentage = (amount: number | null, percentage: number 
  * get the % of a given amount and value
  */
 export const getPercentageOfAmount = (amount: number, value: number, percentageSign: boolean = false, digits:number = 2): number | string => {
-  const result = Number(100 / amount * value)
+  const amt = getParsedValue(amount)
+  const result = Number(100 / amt * value)
   if(!percentageSign) return result
   if(isNaN(Number( result / 100 ))) return Number(result/100)
   return Number( result / 100 ).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: digits })
 }
 
 export const round = (value: number, decimals: number = 2) => {
+  const vl = getParsedValue(value)
   var p = Math.pow(10, decimals)
-  return Math.round(value * p) / p
+  return Math.round(vl * p) / p
 }
 
 export const randomInt = (max: number, min: number = 0) => {
-	return min + Math.floor((max - min) * Math.random());
+  return min + Math.floor((max - min) * Math.random());
 }
 
 /**
  * add a raw percentage value to a number
  */
 export const addPercentage = (value: number, percentage: string | number) => {
-  const pct = typeof(percentage) === 'string' ? parseFloat(percentage) : percentage
-  return value * (1 + (pct / 100))
+  const pct = getParsedValue(percentage)
+  const vl = getParsedValue(value)
+  return vl * (1 + (pct / 100))
 }
 
 /**
@@ -40,6 +45,13 @@ export const addPercentage = (value: number, percentage: string | number) => {
  * returns a min value using a percentage as references
  */
 export const getValueOrMinPercentage = (amount: number, value: number, percentage: number = 10) => {
-  if((amount / 100 * percentage) > value) return getAmountOfPercentage(amount, percentage)
-  return value
+  const amt = getParsedValue(amount)
+  const vl = getParsedValue(value)
+  const pct = getParsedValue(percentage)
+  if((amt / 100 * pct) > vl) return getAmountOfPercentage(amt, pct)
+  return vl
+}
+
+const getParsedValue = (value: number | string): number => {
+  return typeof(value) === 'number' ? value : parseFloat(value)
 }

@@ -4,7 +4,7 @@ name: Build, release version and changelog and publish to NPM
 on:
   push:
     branches:
-      - master
+      - typescript
 
 jobs:
 
@@ -25,9 +25,9 @@ jobs:
       - run: git config --global user.name "Igor Trindade"
       - run: pwd && npm ci
       - run: npm run test
-      - run: npm run generate-types
+      - run: npm run build
       - run: npm run release --commit-all
       - run: git push --follow-tags origin ${{ github.ref_name }}
-      - run: npm publish --access public --tolerate-republish
+      - run: npm publish --access public --tolerate-republish --tag next
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
