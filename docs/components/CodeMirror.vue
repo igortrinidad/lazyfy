@@ -5,8 +5,9 @@
     <div :id="example.id" class="bg-gray-300 dark:bg-gray-600"></div>
 
     <div class="mt-4 border p-4">
-      <pre>{{ resultRef }}</pre>
+      <pre>{{ resultCode }}</pre>
     </div>
+
   </div>
 
 </template>
@@ -16,20 +17,23 @@
   import {  ref, onMounted } from 'vue'
   import { EditorState } from "@codemirror/state"
   import { EditorView, keymap, lineNumbers, gutter } from "@codemirror/view"
+  import {javascript} from "@codemirror/lang-javascript"
+  import { materialDark } from 'cm6-theme-material-dark'
   import { defaultKeymap } from "@codemirror/commands"
 
   const props = defineProps({
     example: Object
   })
-  
-  let currentCode = props.example.code
-  const resultRef = ref('')
 
+  const resultCode = ref('')
+  let currentCode = props.example.code
   let running = null
 
   let startState = EditorState.create({
     doc: currentCode,
     extensions: [
+      javascript(),
+      materialDark,
       keymap.of(defaultKeymap), 
       lineNumbers(), 
       gutter({class: "cm-mygutter"}),
@@ -62,25 +66,19 @@
     try {
       let result
       eval(currentCode)
-      resultRef.value = result
+      highlightCode(result)
     } catch (err) {
-      resultRef.value = err.message
+      highlightCode(err.message)
     }
+  }
+
+  const highlightCode = (result) => {
+    resultCode.value = result
   }
 
 </script>
 
 <style lang="scss">
 
-  .cm-line {
-    @apply pl-3;
-  }
 
-  .cm-gutters {
-    @apply bg-gray-300 dark:bg-gray-500 pr-1;
-  }
-
-  .cm-gutterElement {
-    @apply text-gray-400;
-  }
 </style>

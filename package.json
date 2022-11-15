@@ -30,6 +30,8 @@
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
+    "@codemirror/lang-javascript": "^6.1.1",
+    "@codemirror/language": "^6.3.1",
     "@rollup/plugin-babel": "^5.2.2",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.1.0",
@@ -38,6 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^4.14.0",
     "@typescript-eslint/parser": "^4.14.0",
     "autoprefixer": "^10.4.13",
+    "cm6-theme-material-dark": "^0.2.0",
     "codemirror": "^6.0.1",
     "eslint": "^7.18.0",
     "jest": "^26.6.3",
