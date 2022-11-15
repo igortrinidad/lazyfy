@@ -26,6 +26,8 @@
     example: Object
   })
 
+  console.log(ArrayHelpers, StringHelpers)
+
   const resultCode = ref('')
   const id = ref(StringHelpers.randomString(32))
   let currentCode = props.example.code
@@ -69,6 +71,7 @@
       let result
       eval(currentCode)
       highlightCode(result)
+      console.log(result)
     } catch (err) {
       highlightCode(err.message)
     }
