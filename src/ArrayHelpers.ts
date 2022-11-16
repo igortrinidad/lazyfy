@@ -113,7 +113,7 @@ export const compareArray = (arrFrom: any[], arrToCompare: any[], key: string = 
   return true
 }
 
-export default {
+export const ArrayHelpers = {
   findByObj,
   findByString,
   find,
