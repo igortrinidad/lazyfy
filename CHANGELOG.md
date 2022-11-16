@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.8.4](https://github.com/igortrinidad/lazyfy/compare/v2.8.3...v2.8.4) (2022-11-16)
+
+
+### Tests (test:)
+
+* GH deployment ([d78eeb2](https://github.com/igortrinidad/lazyfy/commit/d78eeb2e7bd0d023588ce9456325c374ab6adf40))
+
 ### [2.8.3](https://github.com/igortrinidad/lazyfy/compare/v2.8.2...v2.8.3) (2022-11-16)
 
 
