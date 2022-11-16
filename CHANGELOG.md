@@ -288,6 +288,9 @@ All notable changes to this project will be documented in this file. See [standa
 * Added github action scope ([ed3ae6b](https://github.com/igortrinidad/lazyfy/commit/ed3ae6b79089289ff5d7efbfb557b6333b6fe067))
 * Fixed percentage and parsed strings as flots on all parameters ([aa12df2](https://github.com/igortrinidad/lazyfy/commit/aa12df290c7dfb61959efff033bb37a486cd1dc3))
 
+### [1.4.1](https://github.com/igortrinidad/lazyfy/compare/v1.4.0...v1.4.1) (2022-11-15)
+
+
 ## [1.4.0](https://github.com/igortrinidad/lazyfy/compare/v1.3.0...v1.4.0) (2022-11-01)
 
 
