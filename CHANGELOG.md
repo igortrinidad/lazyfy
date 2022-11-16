@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.8.2](https://github.com/igortrinidad/lazyfy/compare/v2.8.1...v2.8.2) (2022-11-16)
+
+
+### Bug Fixes (fix:)
+
+* Removed static.yml workflow ([c1219d5](https://github.com/igortrinidad/lazyfy/commit/c1219d583d1145b37d54ca53ebcbb977e9b662f2))
+* Update workflow trigger to main instead of master ([ce93b37](https://github.com/igortrinidad/lazyfy/commit/ce93b3771f4a8f078928fca0215011551490b712))
+
 ### [2.8.1](https://github.com/igortrinidad/lazyfy/compare/v2.8.0...v2.8.1) (2022-11-16)
 
 ### [1.4.1](https://github.com/igortrinidad/lazyfy/compare/v2.2.4...v1.4.1) (2022-11-15)
