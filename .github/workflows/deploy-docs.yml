@@ -1,4 +1,4 @@
-name: Deploy vitepress docs
+name: Deploy vitepress docs and gh-pages
 
 on:
   push:
@@ -8,9 +8,10 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
+  deployments: write
 
 concurrency:
   group: "pages"
@@ -38,9 +39,13 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/.vitepress/dist
 
-      - name: GitHub Pages Deployment
+      - uses: chrnorm/deployment-action@v2
+        name: Create GitHub deployment
         id: deployment
-        uses: actions/deploy-pages@v1
+        with:
+          token: '${{ github.token }}'
+          environment-url: https://igortrinidad.github.io/lazyfy
+          environment: production
 
 
     
