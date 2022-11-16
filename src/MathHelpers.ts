@@ -55,3 +55,12 @@ export const getValueOrMinPercentage = (amount: number, value: number, percentag
 const getParsedValue = (value: number | string): number => {
   return typeof(value) === 'number' ? value : parseFloat(value)
 }
+
+export const MathHelpers = {
+  getAmountOfPercentage,
+  getPercentageOfAmount,
+  round,
+  randomInt,
+  addPercentage,
+  getValueOrMinPercentage
+}

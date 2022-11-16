@@ -75,3 +75,13 @@ export const deepMergeObject = (target: any, ...sources: any): any => {
 
   return deepMergeObject(target, ...sources);
 }
+
+export const ObjectHelpers = {
+  filterObjectKeys,
+  checkObjMatch,
+  checkIsEqual,
+  initClassData,
+  defineProperty,
+  isObject,
+  deepMergeObject
+}

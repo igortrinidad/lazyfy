@@ -11,3 +11,8 @@ export const randomString = (length: number): string => {
   }
   return result
 }
+
+export const StringHelpers = {
+  titleCaseString,
+  randomString
+}

@@ -43,3 +43,11 @@ export const clearBrowserCache = (hotKey: string = 'KeyX'): void => {
     })
   }
 }
+
+export const CommonHelpers = {
+  downloadRawData,
+  copyToClipboard,
+  getLetterByNumber,
+  clearBrowserCache
+
+}

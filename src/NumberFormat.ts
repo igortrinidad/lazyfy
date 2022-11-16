@@ -59,7 +59,7 @@ function inputOnlyNumbers (input: string | number = 0) {
 }
 
 // 123 RangeError: toFixed() digits argument must be between 0 and 20 at Number.toFixed
-function fixed (precision: number) {
+function fixed(precision: number) {
   return Math.max(0, Math.min(precision, 20))
 }
 
@@ -89,4 +89,9 @@ function isNegative(string: number | string, acceptNegative = true) {
   const forcePositive = value.indexOf('+')
 
   return isNegative && !forcePositive
+}
+
+export const NumberFormat = {
+  formatNumber,
+  unformatNumber,
 }
