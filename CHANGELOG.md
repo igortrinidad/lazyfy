@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.7.18](https://github.com/igortrinidad/lazyfy/compare/v2.7.17...v2.7.18) (2022-11-16)
+
+
+### Bug Fixes (fix:)
+
+* Case sensitive on array match items ([f26c98c](https://github.com/igortrinidad/lazyfy/commit/f26c98c5014acec0ea6e80718d1d764403b82d7f))
+
 ### [2.7.17](https://github.com/igortrinidad/lazyfy/compare/v2.7.16...v2.7.17) (2022-11-16)
 
 ### [2.7.16](https://github.com/igortrinidad/lazyfy/compare/v2.7.15...v2.7.16) (2022-11-16)
