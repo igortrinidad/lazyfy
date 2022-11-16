@@ -34,6 +34,7 @@
     id.value = StringHelpers.randomString(32)
     currentCode = props.example.code
     setTimeout(initCodeMirror, 300)
+    guaranteeDependencies()
   })
 
   const initCodeMirror = () => {
