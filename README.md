@@ -3,7 +3,7 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@igortrindade/lazyfy"><img alt="npm" src="https://img.shields.io/github/package-json/v/igortrinidad/lazyfy?style=flat&color=orange" /></a>
-  <a href="https://github.com/igortrinidad/lazyfy/actions/workflows/npm-publish-github-packages.yml"><img alt="CI" src="https://img.shields.io/github/workflow/status/igortrinidad/lazyfy/Build,%20release%20version%20and%20changelog%20and%20publish%20to%20NPM?label=ci&logo=github"></a>
+  <a href="https://github.com/igortrinidad/lazyfy/actions/workflows/npm-publish-github-packages.yml"><img alt="CI" src="https://img.shields.io/github/workflow/status/igortrinidad/lazyfy/PROD%20Test,%20build,%20release%20version%20and%20publish%20to%20NPM?label=ci&logo=github"></a>
   <a href="https://github.com/igortrinidad/lazyfy/tree/HEAD/LICENSE"><img alt="License" src="https://img.shields.io/github/license/igortrinidad/lazyfy?style=flat&color=blue" /></a>
 </p>
 
