@@ -4,7 +4,7 @@ name: PROD Test, build, release version and publish to NPM
 on:
   push:
     branches:
-      - main
+      - mainS
 
 jobs:
 
