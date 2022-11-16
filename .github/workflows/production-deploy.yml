@@ -1,0 +1,33 @@
+
+name: PROD Test, build, release version and publish to NPM
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+
+  build-test-release-and-publish-npm:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.18.1'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@igortrindade'
+          always-auth: true
+      - run: git config --global user.email "igortrindademe@gmail.com"
+      - run: git config --global user.name "Igor Trindade"
+      - run: npm ci
+      - run: npm run test
+      - run: npm run build
+      - run: npm run release --commit-all
+      - run: git push --follow-tags origin ${{ github.ref_name }}
+      - run: npm publish --access public --tolerate-republish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

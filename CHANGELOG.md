@@ -2,7 +2,303 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.8.1](https://github.com/igortrinidad/lazyfy/compare/v2.8.0...v2.8.1) (2022-11-16)
+
+### [1.4.1](https://github.com/igortrinidad/lazyfy/compare/v2.2.4...v1.4.1) (2022-11-15)
+
+
+### Routine tasks (chore:)
+
+* **release:** 1.4.1 ([8081d7c](https://github.com/igortrinidad/lazyfy/commit/8081d7ca4030bf020e290e318f6d99e91111f8a2))
+
+## [2.8.0](https://github.com/igortrinidad/lazyfy/compare/v2.7.23...v2.8.0) (2022-11-16)
+
+
+### Features (feat:)
+
+* Added pr-test workflow and organizing deploys workflows ([23d0d1d](https://github.com/igortrinidad/lazyfy/commit/23d0d1d1eeced518ecfa5e1bd40cba4dd2338a95))
+
+### [2.7.23](https://github.com/igortrinidad/lazyfy/compare/v2.7.22...v2.7.23) (2022-11-16)
+
+
+### Routine tasks (chore:)
+
+* Standardizing export ([d6d7e69](https://github.com/igortrinidad/lazyfy/commit/d6d7e69e200949a78ae697dc1448ab89e6447622))
+
+### [2.7.22](https://github.com/igortrinidad/lazyfy/compare/v2.7.21...v2.7.22) (2022-11-16)
+
+
+### Tests (test:)
+
+* Testing last build for each target ([68d3f1c](https://github.com/igortrinidad/lazyfy/commit/68d3f1c813fbe91295510303a6636b183a573e36))
+
+### [2.7.21](https://github.com/igortrinidad/lazyfy/compare/v2.7.20...v2.7.21) (2022-11-16)
+
+### [2.7.20](https://github.com/igortrinidad/lazyfy/compare/v2.7.19...v2.7.20) (2022-11-16)
+
+### [2.7.19](https://github.com/igortrinidad/lazyfy/compare/v2.7.18...v2.7.19) (2022-11-16)
+
+### [2.7.18](https://github.com/igortrinidad/lazyfy/compare/v2.7.17...v2.7.18) (2022-11-16)
+
+
+### Bug Fixes (fix:)
+
+* Case sensitive on array match items ([f26c98c](https://github.com/igortrinidad/lazyfy/commit/f26c98c5014acec0ea6e80718d1d764403b82d7f))
+
+### [2.7.17](https://github.com/igortrinidad/lazyfy/compare/v2.7.16...v2.7.17) (2022-11-16)
+
+### [2.7.16](https://github.com/igortrinidad/lazyfy/compare/v2.7.15...v2.7.16) (2022-11-16)
+
+### [2.7.15](https://github.com/igortrinidad/lazyfy/compare/v2.7.14...v2.7.15) (2022-11-16)
+
+
+### Tests (test:)
+
+* Testing node  compatibility ([87839bf](https://github.com/igortrinidad/lazyfy/commit/87839bf22cad403f5bea6f09c3bc2d768f720aba))
+
+### [2.7.14](https://github.com/igortrinidad/lazyfy/compare/v2.7.13...v2.7.14) (2022-11-16)
+
+
+### Tests (test:)
+
+* Added case tests in removeAll ([cfbc762](https://github.com/igortrinidad/lazyfy/commit/cfbc762d4aef58468b95f3e734d1f76e2e1e27e2))
+
+
+### Documentation (docs:)
+
+* Added readme content ([8b7cfed](https://github.com/igortrinidad/lazyfy/commit/8b7cfedd7b8b4e8694a2878024f4fe9b502bc166))
+
+### [2.7.13](https://github.com/igortrinidad/lazyfy/compare/v2.7.12...v2.7.13) (2022-11-16)
+
+
+### Bug Fixes (fix:)
+
+* Minor fix ([b6450bb](https://github.com/igortrinidad/lazyfy/commit/b6450bb3d175b9e35603b3a5d117c1fb305981e1))
+
+### [2.7.12](https://github.com/igortrinidad/lazyfy/compare/v2.7.11...v2.7.12) (2022-11-16)
+
+
+### Bug Fixes (fix:)
+
+* Fix sidebar links ([bf97be4](https://github.com/igortrinidad/lazyfy/commit/bf97be464b1e3c5b214c374976528d925579bccc))
+
+### [2.7.11](https://github.com/igortrinidad/lazyfy/compare/v2.7.10...v2.7.11) (2022-11-15)
+
+
+### Routine tasks (chore:)
+
+* Minor hint on example ([fd9ab96](https://github.com/igortrinidad/lazyfy/commit/fd9ab962422803eac3902717aa908834c636ca60))
+
+### [2.7.10](https://github.com/igortrinidad/lazyfy/compare/v2.7.9...v2.7.10) (2022-11-15)
+
+
+### Routine tasks (chore:)
+
+* Cleaning some console logs ([40879df](https://github.com/igortrinidad/lazyfy/commit/40879df00e2418aac6bdd54ca46b6da44e6c67d6))
+
+### [2.7.9](https://github.com/igortrinidad/lazyfy/compare/v2.7.8...v2.7.9) (2022-11-15)
+
+
+### Bug Fixes (fix:)
+
+* Trying to fix string helpers ([b77583d](https://github.com/igortrinidad/lazyfy/commit/b77583da734d3d359e38fc70b6a54fd7e93a29b8))
+
+### [2.7.8](https://github.com/igortrinidad/lazyfy/compare/v2.7.6...v2.7.8) (2022-11-15)
+
+
+### Routine tasks (chore:)
+
+* **release:** 2.7.7 ([4b1826d](https://github.com/igortrinidad/lazyfy/commit/4b1826dea4c0640589d30e1c45031e10bf80d3cb))
+
+
+### Bug Fixes (fix:)
+
+* Finished fix and handling code mirror element not found ([a2b2df1](https://github.com/igortrinidad/lazyfy/commit/a2b2df1f5aba53d489b7030a1c3913e914f9d104))
+* Removed debug id ([3149ab8](https://github.com/igortrinidad/lazyfy/commit/3149ab8c07b79aa4eba742393d9c6d81e99c38cf))
+* Testing fix string helpers ([97c9ad5](https://github.com/igortrinidad/lazyfy/commit/97c9ad592d219f335a5762756d4f5f8cafffa9fe))
+
+### [2.7.7](https://github.com/igortrinidad/lazyfy/compare/v2.7.6...v2.7.7) (2022-11-15)
+
+
+### Bug Fixes (fix:)
+
+* Finished fix and handling code mirror element not found ([a2b2df1](https://github.com/igortrinidad/lazyfy/commit/a2b2df1f5aba53d489b7030a1c3913e914f9d104))
+* Removed debug id ([3149ab8](https://github.com/igortrinidad/lazyfy/commit/3149ab8c07b79aa4eba742393d9c6d81e99c38cf))
+
+### [2.7.6](https://github.com/igortrinidad/lazyfy/compare/v2.7.5...v2.7.6) (2022-11-15)
+
+
+### Bug Fixes (fix:)
+
+* Test fix ([a5600e1](https://github.com/igortrinidad/lazyfy/commit/a5600e1399e921b017ff281eff7a47ed167565a6))
+
+### [2.7.5](https://github.com/igortrinidad/lazyfy/compare/v2.7.4...v2.7.5) (2022-11-15)
+
+
+### Tests (test:)
+
+* Test fix ([c2ff384](https://github.com/igortrinidad/lazyfy/commit/c2ff384a33facef76356e43c9a795e41ac133a50))
+
+### [2.7.4](https://github.com/igortrinidad/lazyfy/compare/v2.7.3...v2.7.4) (2022-11-15)
+
+
+### Bug Fixes (fix:)
+
+* Minor fix on code mirror init state ([c6f965f](https://github.com/igortrinidad/lazyfy/commit/c6f965fb5f4c7cfe9d07162e7c60f228f6a589d8))
+
+### [2.7.3](https://github.com/igortrinidad/lazyfy/compare/v2.7.2...v2.7.3) (2022-11-15)
+
+
+### Bug Fixes (fix:)
+
+* Testing code mirror init ([13b2fb2](https://github.com/igortrinidad/lazyfy/commit/13b2fb2616da5caf6d74040b6745f2e4bd269d63))
+
+### [2.7.2](https://github.com/igortrinidad/lazyfy/compare/v2.7.1...v2.7.2) (2022-11-15)
+
+
+### Bug Fixes (fix:)
+
+* Testing fix auto map module ([d17e92a](https://github.com/igortrinidad/lazyfy/commit/d17e92a2493a76d3281b6ff3ce56c3e59315b26c))
+
+### [2.7.1](https://github.com/igortrinidad/lazyfy/compare/v2.7.0...v2.7.1) (2022-11-15)
+
+
+### Bug Fixes (fix:)
+
+* Fix ([faa9168](https://github.com/igortrinidad/lazyfy/commit/faa9168b43d7f766271161580d664d658c6acb01))
+
+## [2.7.0](https://github.com/igortrinidad/lazyfy/compare/v2.6.2...v2.7.0) (2022-11-15)
+
+
+### Features (feat:)
+
+* Added string generate random string to doc ([3ef1e8f](https://github.com/igortrinidad/lazyfy/commit/3ef1e8f2a2ddb790c6347904ff83325f1a71608f))
+
+### [2.6.2](https://github.com/igortrinidad/lazyfy/compare/v2.6.1...v2.6.2) (2022-11-15)
+
+
+### Tests (test:)
+
+* Testing eval access scope ([4c435ee](https://github.com/igortrinidad/lazyfy/commit/4c435eecc6841e7830692847250148766dd4fbb5))
+
+### [2.6.1](https://github.com/igortrinidad/lazyfy/compare/v2.6.0...v2.6.1) (2022-11-15)
+
+
+### Tests (test:)
+
+* Testing eval access to helper ([d523341](https://github.com/igortrinidad/lazyfy/commit/d523341675812797d9b221d51b7997fc62b3ac03))
+
+## [2.6.0](https://github.com/igortrinidad/lazyfy/compare/v2.5.0...v2.6.0) (2022-11-15)
+
+
+### Features (feat:)
+
+* Added syntax hightlight ([fbfc805](https://github.com/igortrinidad/lazyfy/commit/fbfc805df84db2a6fbd9ff36f73ed04d54a25673))
+
+## [2.5.0](https://github.com/igortrinidad/lazyfy/compare/v2.4.0...v2.5.0) (2022-11-15)
+
+
+### Features (feat:)
+
+* Added live examples ([eb8bf28](https://github.com/igortrinidad/lazyfy/commit/eb8bf28f511e5282af1f6a96ce92ad6f4f79ff16))
+
+## [2.4.0](https://github.com/igortrinidad/lazyfy/compare/v2.3.0...v2.4.0) (2022-11-15)
+
+
+### Features (feat:)
+
+* Added Function dynamic ([9fc0f4d](https://github.com/igortrinidad/lazyfy/commit/9fc0f4da69405fbbbee16381fffa2c81486d07e1))
+
+## [2.3.0](https://github.com/igortrinidad/lazyfy/compare/v2.2.8...v2.3.0) (2022-11-15)
+
+
+### Features (feat:)
+
+* Added tailwind to docs ([4fd60ad](https://github.com/igortrinidad/lazyfy/commit/4fd60add1609bc0887c6a7d112c245c551cd1e5f))
+
+### [2.2.8](https://github.com/igortrinidad/lazyfy/compare/v2.2.7...v2.2.8) (2022-11-15)
+
+
+### Tests (test:)
+
+* Testing code mirror ([1f5b646](https://github.com/igortrinidad/lazyfy/commit/1f5b64682ef8a36351158ea144c3f51e5e5f7c0c))
+
+### [2.2.7](https://github.com/igortrinidad/lazyfy/compare/v2.2.6...v2.2.7) (2022-11-15)
+
+
+### Tests (test:)
+
+* Trying deploy ([4ff789e](https://github.com/igortrinidad/lazyfy/commit/4ff789eb2ff891d17afb9114e3ab30774fb71d02))
+
+### [2.2.6](https://github.com/igortrinidad/lazyfy/compare/v2.2.5...v2.2.6) (2022-11-15)
+
+
+### Bug Fixes (fix:)
+
+* Removed static gh example ([bdb8d28](https://github.com/igortrinidad/lazyfy/commit/bdb8d2837745f3545cd1129878b3004d351a588b))
+
+### [2.2.5](https://github.com/igortrinidad/lazyfy/compare/v2.2.4...v2.2.5) (2022-11-15)
+
+
+### Tests (test:)
+
+* Testing gh deploy script ([570ee87](https://github.com/igortrinidad/lazyfy/commit/570ee871281bedf3a95d39702301b3d96e84cd44))
+
+### [2.2.4](https://github.com/igortrinidad/lazyfy/compare/v2.2.3...v2.2.4) (2022-11-15)
+
+
+### Tests (test:)
+
+* Some test ([54651ea](https://github.com/igortrinidad/lazyfy/commit/54651eab535833681b6fac1322c1a47e16545b59))
+
+### [2.2.3](https://github.com/igortrinidad/lazyfy/compare/v2.2.2...v2.2.3) (2022-11-15)
+
+
+### Tests (test:)
+
+* Testing base config for vitepress ([62f05f2](https://github.com/igortrinidad/lazyfy/commit/62f05f23da256265d4ce4c6487827d4585f90cc4))
+
+### [2.2.2](https://github.com/igortrinidad/lazyfy/compare/v2.2.1...v2.2.2) (2022-11-15)
+
+
+### Bug Fixes (fix:)
+
+* npm run command on deploy ([1ac2c20](https://github.com/igortrinidad/lazyfy/commit/1ac2c202c953fc3f759ffe3a05a31d0f9ec39c33))
+
+### [2.2.1](https://github.com/igortrinidad/lazyfy/compare/v2.2.0...v2.2.1) (2022-11-15)
+
+
+### Bug Fixes (fix:)
+
+* Fix deploy docs branch ([612db15](https://github.com/igortrinidad/lazyfy/commit/612db15de3733491a366c6657835b5a6c16af05e))
+
+## [2.2.0](https://github.com/igortrinidad/lazyfy/compare/v2.1.0...v2.2.0) (2022-11-15)
+
+
+### Features (feat:)
+
+* Added VitePress docs ([f591897](https://github.com/igortrinidad/lazyfy/commit/f591897278e2eb3e2a42bf99f8256ac9a937199b))
+
+## [2.1.0](https://github.com/igortrinidad/lazyfy/compare/v1.4.0...v2.1.0) (2022-11-15)
+
+
+### Features (feat:)
+
+* Added ts for other modules ([d33775f](https://github.com/igortrinidad/lazyfy/commit/d33775f80d1ee5e3feb325f565ad7e20742a92cb))
+* Starting rewrite library using ts ([7592506](https://github.com/igortrinidad/lazyfy/commit/759250689b8d3a194a8ce27920590deddf2be399))
+* ts CommonHelpers ([93c39aa](https://github.com/igortrinidad/lazyfy/commit/93c39aa883de1f6ba5e82add8141cf0748c5e18e))
+* ts Math helpers ([7ecc646](https://github.com/igortrinidad/lazyfy/commit/7ecc6468b457ceccd47d7e4024abd0434617f3c8))
+* ts Sitemap ([b86991b](https://github.com/igortrinidad/lazyfy/commit/b86991b79a735b13b92c755140ec44799fb3bc6e))
+* ts StringHelpers ([1b15780](https://github.com/igortrinidad/lazyfy/commit/1b1578041e018aea2b59d67b3fc110a3e2313b50))
+
+
+### Bug Fixes (fix:)
+
+* Added github action scope ([ed3ae6b](https://github.com/igortrinidad/lazyfy/commit/ed3ae6b79089289ff5d7efbfb557b6333b6fe067))
+* Fixed percentage and parsed strings as flots on all parameters ([aa12df2](https://github.com/igortrinidad/lazyfy/commit/aa12df290c7dfb61959efff033bb37a486cd1dc3))
+
 ### [1.4.1](https://github.com/igortrinidad/lazyfy/compare/v1.4.0...v1.4.1) (2022-11-15)
+
 
 ## [1.4.0](https://github.com/igortrinidad/lazyfy/compare/v1.3.0...v1.4.0) (2022-11-01)
 
