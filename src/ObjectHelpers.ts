@@ -1,4 +1,4 @@
-import { remapArrayToLowerCaseIfString } from './Util'
+import { remapArrayToLowerCaseIfString, lowerCaseAndStringifyIfNumber } from './Util'
 
 export const filterObjectKeys = (allowed: any[], object: any): any => {
   return allowed.reduce((acc, allowedAttribute) => {
@@ -9,7 +9,7 @@ export const filterObjectKeys = (allowed: any[], object: any): any => {
 
 export const checkObjMatch = (item: any, query: any): any => {
   const diffKeys = Object.keys(query).filter((key) => {
-    const attrQuery = typeof(item[key]) === 'string' ? item[key].toLowerCase() : item[key]
+    let attrQuery = lowerCaseAndStringifyIfNumber(item[key])
     if(Array.isArray(query[key])) {
       if(!query[key].length) return false
       return !remapArrayToLowerCaseIfString(query[key]).includes(attrQuery)

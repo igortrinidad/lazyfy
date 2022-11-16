@@ -12,7 +12,7 @@
     "build:module": "tsc -p tsconfig.module.json",
     "build:rollup": "rollup -c",
     "test": "jest",
-    "test-watch": "jest --watchAll",
+    "test:watch": "jest --watchAll",
     "release": "standard-version",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",

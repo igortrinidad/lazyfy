@@ -1,5 +1,5 @@
 import { ArrayHelpers } from '../src'
-import { books, fruits } from './helpers/example_arrays'
+import { books, fruits, building_stocks } from './helpers/example_arrays'
 
 test('Find all items that match based obj query', () => {
   expect(ArrayHelpers.findAll(books, { category: 'programming' }).length).toBe(2)
@@ -40,3 +40,18 @@ test('Find one item that matches the query', () => {
 test('Find zero item that matches the query', () => {
   expect(ArrayHelpers.findAll(fruits, ['lemon']).length).toBe(0)
 })
+
+test('Find building stocks', () => {
+  const query = {
+    climate_zone_prefix: [2, 3]
+  }
+  expect(ArrayHelpers.findAll(building_stocks, query).length).toBe(building_stocks.length)
+})
+
+test('Find building stocks', () => {
+  const query = {
+    climate_zone_prefix: ['2', 3]
+  }
+  expect(ArrayHelpers.findAll(building_stocks, query).length).toBe(building_stocks.length)
+})
+
