@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.7.14](https://github.com/igortrinidad/lazyfy/compare/v2.7.13...v2.7.14) (2022-11-16)
+
+
+### Tests (test:)
+
+* Added case tests in removeAll ([cfbc762](https://github.com/igortrinidad/lazyfy/commit/cfbc762d4aef58468b95f3e734d1f76e2e1e27e2))
+
+
+### Documentation (docs:)
+
+* Added readme content ([8b7cfed](https://github.com/igortrinidad/lazyfy/commit/8b7cfedd7b8b4e8694a2878024f4fe9b502bc166))
+
 ### [2.7.13](https://github.com/igortrinidad/lazyfy/compare/v2.7.12...v2.7.13) (2022-11-16)
 
 
