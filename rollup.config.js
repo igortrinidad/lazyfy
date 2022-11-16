@@ -24,14 +24,14 @@ export default [
     output: [
       {
         name: `lazyfy`,
-        file: pkg.browser,
+        file: 'dist/browser/lazyfy.js',
         format: "iife",
         sourcemap: "inline",
         banner,
       },
       {
         name: `lazyfy`,
-        file: pkg.browser.replace(".js", ".min.js"),
+        file: 'dist/browser/lazyfy.js'.replace(".js", ".min.js"),
         format: "iife",
         // sourcemap: "inline",
         banner,
