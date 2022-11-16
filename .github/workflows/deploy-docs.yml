@@ -27,5 +27,9 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/.vitepress/dist
 
+      - name: GitHub Pages Deployment
+        id: deployment
+        uses: actions/deploy-pages@v1
 
-          
+
+    
