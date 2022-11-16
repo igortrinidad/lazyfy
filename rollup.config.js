@@ -39,7 +39,7 @@ export default [
       },
     ],
     plugins: [
-      pluginTypescript({ compilerOptions: { module: 'esnext', target: 'esnext' }}),
+      pluginTypescript({ compilerOptions: { module: 'es6', target: 'es6' }}),
       pluginCommonjs({
         extensions: [".js", ".ts"],
       }),

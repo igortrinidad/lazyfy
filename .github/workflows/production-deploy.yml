@@ -1,5 +1,5 @@
 
-name: Build, release version and changelog and publish to NPM
+name: PROD Test, build, release version and publish to NPM
 
 on:
   push:
@@ -17,15 +17,15 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.14.2'
+          node-version: '16.18.1'
           registry-url: 'https://registry.npmjs.org'
           scope: '@igortrindade'
           always-auth: true
       - run: git config --global user.email "igortrindademe@gmail.com"
       - run: git config --global user.name "Igor Trindade"
-      - run: pwd && npm ci
+      - run: npm ci
       - run: npm run test
-      - run: npm run generate-types
+      - run: npm run build
       - run: npm run release --commit-all
       - run: git push --follow-tags origin ${{ github.ref_name }}
       - run: npm publish --access public --tolerate-republish
