@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.8.0](https://github.com/igortrinidad/lazyfy/compare/v2.7.23...v2.8.0) (2022-11-16)
+
+
+### Features (feat:)
+
+* Added pr-test workflow and organizing deploys workflows ([23d0d1d](https://github.com/igortrinidad/lazyfy/commit/23d0d1d1eeced518ecfa5e1bd40cba4dd2338a95))
+
 ### [2.7.23](https://github.com/igortrinidad/lazyfy/compare/v2.7.22...v2.7.23) (2022-11-16)
 
 
