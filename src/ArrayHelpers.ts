@@ -112,3 +112,18 @@ export const compareArray = (arrFrom: any[], arrToCompare: any[], key: string = 
   }
   return true
 }
+
+export default {
+  findByObj,
+  findByString,
+  find,
+  findIndex,
+  findAll,
+  removeAll,
+  remove,
+  uniqueByKey,
+  objArrayToCsv,
+  toggleInArray,
+  compareArray
+}
+

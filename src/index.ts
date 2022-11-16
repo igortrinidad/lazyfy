@@ -1,6 +1,5 @@
+
 export * from './ArrayHelpers'
-import * as ArrayHelpersVars from './ArrayHelpers'
-export const ArrayHelpers = ArrayHelpersVars
 
 export * from './ObjectHelpers'
 import * as ObjectHelpersVars from './ObjectHelpers'

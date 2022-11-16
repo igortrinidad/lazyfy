@@ -2,9 +2,7 @@
   "extends": "./tsconfig",
   "compilerOptions": {
     "outDir": "dist/module",
-
-    "target": "es6",
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "target": "es5",
+    "module": "CommonJS",
   }
 }
