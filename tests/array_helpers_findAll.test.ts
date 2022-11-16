@@ -13,6 +13,10 @@ test('Find all items that match based obj query', () => {
   expect(ArrayHelpers.findAll(books, { category: ['programming', 'Self help'] }).length).toBe(3)
 })
 
+test('Find all empty array', () => {
+  expect(ArrayHelpers.findAll(books, { category: [] }).length).toBe(3)
+})
+
 test('Find all items that match based obj query', () => {
   expect(ArrayHelpers.findAll(books, { category: ['programming', 'Self help'] }).length).toBe(3)
 })

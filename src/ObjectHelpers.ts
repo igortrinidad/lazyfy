@@ -11,6 +11,7 @@ export const checkObjMatch = (item: any, query: any): any => {
   const diffKeys = Object.keys(query).filter((key) => {
     const attrQuery = typeof(item[key]) === 'string' ? item[key].toLowerCase() : item[key]
     if(Array.isArray(query[key])) {
+      if(!query[key].length) return false
       return !remapArrayToLowerCaseIfString(query[key]).includes(attrQuery)
     }
     return !checkIsEqual(attrQuery, query[key])
