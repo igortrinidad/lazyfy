@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-  import { StringHelpers } from '../../src'
+  import { ArrayHelpers, StringHelpers } from '../../src'
   import {  ref, onMounted } from 'vue'
   import { EditorState } from "@codemirror/state"
   import { EditorView, keymap, lineNumbers, gutter } from "@codemirror/view"
@@ -80,6 +80,13 @@
 
   const highlightCode = (result) => {
     resultCode.value = result
+  }
+
+  const guaranteeDependencies = () => {
+    return {
+      ArrayHelpers,
+      StringHelpers
+    }
   }
 
 </script>
