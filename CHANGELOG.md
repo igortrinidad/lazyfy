@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.8.1](https://github.com/igortrinidad/lazyfy/compare/v2.8.0...v2.8.1) (2022-11-16)
+
+### [1.4.1](https://github.com/igortrinidad/lazyfy/compare/v2.2.4...v1.4.1) (2022-11-15)
+
+
+### Routine tasks (chore:)
+
+* **release:** 1.4.1 ([8081d7c](https://github.com/igortrinidad/lazyfy/commit/8081d7ca4030bf020e290e318f6d99e91111f8a2))
+
 ## [2.8.0](https://github.com/igortrinidad/lazyfy/compare/v2.7.23...v2.8.0) (2022-11-16)
 
 
