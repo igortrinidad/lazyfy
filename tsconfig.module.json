@@ -1,8 +1,8 @@
 {
   "extends": "./tsconfig",
   "compilerOptions": {
+    "target": "esnext",
     "outDir": "dist/module",
-    "target": "es5",
-    "module": "CommonJS",
+    "module": "esnext"
   }
 }
