@@ -53,7 +53,7 @@ export const removeAll = (arr: any[], query: any): any[] => {
     const itemToMatch = typeof(item) === 'string' ? item.toLowerCase() : item
     if(typeof(query) === 'string') return !checkIsEqual(item, query)
     if(Array.isArray(query)) return remapArrayToLowerCaseIfString(query).includes(itemToMatch) ? false : true
-    return checkObjMatch(item, query) ? false : true
+    return checkObjMatch(item, query, true) ? false : true
   })
 }
 

@@ -30,3 +30,8 @@ test('Remove all items that match based array string query', () => {
   expect(ArrayHelpers.removeAll(fruits, ['lemon']).length).toBe(3)
   expect(fruits.length).toBe(3)
 })
+
+test('Ignore empty array in object query', () => {
+  expect(ArrayHelpers.removeAll(books, { id: [] }).length).toBe(3)
+  expect(books.length).toBe(3)
+})
