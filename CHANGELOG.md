@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.8.5](https://github.com/igortrinidad/lazyfy/compare/v2.8.4...v2.8.5) (2022-11-22)
+
+
+### Tests (test:)
+
+* Test gh deployment ([6b191f8](https://github.com/igortrinidad/lazyfy/commit/6b191f81c1242646cd781babc08339b67f4144d2))
+* Testing deploy gh envronment ([c033bc8](https://github.com/igortrinidad/lazyfy/commit/c033bc8f27b36e88e48509664a42f507b35e4e17))
+
+
+### Bug Fixes (fix:)
+
+* Finished github deployments ([da09eca](https://github.com/igortrinidad/lazyfy/commit/da09eca3e7c6c6ce37da5fada7cb27d82bdcf82f))
+* Fixed empty array in removeAll query ([ee36c12](https://github.com/igortrinidad/lazyfy/commit/ee36c127537c49f93d7fbc4aa7fa7c04fdd2dc8c))
+* Minor fix [skip ci] ([3fe0f2f](https://github.com/igortrinidad/lazyfy/commit/3fe0f2f725fc94b4696b807fc7dcef79fa3436fd))
+
 ### [2.8.4](https://github.com/igortrinidad/lazyfy/compare/v2.8.3...v2.8.4) (2022-11-16)
 
 
