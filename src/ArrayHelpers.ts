@@ -37,23 +37,23 @@ export const findIndex = (arr: any[], query: any): number => {
   return findedByString !== false ? arr.indexOf(findedByString) : -1  
 }
 
-export const findAll = (arr: any[], query: any): any[] => {
+export const findAll = (arr: any[], query: any, ignoreEmptyArray: boolean = true): any[] => {
   if (!query) return arr
   return arr.filter((item) => {
     const itemToMatch = typeof(item) === 'string' ? item.toLowerCase() : item
     if(typeof(query) == 'string') return checkIsEqual(item, query)
     if(Array.isArray(query)) return remapArrayToLowerCaseIfString(query).includes(itemToMatch) ? true : false
-    return checkObjMatch(item, query) ? true : false
+    return checkObjMatch(item, query, !ignoreEmptyArray) ? true : false
   })
 }
 
-export const removeAll = (arr: any[], query: any): any[] => {
+export const removeAll = (arr: any[], query: any, ignoreEmptyArray: boolean = true): any[] => {
   if (!query) return arr
   return arr.filter((item) => {
     const itemToMatch = typeof(item) === 'string' ? item.toLowerCase() : item
     if(typeof(query) === 'string') return !checkIsEqual(item, query)
     if(Array.isArray(query)) return remapArrayToLowerCaseIfString(query).includes(itemToMatch) ? false : true
-    return checkObjMatch(item, query, true) ? false : true
+    return checkObjMatch(item, query, ignoreEmptyArray) ? false : true
   })
 }
 

@@ -7,11 +7,11 @@ export const filterObjectKeys = (allowed: any[], object: any): any => {
   }, {})
 }
 
-export const checkObjMatch = (item: any, query: any, arrayEmptyDefaultValue: boolean = false): any => {
+export const checkObjMatch = (item: any, query: any, ignoreEmptyArray: boolean = false): any => {
   const diffKeys = Object.keys(query).filter((key) => {
     let attrQuery = lowerCaseAndStringifyIfNumber(item[key])
     if(Array.isArray(query[key])) {
-      if(!query[key].length) return arrayEmptyDefaultValue
+      if(!query[key].length) return ignoreEmptyArray
       return !remapArrayToLowerCaseIfString(query[key]).includes(attrQuery)
     }
     return !checkIsEqual(attrQuery, query[key])

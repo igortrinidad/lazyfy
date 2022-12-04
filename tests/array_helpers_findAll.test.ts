@@ -55,3 +55,11 @@ test('Find building stocks', () => {
   expect(ArrayHelpers.findAll(building_stocks, query).length).toBe(building_stocks.length)
 })
 
+test('Ignore empty arrays true', () => {
+  expect(ArrayHelpers.findAll(building_stocks, { climate_zone_prefix: [] }, false).length).toBe(0)
+})
+
+test('Dont ignore empty arrays true', () => {
+  expect(ArrayHelpers.findAll(building_stocks, { climate_zone_prefix: [] }, true).length).toBe(4)
+})
+
