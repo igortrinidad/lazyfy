@@ -13,10 +13,6 @@ test('Find all items that match based obj query', () => {
   expect(ArrayHelpers.findAll(books, { category: ['programming', 'Self help'] }).length).toBe(3)
 })
 
-test('Find all empty array', () => {
-  expect(ArrayHelpers.findAll(books, { category: [] }).length).toBe(3)
-})
-
 test('Find all items that match based obj query', () => {
   expect(ArrayHelpers.findAll(books, { category: ['programming', 'Self help'] }).length).toBe(3)
 })
@@ -41,6 +37,10 @@ test('Find zero item that matches the query', () => {
   expect(ArrayHelpers.findAll(fruits, ['lemon']).length).toBe(0)
 })
 
+test('Find all empty array', () => {
+  expect(ArrayHelpers.findAll(books, { category: [] }).length).toBe(0)
+})
+
 test('Find building stocks', () => {
   const query = {
     climate_zone_prefix: [2, 3]
@@ -53,6 +53,10 @@ test('Find building stocks', () => {
     climate_zone_prefix: ['2', 3]
   }
   expect(ArrayHelpers.findAll(building_stocks, query).length).toBe(building_stocks.length)
+})
+
+test('Ignore empty arrays true', () => {
+  expect(ArrayHelpers.findAll(building_stocks, { climate_zone_prefix: [] }).length).toBe(0)
 })
 
 test('Ignore empty arrays true', () => {

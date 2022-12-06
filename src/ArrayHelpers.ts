@@ -37,7 +37,7 @@ export const findIndex = (arr: any[], query: any): number => {
   return findedByString !== false ? arr.indexOf(findedByString) : -1  
 }
 
-export const findAll = (arr: any[], query: any, ignoreEmptyArray: boolean = true): any[] => {
+export const findAll = (arr: any[], query: any, ignoreEmptyArray: boolean = false): any[] => {
   if (!query) return arr
   return arr.filter((item) => {
     const itemToMatch = typeof(item) === 'string' ? item.toLowerCase() : item
