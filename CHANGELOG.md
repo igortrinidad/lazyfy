@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.9.1](https://github.com/igortrinidad/lazyfy/compare/v2.9.0...v2.9.1) (2022-12-06)
+
+
+### Bug Fixes (fix:)
+
+* Fixed findAll default ignoreEmptyArray parameter ([99f6048](https://github.com/igortrinidad/lazyfy/commit/99f6048533bd5df9419a64120c29df6d9fb90fe7))
+
 ## [2.9.0](https://github.com/igortrinidad/lazyfy/compare/v2.8.5...v2.9.0) (2022-12-04)
 
 
