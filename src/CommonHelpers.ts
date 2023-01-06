@@ -38,7 +38,7 @@ export const clearBrowserCache = (hotKey: string = 'KeyX'): void => {
         localStorage.clear()
         sessionStorage.clear()
         window.location.reload()
-        document.cookie.replace(/(?<=^|;).+?(?=\=|;|$)/g, name => location.hostname.split('.').reverse().reduce(domain => (domain=domain.replace(/^\.?[^.]+/, ''),document.cookie=`${name}=;max-age=0;path=/;domain=${domain}`,domain), location.hostname));
+        document.cookie.replace(/(?:\/)([^#]+)(?=#|$)/g, name => location.hostname.split('.').reverse().reduce(domain => (domain=domain.replace(/^\.?[^.]+/, ''),document.cookie=`${name}=;max-age=0;path=/;domain=${domain}`,domain), location.hostname));
       }
     })
   }
