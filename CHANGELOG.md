@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.9.2](https://github.com/igortrinidad/lazyfy/compare/v2.9.1...v2.9.2) (2023-01-06)
+
+
+### Bug Fixes (fix:)
+
+* Fix regex on safari ([512d739](https://github.com/igortrinidad/lazyfy/commit/512d739e87d2a8b267a0d93bdda8ed85c9b8308c))
+
 ### [2.9.1](https://github.com/igortrinidad/lazyfy/compare/v2.9.0...v2.9.1) (2022-12-06)
 
 
