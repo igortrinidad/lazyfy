@@ -12,3 +12,5 @@ export * from './NumberFormat'
 export * from './SiteMapGenerator'
 
 export * from './StringHelpers'
+
+export * from './RegexHelpers'
