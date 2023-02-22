@@ -12,7 +12,12 @@ export const randomString = (length: number): string => {
   return result
 }
 
+export const joinCommaPlusAnd = (a: Array<any>, unifierString = ' and ') => {
+  return [a.slice(0, -1).join(', '), a.slice(-1)[0]].join(a.length < 2 ? '' : unifierString)
+}
+
 export const StringHelpers = {
   titleCaseString,
-  randomString
+  randomString,
+  joinCommaPlusAnd
 }
