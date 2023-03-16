@@ -29,15 +29,32 @@ export const getLetterByNumber = (number: number): string => {
   return string[number]
 }
 
+export const removeAllCookies = (): void => {
+  if(document) {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i];
+      const eqPos = cookie.indexOf('=');
+      const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+      const path = '/';
+      document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=' + path;
+    }
+  }
+}
 
-export const clearBrowserCache = (hotKey: string = 'KeyX', cb: Function | null = null): void => {
+
+export const clearBrowserCache = (hotKey: string = 'KeyX', removeCookies: boolean = true, cb: Function | null = null): void => {
   if(document) {
     document.addEventListener("keydown", function(event) {
       if (event.altKey && event.code === hotKey) {
         event.preventDefault()
         localStorage.clear()
         sessionStorage.clear()
-        document.cookie.replace(/(?:\/)([^#]+)(?=#|$)/g, name => location.hostname.split('.').reverse().reduce(domain => (domain=domain.replace(/^\.?[^.]+/, ''),document.cookie=`${name}=;max-age=0;path=/;domain=${domain}`,domain), location.hostname));
+
+        if(removeCookies) {
+          removeAllCookies()
+        }
+
         if(cb) {
           cb()
         } else {
