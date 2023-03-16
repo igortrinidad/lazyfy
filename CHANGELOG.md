@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.13.0](https://github.com/igortrinidad/lazyfy/compare/v2.12.1...v2.13.0) (2023-03-16)
+
+
+### Features (feat:)
+
+* clearBrowserCache cb cache update ([e0b0504](https://github.com/igortrinidad/lazyfy/commit/e0b0504fe3d4228b683e23e7eea09c361b09d1d8))
+
 ### [2.12.1](https://github.com/igortrinidad/lazyfy/compare/v2.12.0...v2.12.1) (2023-03-16)
 
 
