@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.15.0](https://github.com/igortrinidad/lazyfy/compare/v2.14.0...v2.15.0) (2023-03-16)
+
+
+### Features (feat:)
+
+* clearBrowserCache added parameter to remove all cookies ([f52ec8d](https://github.com/igortrinidad/lazyfy/commit/f52ec8d431e3b35fed2485bf3c169a39aa3c24d5))
+
 ## [2.14.0](https://github.com/igortrinidad/lazyfy/compare/v2.13.0...v2.14.0) (2023-03-16)
 
 
