@@ -30,17 +30,18 @@ export const getLetterByNumber = (number: number): string => {
 }
 
 
-export const clearBrowserCache = (hotKey: string = 'KeyX', cb: Function = null): void => {
+export const clearBrowserCache = ({ hotKey = 'KeyX', cb = null }: { hotKey: string, cb: Function }): void => {
   if(document) {
     document.addEventListener("keydown", function(event) {
       if (event.altKey && event.code === hotKey) {
         event.preventDefault()
         localStorage.clear()
         sessionStorage.clear()
-        window.location.reload()
         document.cookie.replace(/(?:\/)([^#]+)(?=#|$)/g, name => location.hostname.split('.').reverse().reduce(domain => (domain=domain.replace(/^\.?[^.]+/, ''),document.cookie=`${name}=;max-age=0;path=/;domain=${domain}`,domain), location.hostname));
         if(cb) {
           cb()
+        } else {
+          window.location.reload()
         }
       }
     })
