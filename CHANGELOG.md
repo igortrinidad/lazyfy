@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.12.0](https://github.com/igortrinidad/lazyfy/compare/v2.11.0...v2.12.0) (2023-03-16)
+
+
+### Features (feat:)
+
+* Added callback to clearBrowserCache event listener ([09df021](https://github.com/igortrinidad/lazyfy/commit/09df021ed74e6008f6eb1ef17a588829887ba803))
+
 ## [2.11.0](https://github.com/igortrinidad/lazyfy/compare/v2.10.0...v2.11.0) (2023-02-22)
 
 
