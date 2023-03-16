@@ -30,7 +30,7 @@ export const getLetterByNumber = (number: number): string => {
 }
 
 
-export const clearBrowserCache = ({ hotKey = 'KeyX', cb = null }: { hotKey: string, cb: Function }): void => {
+export const clearBrowserCache = (hotKey: string = 'KeyX', cb: Function | null = null): void => {
   if(document) {
     document.addEventListener("keydown", function(event) {
       if (event.altKey && event.code === hotKey) {
