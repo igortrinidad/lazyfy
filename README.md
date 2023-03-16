@@ -61,3 +61,4 @@ Feel free to contact me:
 
 Copyright © 2022 [Igor Trindade](https://github.com/igortrinidad).  
 This project is under [MIT](https://github.com/igortrinidad/lazyfy/blob/main/LICENCE) license.
+
