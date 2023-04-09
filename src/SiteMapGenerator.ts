@@ -89,7 +89,7 @@ export class SiteMapGenerator {
           `}
         </url>
         `
-      })}
+      }).join('')}
       ${this.end}
     `
   }
