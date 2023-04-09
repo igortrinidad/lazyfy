@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.15.3](https://github.com/igortrinidad/lazyfy/compare/v2.15.2...v2.15.3) (2023-04-09)
+
+
+### Bug Fixes (fix:)
+
+* Added xml stylesheet parameter ([5372e58](https://github.com/igortrinidad/lazyfy/commit/5372e58e19ff1c5f1c3df8c59df585bdaad3fd49))
+
 ### [2.15.2](https://github.com/igortrinidad/lazyfy/compare/v2.15.1...v2.15.2) (2023-04-09)
 
 
