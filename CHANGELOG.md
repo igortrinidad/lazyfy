@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.15.4](https://github.com/igortrinidad/lazyfy/compare/v2.15.3...v2.15.4) (2023-04-09)
+
+
+### Bug Fixes (fix:)
+
+* Fixed sitemap xml identation and removed jquery from xml stylesheet example ([7d2cfe1](https://github.com/igortrinidad/lazyfy/commit/7d2cfe16bd497a0954a1de1e54a02864e36bef04))
+
 ### [2.15.3](https://github.com/igortrinidad/lazyfy/compare/v2.15.2...v2.15.3) (2023-04-09)
 
 
