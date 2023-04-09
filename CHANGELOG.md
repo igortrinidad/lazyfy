@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.15.1](https://github.com/igortrinidad/lazyfy/compare/v2.15.0...v2.15.1) (2023-04-09)
+
+
+### Bug Fixes (fix:)
+
+* Added default params to sitemap generator ([3bd66f8](https://github.com/igortrinidad/lazyfy/commit/3bd66f8446f93644bdcce8e6e98d4d798d0878c8))
+
 ## [2.15.0](https://github.com/igortrinidad/lazyfy/compare/v2.14.0...v2.15.0) (2023-03-16)
 
 
