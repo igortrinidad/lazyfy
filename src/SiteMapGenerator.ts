@@ -43,28 +43,33 @@ export class SiteMapGenerator {
 
   baseUrl: string = ''
   items: UrlItem[] = []
+  xmlStylesheetPath: string = ''
 
   constructor(baseUrl: string) {
     this.baseUrl = baseUrl
     this.items = []
   }
 
-  get init () {
+  private get init () {
     return `
-      <?xml-stylesheet href="/assets/xml_stylesheet.xsl" type="text/xsl"?>
+      ${ this.xmlStylesheetPath ? `<?xml-stylesheet href="${ this.xmlStylesheetPath }" type="text/xsl"?>` : '' }
       <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
     `
   }
 
-  get end () {
+  private get end () {
     return `</urlset>`
   }
 
-  addItem(urlItem: UrlItemInterface): void {
+  public setXmlStyleSheetPath(path: string) {
+    this.xmlStylesheetPath = path
+  }
+
+  public addItem(urlItem: UrlItemInterface): void {
     this.items.push(new UrlItem(urlItem))
   }
 
-  generate(): string{
+  public generate(): string{
     return `
       ${this.init}
       ${this.items.map((item) => {
@@ -88,5 +93,6 @@ export class SiteMapGenerator {
       ${this.end}
     `
   }
+
 }
 
