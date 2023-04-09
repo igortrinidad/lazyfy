@@ -24,11 +24,12 @@ export class UrlItem {
   image?: UrlImage = null
 
   constructor(urlItem: UrlItemInterface){
+    if(!urlItem.url) throw new Error('Url is required')
     this.url = this.removeFirstSlashFromUrl(urlItem.url)
-    this.lastModified = urlItem.lastModified
-    this.changeFreq = urlItem.changeFreq
-    this.priority = urlItem.priority
-    this.image = urlItem.image
+    if(urlItem.lastModified ) this.lastModified = urlItem.lastModified
+    if(urlItem.changeFreq ) this.changeFreq = urlItem.changeFreq
+    if(urlItem.priority ) this.priority = urlItem.priority
+    if(urlItem.image ) this.image = urlItem.image
   }
 
   removeFirstSlashFromUrl(url: string) {
