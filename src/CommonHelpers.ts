@@ -42,7 +42,7 @@ export const removeAllCookies = (): void => {
   }
 }
 
-export const clearBrowseCache = (removeCookies: boolean = true) => {
+export const clearBrowserCache = (removeCookies: boolean = true) => {
   localStorage.clear()
   sessionStorage.clear()
   if(removeCookies) {
@@ -56,7 +56,7 @@ export const clearBrowserCacheListener = (hotKey: string = 'KeyX', removeCookies
     document.addEventListener("keydown", function(event) {
       if (event.altKey && event.code === hotKey) {
         event.preventDefault()
-        clearBrowseCache(removeCookies)
+        clearBrowserCache(removeCookies)
         if(cb) {
           cb()
         } else {
@@ -71,7 +71,7 @@ export const CommonHelpers = {
   downloadRawData,
   copyToClipboard,
   getLetterByNumber,
-  clearBrowseCache,
+  clearBrowserCache,
   clearBrowserCacheListener,
   removeAllCookies
 }
