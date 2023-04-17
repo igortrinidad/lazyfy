@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.15.5](https://github.com/igortrinidad/lazyfy/compare/v2.15.4...v2.15.5) (2023-04-17)
+
+
+### Bug Fixes (fix:)
+
+* Extracted clearBrowseCache and clearBrowserCacheListener to be used standalone ([f824197](https://github.com/igortrinidad/lazyfy/commit/f824197ef6d67bccc79c1f2eb71da2462165a8fa))
+
 ### [2.15.4](https://github.com/igortrinidad/lazyfy/compare/v2.15.3...v2.15.4) (2023-04-09)
 
 
