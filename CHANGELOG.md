@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.15.7](https://github.com/igortrinidad/lazyfy/compare/v2.15.6...v2.15.7) (2024-03-15)
+
+
+### Routine tasks (chore:)
+
+* Adding some tests cases for NumberFormat.unformatNumber ([9ad2a94](https://github.com/igortrinidad/lazyfy/commit/9ad2a94aa0f532060515ba46704d5677eaf6da5e))
+
 ### [2.15.6](https://github.com/igortrinidad/lazyfy/compare/v2.15.5...v2.15.6) (2023-04-17)
 
 
