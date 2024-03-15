@@ -10,6 +10,8 @@ test('Format a given number as default options', () => {
   expect(NumberFormat.unformatNumber('1.230,66')).toEqual(1230.66)
   expect(NumberFormat.unformatNumber('1.985,00')).toEqual(1985)
   expect(NumberFormat.unformatNumber('1.985,00')).toEqual(1985.00)
+  expect(NumberFormat.unformatNumber('$200,00')).toEqual(200)
+  expect(NumberFormat.unformatNumber('$200,00', { precision: 0 })).toEqual(20000)
 })
 
 test('Format a given number as default options', () => {
