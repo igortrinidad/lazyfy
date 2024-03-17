@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.16.0](https://github.com/igortrinidad/lazyfy/compare/v2.15.7...v2.16.0) (2024-03-17)
+
+
+### Features (feat:)
+
+* Accept negative on NumberFormat ([805ea49](https://github.com/igortrinidad/lazyfy/commit/805ea49dfbff917921f2fb0d9fd958d29c309d10))
+
 ### [2.15.7](https://github.com/igortrinidad/lazyfy/compare/v2.15.6...v2.15.7) (2024-03-15)
 
 
