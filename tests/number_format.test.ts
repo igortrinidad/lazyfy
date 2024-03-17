@@ -3,6 +3,8 @@ import { NumberFormat } from '../src'
 test('Format a given number as default options', () => {
   expect(NumberFormat.formatNumber(123.45)).toEqual('US$ 123.45')
   expect(NumberFormat.formatNumber(100123.45)).toEqual('US$ 100,123.45')
+  expect(NumberFormat.formatNumber(100.45)).toEqual('US$ 100.45')
+  expect(NumberFormat.formatNumber(-100.45, { acceptNegative: true })).toEqual('-US$ 100.45')
 })
 
 test('Format a given number as default options', () => {

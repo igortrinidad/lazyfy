@@ -25,7 +25,7 @@ export const formatNumber = (input: string | number | null = '0', opt: Partial<N
   } else {
     inputInString = ''
   }
-  
+
 
   const minusSymbol = isNegative(inputInString, mergedOptions.acceptNegative)  ? '-' : ''
   const numbers = inputOnlyNumbers(inputInString.toString())
@@ -86,7 +86,7 @@ function isNegative(string: number | string, acceptNegative = true) {
 
   const value = string.toString();
   const isNegative = (value.startsWith('-') || value.endsWith('-'))
-  const forcePositive = value.indexOf('+')
+  const forcePositive = value.indexOf('+') > 0
 
   return isNegative && !forcePositive
 }
