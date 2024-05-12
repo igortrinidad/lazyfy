@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.17.0](https://github.com/igortrinidad/lazyfy/compare/v2.16.0...v2.17.0) (2024-05-12)
+
+
+### Routine tasks (chore:)
+
+* Update TypeScript dependency to version 4.9.5 ([b77ef0f](https://github.com/igortrinidad/lazyfy/commit/b77ef0fb8bed3d90d66ab0c5ff2f70f1b73f3d96))
+
+
+### Features (feat:)
+
+* Add shuffle function to ArrayHelpers ([5583078](https://github.com/igortrinidad/lazyfy/commit/558307836e50b9f06385975f72d230e1c4769b45))
+
 ## [2.16.0](https://github.com/igortrinidad/lazyfy/compare/v2.15.7...v2.16.0) (2024-03-17)
 
 
