@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.18.1](https://github.com/igortrinidad/lazyfy/compare/v2.18.0...v2.18.1) (2024-07-12)
+
+
+### Routine tasks (chore:)
+
+* Remove empty line in number_format.test.ts ([08528fd](https://github.com/igortrinidad/lazyfy/commit/08528fd5f93c1fee8f57e6d1c246868bd498e3b1))
+
 ## [2.18.0](https://github.com/igortrinidad/lazyfy/compare/v2.17.0...v2.18.0) (2024-07-12)
 
 
