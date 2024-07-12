@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.18.0](https://github.com/igortrinidad/lazyfy/compare/v2.17.0...v2.18.0) (2024-07-12)
+
+
+### Features (feat:)
+
+* Added getRandomElement to ArrayHelpers ([68f4c0b](https://github.com/igortrinidad/lazyfy/commit/68f4c0bf579bfef7807ae1c48dbf81195a202fa6))
+
 ## [2.17.0](https://github.com/igortrinidad/lazyfy/compare/v2.16.0...v2.17.0) (2024-05-12)
 
 
