@@ -121,6 +121,8 @@ export const shuffle = (array: any[]) => {
   return array
 }
 
+export const getRandomElement = (list: any[]): any => list[Math.floor(Math.random() * list.length)]
+
 export const ArrayHelpers = {
   findByObj,
   findByString,
@@ -133,6 +135,7 @@ export const ArrayHelpers = {
   objArrayToCsv,
   toggleInArray,
   compareArray,
-  shuffle
+  shuffle,
+  getRandomElement
 }
 

@@ -27,4 +27,8 @@ test('Test rouding', () => {
   expect(NumberFormat.formatNumber(123.59, { prefix: '', suffix: ' GB', precision: 0 })).toEqual('124 GB')
 })
 
+test('Test NaN fix', () => {
+  expect(NumberFormat.formatNumber('asdasd', { prefix: '', suffix: '', precision: 0, isInteger: true, acceptNegative: false, thousand: '', decimal: '' })).toEqual('NaN')
+})
+
 
