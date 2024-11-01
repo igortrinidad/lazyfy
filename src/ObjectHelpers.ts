@@ -118,6 +118,52 @@ export const setNestedObjectByKey = (obj: any, key: string, value: any, allowNon
   return obj
 }
 
+export const deleteNestedObjectByKey = (obj: any, key: string): any => {
+  const keys = key.split('.')
+
+  keys.reduce((acc, k, index) => {
+    const arrayMatch = k.match(/^([^\[]+)\[(\d+)\]$/)
+
+    if (arrayMatch) {
+      const arrayKey = arrayMatch[1]
+      const arrayIndex = parseInt(arrayMatch[2], 10)
+
+      if (!Array.isArray(acc[arrayKey])) {
+        throw new TypeError(`Cannot delete property '${arrayKey}[${arrayIndex}]' on non-array type at path '${keys.slice(0, index + 1).join('.')}'`)
+      }
+
+      if (index === keys.length - 1) {
+        // Last element in path: delete array item
+        if (arrayIndex >= acc[arrayKey].length) {
+          throw new RangeError(`Array '${arrayKey}' does not have index ${arrayIndex} at path '${keys.slice(0, index + 1).join('.')}'`)
+        }
+        acc[arrayKey].splice(arrayIndex, 1)
+      } else {
+        acc = acc[arrayKey][arrayIndex]
+      }
+    } else {
+      if (index === keys.length - 1) {
+        // Last element in path: delete object key
+        if (acc && acc.hasOwnProperty(k)) {
+          delete acc[k]
+        } else {
+          throw new Error(`Cannot delete non-existent property '${k}' at path '${keys.slice(0, index + 1).join('.')}'`)
+        }
+      } else {
+        // Traverse the object, ensuring we don't try to access a non-object
+        if (!acc[k] || typeof acc[k] !== 'object') {
+          throw new TypeError(`Cannot delete property '${k}' on non-object type at path '${keys.slice(0, index + 1).join('.')}'`)
+        }
+        acc = acc[k]
+      }
+    }
+
+    return acc
+  }, obj)
+
+  return obj
+}
+
 export const ObjectHelpers = {
   filterObjectKeys,
   checkObjMatch,
@@ -126,5 +172,6 @@ export const ObjectHelpers = {
   defineProperty,
   isObject,
   deepMergeObject,
-  setNestedObjectByKey
+  setNestedObjectByKey,
+  deleteNestedObjectByKey
 }
