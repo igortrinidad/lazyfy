@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.19.0](https://github.com/igortrinidad/lazyfy/compare/v2.18.1...v2.19.0) (2024-11-01)
+
+
+### Features (feat:)
+
+* Added method setNestedObjectByKey ([41b7e1a](https://github.com/igortrinidad/lazyfy/commit/41b7e1af00a11be63058e2470db0926f1a128e98))
+
 ### [2.18.1](https://github.com/igortrinidad/lazyfy/compare/v2.18.0...v2.18.1) (2024-07-12)
 
 
