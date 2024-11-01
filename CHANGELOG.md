@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.22.0](https://github.com/igortrinidad/lazyfy/compare/v2.21.0...v2.22.0) (2024-11-01)
+
+
+### Features (feat:)
+
+* Added ObjectHelpers deleteNestedObjectByKey ([34db39a](https://github.com/igortrinidad/lazyfy/commit/34db39ac7bec0504b468a927328046879f9ca318))
+* Updating check string is similar methods ([6828e66](https://github.com/igortrinidad/lazyfy/commit/6828e662cde896e4b4aa270067e5ceb65f599a69))
+
 ## [2.21.0](https://github.com/igortrinidad/lazyfy/compare/v2.20.0...v2.21.0) (2024-11-01)
 
 
