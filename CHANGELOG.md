@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.21.0](https://github.com/igortrinidad/lazyfy/compare/v2.20.0...v2.21.0) (2024-11-01)
+
+
+### Features (feat:)
+
+* Added StringHelpers findSimilarStrings ([b6d5032](https://github.com/igortrinidad/lazyfy/commit/b6d5032c757cc828dda8023804747d687b28a1c9))
+
 ## [2.20.0](https://github.com/igortrinidad/lazyfy/compare/v2.19.0...v2.20.0) (2024-11-01)
 
 
