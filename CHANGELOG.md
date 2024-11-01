@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.20.0](https://github.com/igortrinidad/lazyfy/compare/v2.19.0...v2.20.0) (2024-11-01)
+
+
+### Features (feat:)
+
+* Allowing set array index in setNestedObjectByKey ([aa60cdf](https://github.com/igortrinidad/lazyfy/commit/aa60cdf2012b3503be168245ed0ec24134711249))
+
 ## [2.19.0](https://github.com/igortrinidad/lazyfy/compare/v2.18.1...v2.19.0) (2024-11-01)
 
 
