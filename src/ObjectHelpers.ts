@@ -76,6 +76,24 @@ export const deepMergeObject = (target: any, ...sources: any): any => {
   return deepMergeObject(target, ...sources);
 }
 
+export const setNestedObjectByKey = (obj: any, key: string, value: any): any => {
+  key.split('.').reduce((acc, k, index, keys) => {
+    if (index === keys.length - 1) {
+      acc[k] = value
+    } else {
+      // Throw an error if acc[k] exists but is not an object
+      if (acc[k] !== undefined && (typeof acc[k] !== 'object' || acc[k] === null)) {
+        throw new TypeError(`Cannot set property '${k}' on non-object type (${typeof acc[k]}) at path '${keys.slice(0, index + 1).join('.')}'`)
+      }
+      // Initialize acc[k] if it’s undefined
+      acc[k] = acc[k] || {}
+    }
+    return acc[k]
+  }, obj)
+
+  return obj
+}
+
 export const ObjectHelpers = {
   filterObjectKeys,
   checkObjMatch,
@@ -83,5 +101,6 @@ export const ObjectHelpers = {
   initClassData,
   defineProperty,
   isObject,
-  deepMergeObject
+  deepMergeObject,
+  setNestedObjectByKey
 }
