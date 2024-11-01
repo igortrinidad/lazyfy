@@ -76,18 +76,42 @@ export const deepMergeObject = (target: any, ...sources: any): any => {
   return deepMergeObject(target, ...sources);
 }
 
-export const setNestedObjectByKey = (obj: any, key: string, value: any): any => {
+export const setNestedObjectByKey = (obj: any, key: string, value: any, allowNonExistingArrayIndex: boolean = false): any => {
   key.split('.').reduce((acc, k, index, keys) => {
+    const arrayMatch = k.match(/^([^\[]+)\[(\d+)\]$/)
+
+    if (arrayMatch) {
+      const arrayKey = arrayMatch[1]
+      const arrayIndex = parseInt(arrayMatch[2], 10)
+
+      if (!Array.isArray(acc[arrayKey])) {
+        if (acc[arrayKey] !== undefined && (typeof acc[arrayKey] !== 'object' || acc[arrayKey] === null)) {
+          throw new TypeError(`Cannot set property '${arrayKey}[${arrayIndex}]' on non-object type (${typeof acc[arrayKey]}) at path '${keys.slice(0, index + 1).join('.')}'`)
+        }
+        acc[arrayKey] = []
+      }
+
+      // Check if the array has the specified index
+      if (!allowNonExistingArrayIndex && arrayIndex >= acc[arrayKey].length) {
+        throw new RangeError(`Array '${arrayKey}' does not have index ${arrayIndex} at path '${keys.slice(0, index + 1).join('.')}'`)
+      }
+
+      // Set the current accumulator to the specified index in the array
+      acc = acc[arrayKey]
+      // @ts-ignore
+      k = arrayIndex
+    }
+
     if (index === keys.length - 1) {
       acc[k] = value
     } else {
-      // Throw an error if acc[k] exists but is not an object
+      // Throw an error if the current level is not an object
       if (acc[k] !== undefined && (typeof acc[k] !== 'object' || acc[k] === null)) {
         throw new TypeError(`Cannot set property '${k}' on non-object type (${typeof acc[k]}) at path '${keys.slice(0, index + 1).join('.')}'`)
       }
-      // Initialize acc[k] if it’s undefined
       acc[k] = acc[k] || {}
     }
+
     return acc[k]
   }, obj)
 
