@@ -46,15 +46,19 @@ function levenshtein(a: string, b: string) {
   return matrix[b.length][a.length]
 }
 
-export const checkStringSimilarity = (base: string, stringToCompare: string): number => {
+export const checkStringSimilarity = (base: string, stringToCompare: string, caseInsensitive: boolean = true): number => {
+  if(caseInsensitive) {
+    base = base.toLowerCase()
+    stringToCompare = stringToCompare.toLowerCase()
+  }
   const distance = levenshtein(base, stringToCompare)
   const maxLen = Math.max(base.length, stringToCompare.length)
   const similarity = 1 - distance / maxLen
   return similarity
 }
 
-export const checkStringIsSimilar = (base: string, stringToCompare: string, threshold: number = 0.8): boolean => {
-  return checkStringSimilarity(base, stringToCompare) >= threshold
+export const checkStringIsSimilar = (base: string, stringToCompare: string, threshold: number = 0.8, caseInsensitive: boolean = true): boolean => {
+  return checkStringSimilarity(base, stringToCompare, caseInsensitive) >= threshold
 }
 
 export const StringHelpers = {
