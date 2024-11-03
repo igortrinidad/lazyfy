@@ -1,4 +1,4 @@
-import { ObjectHelpers } from '../src'
+import { ObjectHelpers } from '../../src'
 
 const objFrom = {
   title: 'Some title'

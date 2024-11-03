@@ -1,4 +1,4 @@
-import { deleteNestedObjectByKey } from '../src/ObjectHelpers'
+import { deleteNestedObjectByKey } from '../../src'
 
 test('Deletes an array element by index', () => {
   const obj = {

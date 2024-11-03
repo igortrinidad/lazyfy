@@ -1,4 +1,4 @@
-import { NumberFormat } from '../src'
+import { NumberFormat } from '../../src'
 
 test('Format a given number as default options', () => {
   expect(NumberFormat.formatNumber(123.45)).toEqual('US$ 123.45')

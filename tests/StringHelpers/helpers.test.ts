@@ -1,5 +1,5 @@
-const StringHelpers = require('../src/StringHelpers')
-import { fruits } from './helpers/example_arrays'
+import { StringHelpers } from '../../src'
+import { fruits } from '../helpers/example_arrays'
 
 test('titleCaseString', () => {
   const firstName = 'Igor'

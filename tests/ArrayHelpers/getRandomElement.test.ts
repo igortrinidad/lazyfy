@@ -1,5 +1,5 @@
-import { ArrayHelpers } from '../src'
-import { books, fruits } from './helpers/example_arrays'
+import { ArrayHelpers } from '../../src'
+import { books, fruits } from '../helpers/example_arrays'
 
 test('Get random element from array string', () => {
   const rand = ArrayHelpers.getRandomElement(books)

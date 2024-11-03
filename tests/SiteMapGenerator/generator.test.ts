@@ -1,4 +1,4 @@
-import { SiteMapGenerator } from '../src'
+import { SiteMapGenerator } from '../../src'
 
 test('SiteMapGenerator', () => {
   const sitemap = new SiteMapGenerator('https://lazyfy.github.com')

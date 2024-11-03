@@ -1,5 +1,5 @@
-import { ArrayHelpers } from '../src'
-import { books } from './helpers/example_arrays'
+import { ArrayHelpers } from '../../src'
+import { books } from '../helpers/example_arrays'
 import fs from 'fs'
 import path from 'path'
 

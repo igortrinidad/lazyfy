@@ -8,6 +8,11 @@ export const books: BookInterface[] = [
   { id: '1', title: 'Clean Code', category: 'Programming' },
   { id: '2', title: 'Clean Archtecture', category: 'Programming' },
   { id: '3', title: 'How to become bilionaire writting js libraries', category: 'Self help' },
+  { id: '4', title: 'Refactor', category: 'Programming' },
+  { id: '5', title: 'The Pragmatic Programmer: Your Journey to Mastery', category: 'Programming' },
+  { id: '6', title: 'Design Patterns: Elements of Reusable Object-Oriented Software', category: 'Programming' },
+  { id: '7', title: 'Structure and Interpretation of Computer Programs', category: 'Programming' },
+  { id: '8', title: 'Scrum', category: 'Programming' },
 ]
 
 export const fruits: string[] = ['strawberry', 'watermelon', 'pineapple']

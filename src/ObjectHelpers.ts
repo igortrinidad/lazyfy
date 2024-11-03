@@ -76,6 +76,25 @@ export const deepMergeObject = (target: any, ...sources: any): any => {
   return deepMergeObject(target, ...sources);
 }
 
+export const getNestedObjectByKey = (obj: any, key: string = ''): any => {
+  return key.split('.').reduce((acc, k) => {
+    if (acc === undefined || acc === null) return undefined
+
+    const arrayMatch = k.match(/^([^\[]+)\[(\d+)\]$/)
+    if (arrayMatch) {
+      const arrayKey = arrayMatch[1]
+      const arrayIndex = parseInt(arrayMatch[2], 10)
+
+      if (!Array.isArray(acc[arrayKey]) || acc[arrayKey][arrayIndex] === undefined) {
+        return undefined
+      }
+      return acc[arrayKey][arrayIndex]
+    }
+
+    return acc[k]
+  }, obj)
+}
+
 export const setNestedObjectByKey = (obj: any, key: string, value: any, allowNonExistingArrayIndex: boolean = false): any => {
   key.split('.').reduce((acc, k, index, keys) => {
     const arrayMatch = k.match(/^([^\[]+)\[(\d+)\]$/)

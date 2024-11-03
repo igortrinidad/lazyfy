@@ -70,7 +70,7 @@
       }
     },
     "testMatch": [
-      "**/tests/*.test.ts"
+      "**/tests/**/*.test.ts"
     ]
   },
   "postcss": {

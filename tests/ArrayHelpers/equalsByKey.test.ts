@@ -1,5 +1,5 @@
-import { ArrayHelpers } from '../src'
-import { books, fruits } from './helpers/example_arrays'
+import { ArrayHelpers } from '../../src'
+import { books, fruits } from '../helpers/example_arrays'
 
 test('Returns false in different array length', () => {
   const duplicated = [ ...books, ...books ]

@@ -1,4 +1,4 @@
-import { StringHelpers } from '../src/StringHelpers'
+import { StringHelpers } from '../../src'
 
 test('Check string similarity', () => {
   expect(StringHelpers.checkStringSimilarity('hello', 'hallo')).toBe(0.8)

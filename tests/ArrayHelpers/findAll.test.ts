@@ -1,8 +1,11 @@
-import { ArrayHelpers } from '../src'
-import { books, fruits, building_stocks } from './helpers/example_arrays'
+import { ArrayHelpers } from '../../src'
+import { books, fruits, building_stocks } from '../helpers/example_arrays'
+
+const beforeBooksLength = books.length
+const beforeFruitsLength = fruits.length
 
 test('Find all items that match based obj query', () => {
-  expect(ArrayHelpers.findAll(books, { category: 'programming' }).length).toBe(2)
+  expect(ArrayHelpers.findAll(books, { category: 'programming' }).length).toBe(beforeBooksLength-1)
 })
 
 test('Find all items that match based obj query', () => {
@@ -10,11 +13,11 @@ test('Find all items that match based obj query', () => {
 })
 
 test('Find all items that match based obj query', () => {
-  expect(ArrayHelpers.findAll(books, { category: ['programming', 'Self help'] }).length).toBe(3)
+  expect(ArrayHelpers.findAll(books, { category: ['programming', 'Self help'] }).length).toBe(beforeBooksLength)
 })
 
 test('Find all items that match based obj query', () => {
-  expect(ArrayHelpers.findAll(books, { category: ['programming', 'Self help'] }).length).toBe(3)
+  expect(ArrayHelpers.findAll(books, { category: ['programming', 'Self help'] }).length).toBe(beforeBooksLength)
 })
 
 test('Find all items that match based obj query returning just one ocurrency', () => {
