@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.23.0](https://github.com/igortrinidad/lazyfy/compare/v2.22.0...v2.23.0) (2024-11-03)
+
+
+### Features (feat:)
+
+* Adding case sensitive handler to checkStringIsSimilar and their tests ([81771e7](https://github.com/igortrinidad/lazyfy/commit/81771e7e161ea1dfdeceab60d579423588c41d21))
+
 ## [2.22.0](https://github.com/igortrinidad/lazyfy/compare/v2.21.0...v2.22.0) (2024-11-01)
 
 
