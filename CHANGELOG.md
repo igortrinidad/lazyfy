@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.23.2](https://github.com/igortrinidad/lazyfy/compare/v2.23.1...v2.23.2) (2024-11-03)
+
+
+### Routine tasks (chore:)
+
+* Added getNestedObjectByKey test cases ([5689bf1](https://github.com/igortrinidad/lazyfy/commit/5689bf1d705a7a6cc8f1d0b4412115d6e50c781d))
+
 ### [2.23.1](https://github.com/igortrinidad/lazyfy/compare/v2.23.0...v2.23.1) (2024-11-03)
 
 
