@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.23.3](https://github.com/igortrinidad/lazyfy/compare/v2.23.2...v2.23.3) (2024-11-06)
+
+
+### Bug Fixes (fix:)
+
+* Seting object key when the key is null ([c9c7ddf](https://github.com/igortrinidad/lazyfy/commit/c9c7ddfd55ad0f9f17278d812126669c3890dba2))
+
 ### [2.23.2](https://github.com/igortrinidad/lazyfy/compare/v2.23.1...v2.23.2) (2024-11-03)
 
 
