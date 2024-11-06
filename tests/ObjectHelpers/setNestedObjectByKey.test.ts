@@ -180,5 +180,35 @@ test('Throws an error if the specified array index does not exist', () => {
   }).toThrow("Array 'superDeepArray' does not have index 3 at path 'deep.superDeepArray[3]'")
 })
 
+test('Adds to an empty array at a specific index', () => {
+  const arrayFrom = [] as any[]
+  const title = 'Some title'
+  const mergedObj = ObjectHelpers.setNestedObjectByKey(arrayFrom, '0', { title }, true)
+  expect(mergedObj[0].title).toEqual(title)
+})
+
+test('Set object key on null key', () => {
+  const objFrom: any = {
+    deep: null
+  }
+  const objectToCompare = {
+    deep: {
+      title: 'New Title'
+    }
+  }
+  expect(ObjectHelpers.setNestedObjectByKey(objFrom, 'deep.title', 'New Title')).toEqual(objectToCompare)
+})
+
+test('Set object key on null key', () => {
+  const objFrom: any = null
+  const objectToCompare = {
+    deep: {
+      title: 'New Title'
+    }
+  }
+  const result = ObjectHelpers.setNestedObjectByKey(objFrom, 'deep.title', 'New Title')
+  expect(result).toEqual(objectToCompare)
+})
+
 
 

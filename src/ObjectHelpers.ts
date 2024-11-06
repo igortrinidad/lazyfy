@@ -76,7 +76,7 @@ export const deepMergeObject = (target: any, ...sources: any): any => {
   return deepMergeObject(target, ...sources);
 }
 
-export const getNestedObjectByKey = (obj: any, key: string = ''): any => {
+export const getNestedObjectByKey = (obj: any = {}, key: string = ''): any => {
   return key.split('.').reduce((acc, k) => {
     if (acc === undefined || acc === null) return undefined
 
@@ -95,7 +95,8 @@ export const getNestedObjectByKey = (obj: any, key: string = ''): any => {
   }, obj)
 }
 
-export const setNestedObjectByKey = (obj: any, key: string, value: any, allowNonExistingArrayIndex: boolean = false): any => {
+export const setNestedObjectByKey = (obj: any = {}, key: string, value: any, allowNonExistingArrayIndex: boolean = false): any => {
+  obj = Object.assign({}, obj)
   key.split('.').reduce((acc, k, index, keys) => {
     const arrayMatch = k.match(/^([^\[]+)\[(\d+)\]$/)
 
@@ -104,7 +105,7 @@ export const setNestedObjectByKey = (obj: any, key: string, value: any, allowNon
       const arrayIndex = parseInt(arrayMatch[2], 10)
 
       if (!Array.isArray(acc[arrayKey])) {
-        if (acc[arrayKey] !== undefined && (typeof acc[arrayKey] !== 'object' || acc[arrayKey] === null)) {
+        if (acc[arrayKey] !== undefined && (typeof acc[arrayKey] !== 'object')) {
           throw new TypeError(`Cannot set property '${arrayKey}[${arrayIndex}]' on non-object type (${typeof acc[arrayKey]}) at path '${keys.slice(0, index + 1).join('.')}'`)
         }
         acc[arrayKey] = []
@@ -125,7 +126,7 @@ export const setNestedObjectByKey = (obj: any, key: string, value: any, allowNon
       acc[k] = value
     } else {
       // Throw an error if the current level is not an object
-      if (acc[k] !== undefined && (typeof acc[k] !== 'object' || acc[k] === null)) {
+      if (acc[k] !== undefined && (typeof acc[k] !== 'object')) {
         throw new TypeError(`Cannot set property '${k}' on non-object type (${typeof acc[k]}) at path '${keys.slice(0, index + 1).join('.')}'`)
       }
       acc[k] = acc[k] || {}
