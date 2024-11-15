@@ -164,9 +164,9 @@ export const deleteNestedObjectByKey = (obj: any, key: string, ignoreNonExisting
     } else {
       if (index === keys.length - 1) {
         // Last element in path: delete object key
-        if (acc && acc.hasOwnProperty(k) && ignoreNonExisting) {
+        if (acc && acc.hasOwnProperty(k)) {
           delete acc[k]
-        } else {
+        } else if(!ignoreNonExisting) {
           throw new Error(`Cannot delete non-existent property '${k}' at path '${keys.slice(0, index + 1).join('.')}'`)
         }
       } else {
