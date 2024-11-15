@@ -176,7 +176,7 @@ export const deleteNestedObjectByKey = (obj: any, key: string, ignoreNonExisting
             return acc
           }
         }
-        if (!acc[k] || typeof acc[k] !== 'object') {
+        if (!ignoreNonExisting && (!acc[k] || typeof acc[k] !== 'object')) {
           throw new TypeError(`Cannot delete property '${k}' on non-object type at path '${keys.slice(0, index + 1).join('.')}'`)
         }
         acc = acc[k]
