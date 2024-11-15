@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.24.0](https://github.com/igortrinidad/lazyfy/compare/v2.23.3...v2.24.0) (2024-11-15)
+
+
+### Features (feat:)
+
+* Added ignoreNonExisting keys on deleteNestedObjectByKey ([08bd5e9](https://github.com/igortrinidad/lazyfy/commit/08bd5e925a2125721ade4cb9112e5eef5655bef9))
+
 ### [2.23.3](https://github.com/igortrinidad/lazyfy/compare/v2.23.2...v2.23.3) (2024-11-06)
 
 
