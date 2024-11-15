@@ -1,6 +1,6 @@
 {
   "name": "@igortrindade/lazyfy",
-  "version": "2.24.0",
+  "version": "2.24.1",
   "description": "Someone once said: \"I choose a lazy person to do a hard job. Because a lazy person will find an easy way to do it.\"",
   "main": "dist/main/index.js",
   "module": "dist/module/index.js",
