@@ -48,7 +48,7 @@ test('Throws error when trying to delete a non-existent property', () => {
   }
 
   expect(() => {
-    deleteNestedObjectByKey(obj, 'deep.nonExistentKey')
+    deleteNestedObjectByKey(obj, 'deep.nonExistentKey', false)
   }).toThrowError(/Cannot delete non-existent property 'nonExistentKey'/)
 })
 
@@ -60,6 +60,6 @@ test('Throws error when trying to delete an array element with an out-of-bounds 
   }
 
   expect(() => {
-    deleteNestedObjectByKey(obj, 'deep.superDeepArray[2]')
+    deleteNestedObjectByKey(obj, 'deep.superDeepArray[2]', false)
   }).toThrowError(/Array 'superDeepArray' does not have index 2/)
 })
