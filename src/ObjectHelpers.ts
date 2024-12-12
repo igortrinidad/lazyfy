@@ -189,6 +189,37 @@ export const deleteNestedObjectByKey = (obj: any, key: string, ignoreNonExisting
   return obj
 }
 
+type AnyObject = Record<string, any>
+
+export const deepSearchKey = (
+  obj: AnyObject,
+  targetKey: string,
+  returnAll: boolean = false
+): any[] | any => {
+  const results: any[] = []
+  let firstResult: any = null
+
+  const search = (currentObj: AnyObject) => {
+    if (!returnAll && firstResult !== null) return
+    if (typeof currentObj !== 'object' || currentObj === null) return
+
+    for (const key in currentObj) {
+      if (key === targetKey) {
+        if (returnAll) {
+          results.push(currentObj[key])
+        } else {
+          firstResult = currentObj[key]
+          return
+        }
+      }
+      search(currentObj[key])
+    }
+  }
+
+  search(obj)
+  return returnAll ? results : firstResult
+}
+
 export const ObjectHelpers = {
   filterObjectKeys,
   checkObjMatch,
@@ -198,5 +229,6 @@ export const ObjectHelpers = {
   isObject,
   deepMergeObject,
   setNestedObjectByKey,
-  deleteNestedObjectByKey
+  deleteNestedObjectByKey,
+  deepSearchKey
 }
