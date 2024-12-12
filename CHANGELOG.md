@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.25.0](https://github.com/igortrinidad/lazyfy/compare/v2.24.2...v2.25.0) (2024-12-12)
+
+
+### Features (feat:)
+
+* Add deepSearchKey function for recursive key search in objects ([8620066](https://github.com/igortrinidad/lazyfy/commit/86200663dbf6ff5d33d382eecf0774f2ebbac6e4))
+
 ### [2.24.2](https://github.com/igortrinidad/lazyfy/compare/v2.24.1...v2.24.2) (2024-11-15)
 
 
