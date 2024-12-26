@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.26.1](https://github.com/igortrinidad/lazyfy/compare/v2.26.0...v2.26.1) (2024-12-26)
+
+
+### Tests (test:)
+
+* Enhance Masker tests for various phone number formats ([ca6bd06](https://github.com/igortrinidad/lazyfy/commit/ca6bd0622120e948c76e1054a294d3633f9f0097))
+
 ## [2.26.0](https://github.com/igortrinidad/lazyfy/compare/v2.25.0...v2.26.0) (2024-12-21)
 
 
