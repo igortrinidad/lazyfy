@@ -220,6 +220,23 @@ export const deepSearchKey = (
   return returnAll ? results : firstResult
 }
 
+export const checkSameStructure = (
+  baseObj: AnyObject,
+  compareObj: AnyObject
+): boolean => {
+  if (typeof baseObj !== 'object' || baseObj === null) {
+    return typeof baseObj === typeof compareObj
+  }
+  if (typeof compareObj !== 'object' || compareObj === null) {
+    return false
+  }
+  for (const key in baseObj) {
+    if (!(key in compareObj)) return false
+    if (!checkSameStructure(baseObj[key], compareObj[key])) return false
+  }
+  return true
+}
+
 export const ObjectHelpers = {
   filterObjectKeys,
   checkObjMatch,
