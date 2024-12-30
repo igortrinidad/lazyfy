@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.27.0](https://github.com/igortrinidad/lazyfy/compare/v2.26.1...v2.27.0) (2024-12-30)
+
+
+### Features (feat:)
+
+* Add checkSameStructure function to compare object structures and implement tests ([4fcdd23](https://github.com/igortrinidad/lazyfy/commit/4fcdd2389c789c9b239ff30345a03bef0f519425))
+
 ### [2.26.1](https://github.com/igortrinidad/lazyfy/compare/v2.26.0...v2.26.1) (2024-12-26)
 
 
