@@ -245,6 +245,7 @@ export const ObjectHelpers = {
   defineProperty,
   isObject,
   deepMergeObject,
+  getNestedObjectByKey,
   setNestedObjectByKey,
   deleteNestedObjectByKey,
   deepSearchKey
