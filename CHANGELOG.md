@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.28.0](https://github.com/igortrinidad/lazyfy/compare/v2.27.0...v2.28.0) (2025-01-02)
+
+
+### Features (feat:)
+
+* Add getNestedObjectByKey function to ObjectHelpers ([45b24fa](https://github.com/igortrinidad/lazyfy/commit/45b24faf72004d2c2c614aa617dc2aab3c9f9887))
+
 ## [2.27.0](https://github.com/igortrinidad/lazyfy/compare/v2.26.1...v2.27.0) (2024-12-30)
 
 
