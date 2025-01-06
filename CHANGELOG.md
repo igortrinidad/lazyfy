@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.29.0](https://github.com/igortrinidad/lazyfy/compare/v2.28.0...v2.29.0) (2025-01-06)
+
+
+### Features (feat:)
+
+* Add ensureStartsWithUpperCase and truncateText functions with corresponding tests ([db3b1b9](https://github.com/igortrinidad/lazyfy/commit/db3b1b9deb3a0d52979ceaa8f74ae8ab9ad08782))
+
 ## [2.28.0](https://github.com/igortrinidad/lazyfy/compare/v2.27.0...v2.28.0) (2025-01-02)
 
 
