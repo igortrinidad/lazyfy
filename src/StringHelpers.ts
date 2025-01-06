@@ -61,10 +61,28 @@ export const checkStringIsSimilar = (base: string, stringToCompare: string, thre
   return checkStringSimilarity(base, stringToCompare, caseInsensitive) >= threshold
 }
 
+export const ensureStartsWithUpperCase = (str = '') => {
+  if (!str) return ''
+  const trimmedStart = str.trimStart()
+  return str.slice(0, str.length - trimmedStart.length) + trimmedStart[0].toUpperCase() + trimmedStart.slice(1)
+}
+
+export const truncateText = (text: string = '', max: number = 40) => {
+  try {
+    if(!text) return ''
+    if(max <= 0) return text + '...'
+    return text.length > max ? `${text.substring(0, max)}...` : text
+  } catch (error) {
+    return text || ''
+  }
+}
+
 export const StringHelpers = {
   titleCaseString,
   randomString,
   joinCommaPlusAnd,
   checkStringSimilarity,
-  checkStringIsSimilar
+  checkStringIsSimilar,
+  ensureStartsWithUpperCase,
+  truncateText,
 }
