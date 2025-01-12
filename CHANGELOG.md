@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.31.0](https://github.com/igortrinidad/lazyfy/compare/v2.30.0...v2.31.0) (2025-01-12)
+
+
+### Features (feat:)
+
+* Export Adonis BaseRequest from index ([885e7cf](https://github.com/igortrinidad/lazyfy/commit/885e7cf04c47b739a355457c5a6aa4e8e0740030))
+* Update BaseRequest to use HttpContext type ([8cd5d15](https://github.com/igortrinidad/lazyfy/commit/8cd5d156848b15c01cd8459c98d33ee051d8eb6c))
+
 ## [2.30.0](https://github.com/igortrinidad/lazyfy/compare/v2.29.0...v2.30.0) (2025-01-12)
 
 
