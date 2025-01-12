@@ -1,4 +1,5 @@
-// import type { HttpContext } from '@adonisjs/core/http'
+// @ts-ignore
+import type { HttpContext } from '@adonisjs/core/http'
 
 
 /**
@@ -9,7 +10,7 @@
  */
 export abstract class BaseRequest {
 
-  ctx: any
+  ctx: HttpContext
   public Model: any
 
   public entity: string
@@ -18,7 +19,7 @@ export abstract class BaseRequest {
   public instance: any
   public idColumn: string = 'id'
 
-  constructor(ctx: any, Model: any) {
+  constructor(ctx: HttpContext, Model: any) {
     this.ctx = ctx
     this.Model = Model
 

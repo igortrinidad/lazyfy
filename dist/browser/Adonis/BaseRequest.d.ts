@@ -1,3 +1,4 @@
+import type { HttpContext } from '@adonisjs/core/http';
 /**
  * BaseRequest class
  * This class is used to create a base request class for Adonis Applications
@@ -5,14 +6,14 @@
  * The on* methods are hooks that can be overriden by the extended classes.
  */
 export declare abstract class BaseRequest {
-    ctx: any;
+    ctx: HttpContext;
     Model: any;
     entity: string;
     id: string | null | number;
     data: any;
     instance: any;
     idColumn: string;
-    constructor(ctx: any, Model: any);
+    constructor(ctx: HttpContext, Model: any);
     validate(): Promise<void>;
     /**
      * This method is used to delete the blank _path keys on the data object to avoid clearing

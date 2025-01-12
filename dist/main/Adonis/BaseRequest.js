@@ -1,5 +1,4 @@
 "use strict";
-// import type { HttpContext } from '@adonisjs/core/http'
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseRequest = void 0;
 /**
