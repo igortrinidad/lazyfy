@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.31.1](https://github.com/igortrinidad/lazyfy/compare/v2.31.0...v2.31.1) (2025-01-12)
+
+
+### Bug Fixes (fix:)
+
+* Ensure instance is initialized before update in BaseRequest ([353747a](https://github.com/igortrinidad/lazyfy/commit/353747aba71d71f19cc03b6e6e4c21d0a8ee34e7))
+
 ## [2.31.0](https://github.com/igortrinidad/lazyfy/compare/v2.30.0...v2.31.0) (2025-01-12)
 
 
