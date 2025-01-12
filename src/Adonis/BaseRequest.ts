@@ -91,6 +91,10 @@ export abstract class BaseRequest {
       await this.onLoadInstance()
     } 
     
+    if(!this.instance) {
+      this.instance = new this.Model()
+    }
+
     await this.beforeUpdate()
 
     await this.persist()
