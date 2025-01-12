@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.30.0](https://github.com/igortrinidad/lazyfy/compare/v2.29.0...v2.30.0) (2025-01-12)
+
+
+### Features (feat:)
+
+* Added Adonis BaseRequest Helper class ([1c7b3cd](https://github.com/igortrinidad/lazyfy/commit/1c7b3cd47c66222274d9b937a29c7018daafac87))
+
+
+### Routine tasks (chore:)
+
+* Building version locally ([5781e8d](https://github.com/igortrinidad/lazyfy/commit/5781e8df9368c82ed6f4d58c2e94f36369e31fb9))
+
 ## [2.29.0](https://github.com/igortrinidad/lazyfy/compare/v2.28.0...v2.29.0) (2025-01-06)
 
 
