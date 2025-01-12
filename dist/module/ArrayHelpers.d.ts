@@ -1,0 +1,28 @@
+export declare const findByObj: (arr: any[], obj: any, asBoolean?: boolean) => any;
+export declare const findByString: (arr: any[], item: any, asBoolean?: boolean) => any;
+export declare const find: (arr: any[], query: any, asBoolean?: boolean) => any;
+export declare const findIndex: (arr: any[], query: any) => number;
+export declare const findAll: (arr: any[], query: any, ignoreEmptyArray?: boolean) => any[];
+export declare const removeAll: (arr: any[], query: any, ignoreEmptyArray?: boolean) => any[];
+export declare const remove: (arr: any[], query?: any) => any;
+export declare const uniqueByKey: (arr: any[], query?: any) => any[];
+export declare const objArrayToCsv: (arr: any[], delimiter?: string) => string;
+export declare const toggleInArray: (arr: any[], obj: any) => any[];
+export declare const compareArray: (arrFrom: any[], arrToCompare: any[], key?: string) => boolean;
+export declare const shuffle: (array: any[]) => any[];
+export declare const getRandomElement: (list: any[]) => any;
+export declare const ArrayHelpers: {
+    findByObj: (arr: any[], obj: any, asBoolean?: boolean) => any;
+    findByString: (arr: any[], item: any, asBoolean?: boolean) => any;
+    find: (arr: any[], query: any, asBoolean?: boolean) => any;
+    findIndex: (arr: any[], query: any) => number;
+    findAll: (arr: any[], query: any, ignoreEmptyArray?: boolean) => any[];
+    removeAll: (arr: any[], query: any, ignoreEmptyArray?: boolean) => any[];
+    remove: (arr: any[], query?: any) => any;
+    uniqueByKey: (arr: any[], query?: any) => any[];
+    objArrayToCsv: (arr: any[], delimiter?: string) => string;
+    toggleInArray: (arr: any[], obj: any) => any[];
+    compareArray: (arrFrom: any[], arrToCompare: any[], key?: string) => boolean;
+    shuffle: (array: any[]) => any[];
+    getRandomElement: (list: any[]) => any;
+};

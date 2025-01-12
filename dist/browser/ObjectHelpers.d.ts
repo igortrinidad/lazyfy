@@ -1,0 +1,27 @@
+export declare const filterObjectKeys: (allowed: any[], object: any) => any;
+export declare const checkObjMatch: (item: any, query: any, ignoreEmptyArray?: boolean) => any;
+export declare const checkIsEqual: (value: any, query: any) => boolean;
+export declare const initClassData: (fillable: any[], instance: any, obj?: any) => void;
+export declare const defineProperty: (object: any, key: string, value: any) => any;
+export declare const isObject: (item: any) => boolean;
+export declare const deepMergeObject: (target: any, ...sources: any) => any;
+export declare const getNestedObjectByKey: (obj?: any, key?: string) => any;
+export declare const setNestedObjectByKey: (obj: any, key: string, value: any, allowNonExistingArrayIndex?: boolean) => any;
+export declare const deleteNestedObjectByKey: (obj: any, key: string, ignoreNonExisting?: boolean) => any;
+type AnyObject = Record<string, any>;
+export declare const deepSearchKey: (obj: AnyObject, targetKey: string, returnAll?: boolean) => any[] | any;
+export declare const checkSameStructure: (baseObj: AnyObject, compareObj: AnyObject) => boolean;
+export declare const ObjectHelpers: {
+    filterObjectKeys: (allowed: any[], object: any) => any;
+    checkObjMatch: (item: any, query: any, ignoreEmptyArray?: boolean) => any;
+    checkIsEqual: (value: any, query: any) => boolean;
+    initClassData: (fillable: any[], instance: any, obj?: any) => void;
+    defineProperty: (object: any, key: string, value: any) => any;
+    isObject: (item: any) => boolean;
+    deepMergeObject: (target: any, ...sources: any) => any;
+    getNestedObjectByKey: (obj?: any, key?: string) => any;
+    setNestedObjectByKey: (obj: any, key: string, value: any, allowNonExistingArrayIndex?: boolean) => any;
+    deleteNestedObjectByKey: (obj: any, key: string, ignoreNonExisting?: boolean) => any;
+    deepSearchKey: (obj: AnyObject, targetKey: string, returnAll?: boolean) => any[] | any;
+};
+export {};
