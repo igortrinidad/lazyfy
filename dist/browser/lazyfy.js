@@ -2,7 +2,7 @@
   /**
    * @license
    * author: igortrindade.dev
-   * lazyfy.js v2.30.0
+   * lazyfy.js v2.31.1
    * Released under the MIT license.
    */
 

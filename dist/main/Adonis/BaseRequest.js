@@ -69,6 +69,9 @@ class BaseRequest {
         if (this.id) {
             await this.onLoadInstance();
         }
+        if (!this.instance) {
+            this.instance = new this.Model();
+        }
         await this.beforeUpdate();
         await this.persist();
         await this.afterUpdate();

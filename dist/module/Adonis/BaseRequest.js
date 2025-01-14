@@ -85,6 +85,9 @@ class BaseRequest {
             if (this.id) {
                 yield this.onLoadInstance();
             }
+            if (!this.instance) {
+                this.instance = new this.Model();
+            }
             yield this.beforeUpdate();
             yield this.persist();
             yield this.afterUpdate();
