@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.32.0](https://github.com/igortrinidad/lazyfy/compare/v2.31.1...v2.32.0) (2025-01-14)
+
+
+### Features (feat:)
+
+* Add file helper functions and update BaseRequest instance initialization ([5b90d27](https://github.com/igortrinidad/lazyfy/commit/5b90d27a2f9fb56c77763b1fb0e26730f74ecd7a))
+
 ### [2.31.1](https://github.com/igortrinidad/lazyfy/compare/v2.31.0...v2.31.1) (2025-01-12)
 
 
