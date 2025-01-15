@@ -1,6 +1,6 @@
 import { formatFileColor, formatFileName, formatFileSize } from '../helpers/file-helpers'
 
-export default class FileUploadService {
+export class FileUploadService {
   
   public folder: string = ''
   public name: string = ''

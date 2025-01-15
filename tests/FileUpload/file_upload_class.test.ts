@@ -1,4 +1,4 @@
-import FileUploadService from '../../src/Frontend/FileUploadService'
+import { FileUploadService } from '../../src/Frontend/FileUploadService'
 
 describe('FileUploadService', () => {
 
