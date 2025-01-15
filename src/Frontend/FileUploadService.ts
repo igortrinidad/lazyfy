@@ -227,9 +227,11 @@ export class FileUploadService {
 
   protected uploadFileToAws(multipart_chunk?: any): Promise<void> {
 
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
 
       this.status = 'Uploading'
+
+      await this.getPresignedUrlFromApi()
 
       const xhr = new XMLHttpRequest()
       xhr.open('PUT', multipart_chunk ? multipart_chunk.presigned_url : this.presigned_url, true)
