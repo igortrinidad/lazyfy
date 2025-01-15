@@ -10,6 +10,7 @@ export default class FileUploadService {
   public size: number = 0
   public lastModified: string = ''
   public source: any = null
+  public should_convert_image_to_webp: boolean = true
   public imageMaxWidth: number = 1980
   public imageMaxHeight: number = 1980
   public imageQuality: number = 0.8
@@ -24,11 +25,12 @@ export default class FileUploadService {
   public isLoading: boolean = false
   public axiosInstance: any
 
-  constructor(axiosInstance: any, presigned_url: string, folder: string = '', ACL = 'public-read') {
+  constructor(axiosInstance: any, presigned_url: string, folder: string = '', ACL = 'public-read', should_convert_image_to_webp = true) {
+    this.axiosInstance = axiosInstance
     this.presigned_url = presigned_url
     this.folder = folder
     this.ACL = ACL
-    this.axiosInstance = axiosInstance
+    this.should_convert_image_to_webp = should_convert_image_to_webp
   }
 
   public get color() {
@@ -80,9 +82,10 @@ export default class FileUploadService {
   }
 
   private setExtensionAndNameForImageToImprovePerformance() {
-    if(this.getFileIsImage) {
+    if(this.getFileIsImage && this.should_convert_image_to_webp) {
       this.extension = '.webp'
       this.name = `${ this.name.split('.').shift() }.webp`
+      this.ContentType = 'image/webp'
     }
   }
 
@@ -148,7 +151,7 @@ export default class FileUploadService {
       const reader = new FileReader()
       reader.onload = async (event: any) => {
         this.status = 'Preparing'
-        if(this.getFileIsImage) {
+        if(this.getFileIsImage && this.should_convert_image_to_webp) {
           this.fileContentBlob = await this.convertImageToWebp(event.target.result)
         } else {
           this.fileContentBlob = event.target.result
