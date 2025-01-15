@@ -21,13 +21,14 @@ export class FileUploadService {
 
   public file_path: string = ''
   public file_name: string = ''
+  public get_presigned_url: string = ''
   public presigned_url: string = ''
   public isLoading: boolean = false
   public axiosInstance: any
 
-  constructor(axiosInstance: any, presigned_url: string, folder: string = '', ACL = 'public-read', should_convert_image_to_webp = true) {
+  constructor(axiosInstance: any, get_presigned_url: string, folder: string = '', ACL = 'public-read', should_convert_image_to_webp = true) {
     this.axiosInstance = axiosInstance
-    this.presigned_url = presigned_url
+    this.get_presigned_url = get_presigned_url
     this.folder = folder
     this.ACL = ACL
     this.should_convert_image_to_webp = should_convert_image_to_webp
@@ -134,9 +135,9 @@ export class FileUploadService {
  
 
   protected async getPresignedUrlFromApi() {
-    const { folder: folder_path, presigned_url, extension, ACL, ContentType, name } = this
+    const { folder: folder_path, get_presigned_url, extension, ACL, ContentType, name } = this
     try {
-      const { data } = await this.axiosInstance.post(presigned_url, { folder_path, extension, name, ContentType, ACL })
+      const { data } = await this.axiosInstance.post(get_presigned_url, { folder_path, extension, name, ContentType, ACL })
       this.file_path = data.file_path
       this.file_name = data.file_name
       this.presigned_url = data.presigned_url

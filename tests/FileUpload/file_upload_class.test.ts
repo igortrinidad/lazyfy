@@ -3,31 +3,31 @@ import { FileUploadService } from '../../src/Frontend/FileUploadService'
 describe('FileUploadService', () => {
 
   let mockAxiosInstance: any
-  let mockPresignedUrl: string
+  let mockGetPresignedUrl: string
 
   beforeEach(() => {
     mockAxiosInstance = { post: jest.fn() }
-    mockPresignedUrl = 'https://example.com/presigned-url'
+    mockGetPresignedUrl = 'https://example.com/presigned-url'
   })
 
   test('should initialize with default values when no folder or ACL is provided', () => {
-    const service = new FileUploadService(mockAxiosInstance, mockPresignedUrl)
+    const service = new FileUploadService(mockAxiosInstance, mockGetPresignedUrl)
 
-    expect(service.presigned_url).toBe(mockPresignedUrl)
+    expect(service.get_presigned_url).toBe(mockGetPresignedUrl)
     expect(service.folder).toBe('')
     expect(service.ACL).toBe('public-read')
     expect(service.axiosInstance).toBe(mockAxiosInstance)
   })
 
   test('should initialize with provided folder and ACL', () => {
-    const service = new FileUploadService(mockAxiosInstance, mockPresignedUrl, 'uploads', 'private')
+    const service = new FileUploadService(mockAxiosInstance, mockGetPresignedUrl, 'uploads', 'private')
 
     expect(service.folder).toBe('uploads')
     expect(service.ACL).toBe('private')
   })
 
   test('should have correct default properties', () => {
-    const service = new FileUploadService(mockAxiosInstance, mockPresignedUrl)
+    const service = new FileUploadService(mockAxiosInstance, mockGetPresignedUrl)
 
     expect(service.name).toBe('')
     expect(service.ContentType).toBe('')
@@ -47,7 +47,7 @@ describe('FileUploadService', () => {
   })
 
   test('should correctly compute color from name', () => {
-    const service = new FileUploadService(mockAxiosInstance, mockPresignedUrl)
+    const service = new FileUploadService(mockAxiosInstance, mockGetPresignedUrl)
     service.name = 'test.jpg'
 
     expect(service.color).toBe('#eab308')
@@ -55,7 +55,7 @@ describe('FileUploadService', () => {
 
   test('should correctly format file name', () => {
 
-    const service = new FileUploadService(mockAxiosInstance, mockPresignedUrl)
+    const service = new FileUploadService(mockAxiosInstance, mockGetPresignedUrl)
     service.name = 'asdasdas/asda/test.jpg'
 
     expect(service.formatted_name).toBe('test.jpg')
@@ -63,14 +63,14 @@ describe('FileUploadService', () => {
 
   test('should correctly format file size', () => {
 
-    const service = new FileUploadService(mockAxiosInstance, mockPresignedUrl)
+    const service = new FileUploadService(mockAxiosInstance, mockGetPresignedUrl)
     service.size = 1200000
 
     expect(service.formatted_size).toBe('1.14 MB')
   })
 
   test('should identify image based on ContentType', () => {
-    const service = new FileUploadService(mockAxiosInstance, mockPresignedUrl)
+    const service = new FileUploadService(mockAxiosInstance, mockGetPresignedUrl)
 
     service.ContentType = 'image/png'
     expect(service.getFileIsImage).toBe(true)
@@ -87,7 +87,7 @@ describe('FileUploadService', () => {
       lastModified: '2025-01-01'
     }
 
-    const service = new FileUploadService(mockAxiosInstance, mockPresignedUrl, '', 'public-read', true)
+    const service = new FileUploadService(mockAxiosInstance, mockGetPresignedUrl, '', 'public-read', true)
     service.setFile(mockFile)
 
     expect(service.size).toBe(mockFile.size)
@@ -107,7 +107,7 @@ describe('FileUploadService', () => {
       lastModified: '2025-01-01'
     }
 
-    const service = new FileUploadService(mockAxiosInstance, mockPresignedUrl, '', 'public-read', false)
+    const service = new FileUploadService(mockAxiosInstance, mockGetPresignedUrl, '', 'public-read', false)
     service.setFile(mockFile)
 
     expect(service.name).toBe(mockFile.name)
@@ -121,7 +121,7 @@ describe('FileUploadService', () => {
   })
 
   test('should throw error when setFileFromBlob is called without a blob', () => {
-    const service = new FileUploadService(mockAxiosInstance, mockPresignedUrl)
+    const service = new FileUploadService(mockAxiosInstance, mockGetPresignedUrl)
 
     expect(() => service.setFileFromBlob(null)).toThrow('Blob is required')
   })
@@ -129,7 +129,7 @@ describe('FileUploadService', () => {
   test('should update properties when setFileFromBlob is called with valid blob and NOT change the file type', () => {
     const mockBlob = new Blob(['test content'], { type: 'image/png' })
 
-    const service = new FileUploadService(mockAxiosInstance, mockPresignedUrl, '', 'public-read', false)
+    const service = new FileUploadService(mockAxiosInstance, mockGetPresignedUrl, '', 'public-read', false)
     service.setFileFromBlob(mockBlob, 'image/png')
 
     expect(service.ContentType).toBe('image/png')
@@ -142,7 +142,7 @@ describe('FileUploadService', () => {
   test('should update properties when setFileFromBlob is called with valid blob and chaging the file type to webp', () => {
     const mockBlob = new Blob(['test content'], { type: 'image/png' })
 
-    const service = new FileUploadService(mockAxiosInstance, mockPresignedUrl, '', 'public-read', true)
+    const service = new FileUploadService(mockAxiosInstance, mockGetPresignedUrl, '', 'public-read', true)
     service.setFileFromBlob(mockBlob, 'image/png')
     expect(service.ContentType).toBe('image/webp')
     expect(service.extension).toBe('.webp')
