@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.33.0](https://github.com/igortrinidad/lazyfy/compare/v2.32.0...v2.33.0) (2025-01-15)
+
+
+### Features (feat:)
+
+* Add support for optional image conversion to WebP in FileUploadService ([0860d66](https://github.com/igortrinidad/lazyfy/commit/0860d66c511fbd6771556e875526af7c3fdf5e5d))
+
 ## [2.32.0](https://github.com/igortrinidad/lazyfy/compare/v2.31.1...v2.32.0) (2025-01-14)
 
 
