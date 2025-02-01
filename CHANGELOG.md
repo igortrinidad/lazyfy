@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.34.0](https://github.com/igortrinidad/lazyfy/compare/v2.33.3...v2.34.0) (2025-02-01)
+
+
+### Features (feat:)
+
+* **GraphQL:** add mapArrayToGraphQL utility and corresponding tests ([5c1dce9](https://github.com/igortrinidad/lazyfy/commit/5c1dce97532fd03b531e3590acefcfad07150579))
+
 ### [2.33.3](https://github.com/igortrinidad/lazyfy/compare/v2.33.2...v2.33.3) (2025-01-15)
 
 ### [2.33.2](https://github.com/igortrinidad/lazyfy/compare/v2.33.1...v2.33.2) (2025-01-15)
