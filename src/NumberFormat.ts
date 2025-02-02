@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-import defaultOptions, { type NumberFormatOptions } from './types/NumberFormatOptions'
+import defaultOptions, { type TypeNumberFormatOptions } from './types/NumberFormatOptions'
 
-export const formatNumber = (input: string | number | null = '0', opt: Partial<NumberFormatOptions> = {}) => {
+export const formatNumber = (input: string | number | null = '0', opt: Partial<TypeNumberFormatOptions> = {}) => {
   const mergedOptions = {...defaultOptions, ...opt};
 
   let inputInString;
@@ -38,7 +38,7 @@ export const formatNumber = (input: string | number | null = '0', opt: Partial<N
   return minusSymbol + mergedOptions.prefix + joinIntegerAndDecimal(integer, decimal, mergedOptions.decimal) + mergedOptions.suffix
 }
 
-export const unformatNumber = (input: string | number | null = 0, opt: Partial<NumberFormatOptions> = {}) => {
+export const unformatNumber = (input: string | number | null = 0, opt: Partial<TypeNumberFormatOptions> = {}) => {
   const mergedOptions = Object.assign({}, defaultOptions, opt);
 
   const userInput = input || 0;

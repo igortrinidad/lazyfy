@@ -1,4 +1,4 @@
-export default class FileUploadService {
+export declare class FileUploadService {
     folder: string;
     name: string;
     ACL: string;
@@ -7,6 +7,7 @@ export default class FileUploadService {
     size: number;
     lastModified: string;
     source: any;
+    should_convert_image_to_webp: boolean;
     imageMaxWidth: number;
     imageMaxHeight: number;
     imageQuality: number;
@@ -15,10 +16,11 @@ export default class FileUploadService {
     fileContentBlob: any;
     file_path: string;
     file_name: string;
+    get_presigned_url: string;
     presigned_url: string;
     isLoading: boolean;
     axiosInstance: any;
-    constructor(axiosInstance: any, presigned_url: string, folder?: string, ACL?: string);
+    constructor(axiosInstance: any, get_presigned_url: string, folder?: string, ACL?: string, should_convert_image_to_webp?: boolean);
     get color(): "#ef4444" | "#3b82f6" | "#22c55e" | "#eab308" | "#6b7280";
     get formatted_name(): string;
     get formatted_size(): string;

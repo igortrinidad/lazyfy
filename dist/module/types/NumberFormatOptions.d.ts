@@ -1,4 +1,4 @@
-export interface NumberFormatOptions {
+export type TypeNumberFormatOptions = {
     prefix: string;
     suffix: string;
     decimal: string;
@@ -7,6 +7,6 @@ export interface NumberFormatOptions {
     acceptNegative: boolean;
     isInteger: boolean;
     vueVersion?: string;
-}
-declare const defaultOptions: NumberFormatOptions;
+};
+declare const defaultOptions: TypeNumberFormatOptions;
 export default defaultOptions;

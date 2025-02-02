@@ -1,4 +1,6 @@
-export interface NumberFormatOptions {
+
+
+export type TypeNumberFormatOptions = {
   prefix: string
   suffix: string
   decimal: string
@@ -9,7 +11,7 @@ export interface NumberFormatOptions {
   vueVersion?: string
 }
 
-const defaultOptions: NumberFormatOptions = {
+const defaultOptions: TypeNumberFormatOptions = {
   prefix: 'US$ ',
   suffix: '',
   decimal: '.',

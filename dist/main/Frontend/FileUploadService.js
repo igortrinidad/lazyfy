@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.FileUploadService = void 0;
 const file_helpers_1 = require("../helpers/file-helpers");
 class FileUploadService {
-    constructor(axiosInstance, presigned_url, folder = '', ACL = 'public-read') {
+    constructor(axiosInstance, get_presigned_url, folder = '', ACL = 'public-read', should_convert_image_to_webp = true) {
         this.folder = '';
         this.name = '';
         this.ACL = 'private';
@@ -11,6 +12,7 @@ class FileUploadService {
         this.size = 0;
         this.lastModified = '';
         this.source = null;
+        this.should_convert_image_to_webp = true;
         this.imageMaxWidth = 1980;
         this.imageMaxHeight = 1980;
         this.imageQuality = 0.8;
@@ -19,12 +21,14 @@ class FileUploadService {
         this.fileContentBlob = null;
         this.file_path = '';
         this.file_name = '';
+        this.get_presigned_url = '';
         this.presigned_url = '';
         this.isLoading = false;
-        this.presigned_url = presigned_url;
+        this.axiosInstance = axiosInstance;
+        this.get_presigned_url = get_presigned_url;
         this.folder = folder;
         this.ACL = ACL;
-        this.axiosInstance = axiosInstance;
+        this.should_convert_image_to_webp = should_convert_image_to_webp;
     }
     get color() {
         return (0, file_helpers_1.formatFileColor)(this.name);
@@ -68,9 +72,10 @@ class FileUploadService {
         this.setExtensionAndNameForImageToImprovePerformance();
     }
     setExtensionAndNameForImageToImprovePerformance() {
-        if (this.getFileIsImage) {
+        if (this.getFileIsImage && this.should_convert_image_to_webp) {
             this.extension = '.webp';
             this.name = `${this.name.split('.').shift()}.webp`;
+            this.ContentType = 'image/webp';
         }
     }
     async upload() {
@@ -122,9 +127,9 @@ class FileUploadService {
         return this.ContentType.includes('image');
     }
     async getPresignedUrlFromApi() {
-        const { folder: folder_path, presigned_url, extension, ACL, ContentType, name } = this;
+        const { folder: folder_path, get_presigned_url, extension, ACL, ContentType, name } = this;
         try {
-            const { data } = await this.axiosInstance.post(presigned_url, { folder_path, extension, name, ContentType, ACL });
+            const { data } = await this.axiosInstance.post(get_presigned_url, { folder_path, extension, name, ContentType, ACL });
             this.file_path = data.file_path;
             this.file_name = data.file_name;
             this.presigned_url = data.presigned_url;
@@ -139,7 +144,7 @@ class FileUploadService {
             const reader = new FileReader();
             reader.onload = async (event) => {
                 this.status = 'Preparing';
-                if (this.getFileIsImage) {
+                if (this.getFileIsImage && this.should_convert_image_to_webp) {
                     this.fileContentBlob = await this.convertImageToWebp(event.target.result);
                 }
                 else {
@@ -206,8 +211,9 @@ class FileUploadService {
         });
     }
     uploadFileToAws(multipart_chunk) {
-        return new Promise((resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             this.status = 'Uploading';
+            await this.getPresignedUrlFromApi();
             const xhr = new XMLHttpRequest();
             xhr.open('PUT', multipart_chunk ? multipart_chunk.presigned_url : this.presigned_url, true);
             xhr.setRequestHeader('Content-Type', this.ContentType);
@@ -240,4 +246,4 @@ class FileUploadService {
         });
     }
 }
-exports.default = FileUploadService;
+exports.FileUploadService = FileUploadService;

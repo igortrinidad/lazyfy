@@ -23,3 +23,5 @@ __exportStar(require("./SiteMapGenerator"), exports);
 __exportStar(require("./StringHelpers"), exports);
 __exportStar(require("./RegexHelpers"), exports);
 __exportStar(require("./Masker"), exports);
+__exportStar(require("./GraphQL"), exports);
+__exportStar(require("./types/NumberFormatOptions"), exports);

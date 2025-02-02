@@ -7,3 +7,5 @@ export * from './SiteMapGenerator';
 export * from './StringHelpers';
 export * from './RegexHelpers';
 export * from './Masker';
+export * from './GraphQL';
+export * from './types/NumberFormatOptions';
