@@ -78,5 +78,8 @@
       "tailwindcss": {},
       "autoprefixer": {}
     }
+  },
+  "engines": {
+    "node": "22"
   }
 }
