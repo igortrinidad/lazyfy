@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.36.3](https://github.com/igortrinidad/lazyfy/compare/v2.36.2...v2.36.3) (2025-02-07)
+
+
+### Routine tasks (chore:)
+
+* remove Node.js engine specification from package.json ([efd195d](https://github.com/igortrinidad/lazyfy/commit/efd195d096b733b36059c64342cdb51a8c8fcb23))
+
 ### [2.36.2](https://github.com/igortrinidad/lazyfy/compare/v2.36.1...v2.36.2) (2025-02-07)
 
 
