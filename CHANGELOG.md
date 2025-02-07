@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.36.1](https://github.com/igortrinidad/lazyfy/compare/v2.36.0...v2.36.1) (2025-02-07)
+
+
+### Tests (test:)
+
+* **Masker:** add test for masking Whatsapp Remote JID ([ff62552](https://github.com/igortrinidad/lazyfy/commit/ff62552a149a04b47ae357e840a74de998667e28))
+
 ## [2.36.0](https://github.com/igortrinidad/lazyfy/compare/v2.35.0...v2.36.0) (2025-02-03)
 
 
