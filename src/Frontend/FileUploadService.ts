@@ -1,10 +1,20 @@
 import { formatFileColor, formatFileName, formatFileSize } from '../helpers/file-helpers'
 
+type S3ACL = 'public-read' | 'private' | 'public-read-write' | 'authenticated-read' | 'aws-exec-read' | 'bucket-owner-read' | 'bucket-owner-full-control' | 'log-delivery-write'
+
+type FileUploadServiceInput = [
+  axiosInstance: any,
+  get_presigned_url: string,
+  folder?: string,
+  ACL?: S3ACL,
+  should_convert_image_to_webp?: boolean,
+]
+
 export class FileUploadService {
   
   public folder: string = ''
   public name: string = ''
-  public ACL: string = 'private'
+  public ACL: S3ACL = 'public-read'
   public ContentType: string = '' 
   public extension: string = ''
   public size: number = 0
@@ -26,12 +36,13 @@ export class FileUploadService {
   public isLoading: boolean = false
   public axiosInstance: any
 
-  constructor(axiosInstance: any, get_presigned_url: string, folder: string = '', ACL = 'public-read', should_convert_image_to_webp = true) {
+  constructor(...args: FileUploadServiceInput) {
+    const [axiosInstance, get_presigned_url, folder, ACL, should_convert_image_to_webp ] = args
     this.axiosInstance = axiosInstance
     this.get_presigned_url = get_presigned_url
-    this.folder = folder
-    this.ACL = ACL
-    this.should_convert_image_to_webp = should_convert_image_to_webp
+    this.folder = folder ?? ''
+    this.ACL = ACL ?? 'public-read'
+    this.should_convert_image_to_webp = should_convert_image_to_webp ?? true
   }
 
   public get color() {
