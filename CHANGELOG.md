@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.37.0](https://github.com/igortrinidad/lazyfy/compare/v2.36.3...v2.37.0) (2025-02-08)
+
+
+### Features (feat:)
+
+* **FileUploadService:** enhance constructor to support optional parameters and add type safety for ACL ([11097d6](https://github.com/igortrinidad/lazyfy/commit/11097d6be13095b4b03ea53281a17b4f832798c0))
+
 ### [2.36.3](https://github.com/igortrinidad/lazyfy/compare/v2.36.2...v2.36.3) (2025-02-07)
 
 
