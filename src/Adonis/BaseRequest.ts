@@ -133,6 +133,7 @@ export abstract class BaseRequest {
   }
 
   protected async afterUpdate() {
+    await this.onAfterUpdate()
   }
 
   public async onAfterUpdate() {
