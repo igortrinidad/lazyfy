@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.38.0](https://github.com/igortrinidad/lazyfy/compare/v2.37.0...v2.38.0) (2025-02-27)
+
+
+### Features (feat:)
+
+* **BaseRequest:** add onAfterUpdate method call in afterUpdate lifecycle ([495436f](https://github.com/igortrinidad/lazyfy/commit/495436f89d81a1c730a5a8456e5111cf682de6ab))
+
 ## [2.37.0](https://github.com/igortrinidad/lazyfy/compare/v2.36.3...v2.37.0) (2025-02-08)
 
 
