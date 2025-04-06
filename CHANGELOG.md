@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.38.1](https://github.com/igortrinidad/lazyfy/compare/v2.38.0...v2.38.1) (2025-04-06)
+
+
+### Bug Fixes (fix:)
+
+* **BaseRequest:** improve validation error messages for entity checks ([bfd15f9](https://github.com/igortrinidad/lazyfy/commit/bfd15f93c34abae151b68ff6a7189ee189dec55f))
+
 ## [2.38.0](https://github.com/igortrinidad/lazyfy/compare/v2.37.0...v2.38.0) (2025-02-27)
 
 
