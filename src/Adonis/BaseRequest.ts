@@ -35,13 +35,13 @@ export abstract class BaseRequest {
     
   }
   
-  public async validate() {
+  public validate() {
     if(!this.entity) {
       throw new Error('Entity is required.')
     }
 
     if(this.entity !== new this.Model().constructor.name) {
-      throw new Error('Invalid entity.')
+      throw new Error('Invalid entity: The entity differs from the model name.')
     }
   }
 
