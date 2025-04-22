@@ -12,6 +12,13 @@ test('get 12.3456% as percentage of 100 passing 4 digits as parameter', () => {
   expect(MathHelpers.getPercentageOfAmount(100, 12.3456, true, 4)).toBe('12.3456%');
 })
 
+test('Return Return zero when getting percentage of zero', () => {
+  expect(MathHelpers.getPercentageOfAmount(0, 123, true, 0, 'Return zero')).toBe('Return zero');
+  expect(MathHelpers.getPercentageOfAmount(0, 123, true, 0, '--')).toBe('--');
+  expect(MathHelpers.getPercentageOfAmount(0, 123, true, 0, '0%')).toBe('0%');
+  expect(MathHelpers.getPercentageOfAmount(0, 123, true, 0, 0)).toBe(0);
+})
+
 test('get value of a amount percentage', () => {
   expect(MathHelpers.getAmountOfPercentage(1250, 10)).toBe(125);
   expect(MathHelpers.getAmountOfPercentage(1250, 12.45)).toBe(155.625);

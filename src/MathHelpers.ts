@@ -13,8 +13,11 @@ export const getAmountOfPercentage = (amount: number, percentage: number | strin
  * 
  * get the % of a given amount and value
  */
-export const getPercentageOfAmount = (amount: number, value: number, percentageSign: boolean = false, digits:number = 2): number | string => {
+export const getPercentageOfAmount = (amount: number, value: number, percentageSign: boolean = false, digits:number = 2, returnWhenAmountIsZero: null | string | number = '--'): number | string => {
   const amt = getParsedValue(amount)
+  if(amt === 0 && typeof returnWhenAmountIsZero !== 'undefined') {
+    return returnWhenAmountIsZero
+  }
   const result = Number(100 / amt * value)
   if(!percentageSign) return result
   if(isNaN(Number( result / 100 ))) return Number(result/100)
