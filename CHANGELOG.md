@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.39.0](https://github.com/igortrinidad/lazyfy/compare/v2.38.1...v2.39.0) (2025-04-22)
+
+
+### Features (feat:)
+
+* **MathHelpers:** enhance getPercentageOfAmount to handle zero amounts with customizable return values ([473a40a](https://github.com/igortrinidad/lazyfy/commit/473a40aee9428c093d3b7cf10bbfd28ed93b871a))
+
 ### [2.38.1](https://github.com/igortrinidad/lazyfy/compare/v2.38.0...v2.38.1) (2025-04-06)
 
 
