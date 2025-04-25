@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.40.0](https://github.com/igortrinidad/lazyfy/compare/v2.39.1...v2.40.0) (2025-04-25)
+
+
+### Features (feat:)
+
+* **StringHelpers:** add findSimilarItems function with customizable search options and tests ([08881ee](https://github.com/igortrinidad/lazyfy/commit/08881eec1e5877a916384b7b511cd0ad56171c67))
+
 ### [2.39.1](https://github.com/igortrinidad/lazyfy/compare/v2.39.0...v2.39.1) (2025-04-22)
 
 
