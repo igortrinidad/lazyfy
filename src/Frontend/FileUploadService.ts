@@ -166,7 +166,7 @@ export class FileUploadService {
         if(this.getFileIsImage && this.should_convert_image_to_webp) {
           this.fileContentBlob = await this.convertImageToWebp(event.target.result)
         } else {
-          this.fileContentBlob = event.target.result
+          this.fileContentBlob = new Blob([event.target.result], { type: this.ContentType })
         }
         try {
           await this.uploadFileToAws()
@@ -182,7 +182,7 @@ export class FileUploadService {
         reject(error)
       }
 
-      if(this.getFileIsImage) {
+      if(this.getFileIsImage && this.should_convert_image_to_webp) {
         reader.readAsDataURL(this.source)
       } else {
         reader.readAsArrayBuffer(this.source)
