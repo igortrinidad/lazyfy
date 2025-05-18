@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.40.1](https://github.com/igortrinidad/lazyfy/compare/v2.40.0...v2.40.1) (2025-05-18)
+
+
+### Bug Fixes (fix:)
+
+* **FileUploadService:** ensure fileContentBlob is created with correct Blob type for non-image files ([f3e81cf](https://github.com/igortrinidad/lazyfy/commit/f3e81cf02ab7a52a831f0a7297dbfe6cb2f6e507))
+
 ## [2.40.0](https://github.com/igortrinidad/lazyfy/compare/v2.39.1...v2.40.0) (2025-04-25)
 
 
