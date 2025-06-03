@@ -123,6 +123,14 @@ export const shuffle = (array: any[]) => {
 
 export const getRandomElement = (list: any[]): any => list[Math.floor(Math.random() * list.length)]
 
+export const chunkArray = (arr: any[], size: number): any[][] => {
+  const chunks: any[][] = []
+  for (let i = 0; i < arr.length; i += size) {
+    chunks.push(arr.slice(i, i + size))
+  }
+  return chunks
+}
+
 export const ArrayHelpers = {
   findByObj,
   findByString,
@@ -136,6 +144,7 @@ export const ArrayHelpers = {
   toggleInArray,
   compareArray,
   shuffle,
-  getRandomElement
+  getRandomElement,
+  chunkArray
 }
 
