@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.41.0](https://github.com/igortrinidad/lazyfy/compare/v2.40.1...v2.41.0) (2025-06-03)
+
+
+### Features (feat:)
+
+* **ArrayHelpers:** add chunkArray function to split arrays into smaller chunks ([9707a08](https://github.com/igortrinidad/lazyfy/commit/9707a085b17c6b7ae52e0cb2ba660fe4f2eaf0e1))
+
 ### [2.40.1](https://github.com/igortrinidad/lazyfy/compare/v2.40.0...v2.40.1) (2025-05-18)
 
 
