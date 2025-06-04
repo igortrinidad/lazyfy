@@ -5,6 +5,7 @@ test('Format a given number as default options', () => {
   expect(NumberFormat.formatNumber(100123.45)).toEqual('US$ 100,123.45')
   expect(NumberFormat.formatNumber(100.45)).toEqual('US$ 100.45')
   expect(NumberFormat.formatNumber(-100.45, { acceptNegative: true })).toEqual('-US$ 100.45')
+  expect(NumberFormat.formatNumber(32.589999999999996)).toEqual('US$ 32.59')
 })
 
 test('Format a given number as default options', () => {
