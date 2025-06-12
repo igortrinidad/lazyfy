@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.42.0](https://github.com/igortrinidad/lazyfy/compare/v2.41.0...v2.42.0) (2025-06-12)
+
+
+### Tests (test:)
+
+* **NumberFormat:** add test case for formatting precision with long decimal numbers ([263a3b2](https://github.com/igortrinidad/lazyfy/commit/263a3b2e3e0d288039ac7acd9a2689ac353299c8))
+
+
+### Features (feat:)
+
+* **ObjectHelpers:** add getObjectMapped function to transform object keys into an array of key-value pairs ([43acc77](https://github.com/igortrinidad/lazyfy/commit/43acc77c32c37d8a24b599cf590922ff07f0b59b))
+
 ## [2.41.0](https://github.com/igortrinidad/lazyfy/compare/v2.40.1...v2.41.0) (2025-06-03)
 
 
