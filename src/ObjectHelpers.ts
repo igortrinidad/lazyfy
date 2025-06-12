@@ -237,6 +237,15 @@ export const checkSameStructure = (
   return true
 }
 
+export const getObjectMapped = (object: any = {}) => {
+  return Object.keys(object).map((key) => {
+    return {
+      ...object[key],
+      key: key,
+    }
+  })
+}
+
 export const ObjectHelpers = {
   filterObjectKeys,
   checkObjMatch,
@@ -248,5 +257,6 @@ export const ObjectHelpers = {
   getNestedObjectByKey,
   setNestedObjectByKey,
   deleteNestedObjectByKey,
-  deepSearchKey
+  deepSearchKey,
+  getObjectMapped
 }
