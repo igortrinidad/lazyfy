@@ -159,7 +159,7 @@ describe('Phone Number Formatting with Country Codes', () => {
     errorTestCases.forEach(({ description, input, country, expectedError }) => {
       test(`should throw error for ${description}`, () => {
         expect(() => {
-          formatPhoneWithCountryCode(input, country);
+          formatPhoneWithCountryCode(input, country, true);
         }).toThrow(expectedError);
       });
     });
@@ -241,6 +241,165 @@ describe('Phone Number Formatting with Country Codes', () => {
 
     preFormattedTestCases.forEach(({ description, input, country, expected }) => {
       test(`should handle ${description}`, () => {
+        const result = formatPhoneWithCountryCode(input, country);
+        expect(result).toBe(expected);
+      });
+    });
+  });
+
+  describe('formatPhoneWithCountryCode with throwsErrorOnValidation parameter', () => {
+    test('should return default formatting when throwsErrorOnValidation is false (default) for invalid phone', () => {
+      const result = formatPhoneWithCountryCode('123', 'brazil');
+      expect(result).toBe('+55 (31) 99090-9090');
+    });
+
+    test('should return default formatting when throwsErrorOnValidation is false for unsupported country', () => {
+      const result = formatPhoneWithCountryCode('1234567890', 'invalidcountry');
+      expect(result).toBe('+55 (31) 99090-9090');
+    });
+
+    test('should return default formatting when throwsErrorOnValidation is false for empty phone', () => {
+      const result = formatPhoneWithCountryCode('', 'brazil');
+      expect(result).toBe('+55 (31) 99090-9090');
+    });
+
+    test('should throw error when throwsErrorOnValidation is true for invalid phone', () => {
+      expect(() => {
+        formatPhoneWithCountryCode('123', 'brazil', true);
+      }).toThrow('Phone number for brazil should have 11 or 10 digits, but got 3');
+    });
+
+    test('should throw error when throwsErrorOnValidation is true for unsupported country', () => {
+      expect(() => {
+        formatPhoneWithCountryCode('1234567890', 'invalidcountry', true);
+      }).toThrow("Country 'invalidcountry' is not supported");
+    });
+
+    test('should throw error when throwsErrorOnValidation is true for empty phone', () => {
+      expect(() => {
+        formatPhoneWithCountryCode('', 'brazil', true);
+      }).toThrow('Phone number is required');
+    });
+
+    test('should format valid phone correctly regardless of throwsErrorOnValidation parameter', () => {
+      const phoneNumber = '11987654321';
+      const country = 'brazil';
+      const expected = '+55 (11) 98765-4321';
+      
+      expect(formatPhoneWithCountryCode(phoneNumber, country, false)).toBe(expected);
+      expect(formatPhoneWithCountryCode(phoneNumber, country, true)).toBe(expected);
+      expect(formatPhoneWithCountryCode(phoneNumber, country)).toBe(expected); // default parameter
+    });
+  });
+
+  describe('New major countries support', () => {
+    const newCountriesTestCases = [
+      // Major European countries
+      {
+        description: 'German phone number',
+        input: '17012345678',
+        country: 'germany',
+        expected: '+49 1701 2345678'
+      },
+      {
+        description: 'UK phone number',
+        input: '7700123456',
+        country: 'uk',
+        expected: '+44 7700 123 456'
+      },
+      {
+        description: 'Netherlands phone number',
+        input: '612345678',
+        country: 'netherlands',
+        expected: '+31 6 12345678'
+      },
+      {
+        description: 'Swedish phone number',
+        input: '701234567',
+        country: 'sweden',
+        expected: '+46 70 123 45 67'
+      },
+      // Major Asian countries
+      {
+        description: 'Japanese phone number',
+        input: '9012345678',
+        country: 'japan',
+        expected: '+81 90-1234-5678'
+      },
+      {
+        description: 'South Korean phone number',
+        input: '1012345678',
+        country: 'southkorea',
+        expected: '+82 10-1234-5678'
+      },
+      {
+        description: 'Indian phone number',
+        input: '9876543210',
+        country: 'india',
+        expected: '+91 98765 43210'
+      },
+      {
+        description: 'Singapore phone number',
+        input: '81234567',
+        country: 'singapore',
+        expected: '+65 8123 4567'
+      },
+      // Major countries in Americas
+      {
+        description: 'Colombian phone number',
+        input: '3001234567',
+        country: 'colombia',
+        expected: '+57 300 123 4567'
+      },
+      {
+        description: 'Peruvian phone number',
+        input: '987654321',
+        country: 'peru',
+        expected: '+51 987 654 321'
+      },
+      // Major African countries
+      {
+        description: 'South African phone number',
+        input: '821234567',
+        country: 'southafrica',
+        expected: '+27 82 123 4567'
+      },
+      {
+        description: 'Nigerian phone number',
+        input: '8031234567',
+        country: 'nigeria',
+        expected: '+234 803 123 4567'
+      },
+      // Oceania
+      {
+        description: 'Australian phone number',
+        input: '412345678',
+        country: 'australia',
+        expected: '+61 412 345 678'
+      },
+      {
+        description: 'New Zealand phone number',
+        input: '211234567',
+        country: 'newzealand',
+        expected: '+64 21-123 4567'
+      },
+      // Middle East
+      {
+        description: 'Israeli phone number',
+        input: '501234567',
+        country: 'israel',
+        expected: '+972 50-123-4567'
+      },
+      {
+        description: 'UAE phone number',
+        input: '501234567',
+        country: 'uae',
+        expected: '+971 50-123 4567'
+      }
+    ];
+
+    newCountriesTestCases.forEach(({ description, input, country, expected }) => {
+      test(`should format ${description} correctly`, () => {
         const result = formatPhoneWithCountryCode(input, country);
         expect(result).toBe(expected);
       });

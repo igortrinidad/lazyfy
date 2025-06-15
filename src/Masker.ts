@@ -27,25 +27,78 @@ const PHONE_FORMATS: Record<string, PhoneFormatConfig> = {
   russia: { countryCode: '+7', mask: '(###) ###-##-##', digitCount: 10 },
   canada: { countryCode: '+1', mask: '(###) ###-####', digitCount: 10 },
   mexico: { countryCode: '+52', mask: '(##) ####-####', digitCount: 10 },
-  chile: { countryCode: '+56', mask: '# #### ####', digitCount: 9 }
+  chile: { countryCode: '+56', mask: '# #### ####', digitCount: 9 },
+  // Major European countries
+  germany: { countryCode: '+49', mask: '#### ########', digitCount: 11 },
+  uk: { countryCode: '+44', mask: '#### ### ####', digitCount: 10 },
+  unitedkingdom: { countryCode: '+44', mask: '#### ### ####', digitCount: 10 },
+  netherlands: { countryCode: '+31', mask: '# ########', digitCount: 9 },
+  belgium: { countryCode: '+32', mask: '### ## ## ##', digitCount: 9 },
+  austria: { countryCode: '+43', mask: '### #######', digitCount: 10 },
+  poland: { countryCode: '+48', mask: '### ### ###', digitCount: 9 },
+  sweden: { countryCode: '+46', mask: '## ### ## ##', digitCount: 9 },
+  norway: { countryCode: '+47', mask: '### ## ###', digitCount: 8 },
+  denmark: { countryCode: '+45', mask: '## ## ## ##', digitCount: 8 },
+  finland: { countryCode: '+358', mask: '## ### ####', digitCount: 9 },
+  // Major Asian countries
+  japan: { countryCode: '+81', mask: '##-####-####', digitCount: 10 },
+  southkorea: { countryCode: '+82', mask: '##-####-####', digitCount: 10 },
+  korea: { countryCode: '+82', mask: '##-####-####', digitCount: 10 },
+  india: { countryCode: '+91', mask: '##### #####', digitCount: 10 },
+  singapore: { countryCode: '+65', mask: '#### ####', digitCount: 8 },
+  malaysia: { countryCode: '+60', mask: '##-### ####', digitCount: 9 },
+  thailand: { countryCode: '+66', mask: '##-###-####', digitCount: 9 },
+  vietnam: { countryCode: '+84', mask: '##-#### ####', digitCount: 9 },
+  philippines: { countryCode: '+63', mask: '###-###-####', digitCount: 10 },
+  indonesia: { countryCode: '+62', mask: '##-####-####', digitCount: 10 },
+  // Major countries in Americas
+  colombia: { countryCode: '+57', mask: '### ### ####', digitCount: 10 },
+  venezuela: { countryCode: '+58', mask: '###-#######', digitCount: 10 },
+  peru: { countryCode: '+51', mask: '### ### ###', digitCount: 9 },
+  ecuador: { countryCode: '+593', mask: '##-### ####', digitCount: 9 },
+  uruguay: { countryCode: '+598', mask: '## ### ###', digitCount: 8 },
+  paraguay: { countryCode: '+595', mask: '### ######', digitCount: 9 },
+  bolivia: { countryCode: '+591', mask: '########', digitCount: 8 },
+  // Major African countries
+  southafrica: { countryCode: '+27', mask: '## ### ####', digitCount: 9 },
+  nigeria: { countryCode: '+234', mask: '### ### ####', digitCount: 10 },
+  egypt: { countryCode: '+20', mask: '### ### ####', digitCount: 10 },
+  morocco: { countryCode: '+212', mask: '###-######', digitCount: 9 },
+  algeria: { countryCode: '+213', mask: '### ## ## ##', digitCount: 9 },
+  // Major Oceania countries
+  australia: { countryCode: '+61', mask: '### ### ###', digitCount: 9 },
+  newzealand: { countryCode: '+64', mask: '##-### ####', digitCount: 9 },
+  // Middle East
+  israel: { countryCode: '+972', mask: '##-###-####', digitCount: 9 },
+  uae: { countryCode: '+971', mask: '##-### ####', digitCount: 9 },
+  unitedarabemirates: { countryCode: '+971', mask: '##-### ####', digitCount: 9 },
+  saudiarabia: { countryCode: '+966', mask: '##-###-####', digitCount: 9 },
+  turkey: { countryCode: '+90', mask: '### ### ## ##', digitCount: 10 }
 };
 
 /**
  * Formats a phone number with country code based on the specified country
  * @param phoneNumber - The phone number to format (digits only)
  * @param country - The country code (e.g., 'brazil', 'us', 'spain')
+ * @param throwsErrorOnValidation - Whether to throw errors on validation failures (default: false)
  * @returns Formatted phone number with country code
  */
-export const formatPhoneWithCountryCode = (phoneNumber: string, country: string): string => {
+export const formatPhoneWithCountryCode = (phoneNumber: string, country: string, throwsErrorOnValidation: boolean = false): string => {
   if (!phoneNumber) {
-    throw new Error('Phone number is required');
+    if (throwsErrorOnValidation) {
+      throw new Error('Phone number is required');
+    }
+    return masker('+55 (31) 99090-9090', DEFAULT_PHONE_MASK_WITH_DDI, true);
   }
 
   const countryKey = country.toLowerCase();
   const config = PHONE_FORMATS[countryKey];
   
   if (!config) {
-    throw new Error(`Country '${country}' is not supported. Supported countries: ${Object.keys(PHONE_FORMATS).join(', ')}`);
+    if (throwsErrorOnValidation) {
+      throw new Error(`Country '${country}' is not supported. Supported countries: ${Object.keys(PHONE_FORMATS).join(', ')}`);
+    }
+    return masker('+55 (31) 99090-9090', DEFAULT_PHONE_MASK_WITH_DDI, true);
   }
 
   // Remove all non-numeric characters
@@ -62,7 +115,10 @@ export const formatPhoneWithCountryCode = (phoneNumber: string, country: string)
     const validIndex = config.digitCount.findIndex(count => cleanNumber.length === count);
     
     if (validIndex === -1) {
-      throw new Error(`Phone number for ${country} should have ${config.digitCount.join(' or ')} digits, but got ${cleanNumber.length}`);
+      if (throwsErrorOnValidation) {
+        throw new Error(`Phone number for ${country} should have ${config.digitCount.join(' or ')} digits, but got ${cleanNumber.length}`);
+      }
+      return masker('+55 (31) 99090-9090', DEFAULT_PHONE_MASK_WITH_DDI, true);
     }
     
     const selectedMask = Array.isArray(config.mask) ? config.mask[validIndex] : config.mask;
@@ -71,7 +127,10 @@ export const formatPhoneWithCountryCode = (phoneNumber: string, country: string)
   } else {
     // Handle single format countries
     if (cleanNumber.length !== config.digitCount) {
-      throw new Error(`Phone number for ${country} should have ${config.digitCount} digits, but got ${cleanNumber.length}`);
+      if (throwsErrorOnValidation) {
+        throw new Error(`Phone number for ${country} should have ${config.digitCount} digits, but got ${cleanNumber.length}`);
+      }
+      return masker('+55 (31) 99090-9090', DEFAULT_PHONE_MASK_WITH_DDI, true);
     }
     
     const selectedMask = Array.isArray(config.mask) ? config.mask[0] : config.mask;
@@ -112,7 +171,7 @@ export const getSupportedCountries = (): string[] => {
  */
 export const isValidPhoneNumber = (phoneNumber: string, country: string): boolean => {
   try {
-    formatPhoneWithCountryCode(phoneNumber, country);
+    formatPhoneWithCountryCode(phoneNumber, country, true);
     return true;
   } catch {
     return false;
