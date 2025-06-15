@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.45.0](https://github.com/igortrinidad/lazyfy/compare/v2.44.1...v2.45.0) (2025-06-15)
+
+
+### Features (feat:)
+
+* **PhoneFormatter:** add country prediction functionality and enhance phone formatting with automatic country detection ([7b5d2ca](https://github.com/igortrinidad/lazyfy/commit/7b5d2ca5c288c46b7e26afda2e4868a0ca0824c7))
+
 ### [2.44.1](https://github.com/igortrinidad/lazyfy/compare/v2.44.0...v2.44.1) (2025-06-15)
 
 
