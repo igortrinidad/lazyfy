@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.44.1](https://github.com/igortrinidad/lazyfy/compare/v2.44.0...v2.44.1) (2025-06-15)
+
+
+### Tests (test:)
+
+* **PhoneFormatter:** add tests for formatting WhatsApp JIDs with various cases ([c62cf8d](https://github.com/igortrinidad/lazyfy/commit/c62cf8d55e51d8d4c4dfc36f42e4110883209223))
+
 ## [2.44.0](https://github.com/igortrinidad/lazyfy/compare/v2.43.1...v2.44.0) (2025-06-15)
 
 
