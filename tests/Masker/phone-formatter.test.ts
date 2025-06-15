@@ -9,84 +9,120 @@ import {
 describe('Phone Number Formatting with Country Codes', () => {
   
   describe('formatPhoneWithCountryCode', () => {
-    test('should format Brazilian mobile phone number correctly (11 digits)', () => {
-      const result = formatPhoneWithCountryCode('11987654321', 'brazil');
-      expect(result).toBe('+55 (11) 98765-4321');
+    const phoneFormattingTestCases = [
+      {
+        description: 'Brazilian mobile phone number (11 digits)',
+        input: '11987654321',
+        country: 'brazil',
+        expected: '+55 (11) 98765-4321'
+      },
+      {
+        description: 'Brazilian landline phone number (10 digits)',
+        input: '1134567890',
+        country: 'brazil',
+        expected: '+55 (11) 3456-7890'
+      },
+      {
+        description: 'US phone number',
+        input: '2125551234',
+        country: 'us',
+        expected: '+1 (212) 555-1234'
+      },
+      {
+        description: 'Spanish phone number',
+        input: '612345678',
+        country: 'spain',
+        expected: '+34 612 345 678'
+      },
+      {
+        description: 'Portuguese phone number',
+        input: '912345678',
+        country: 'portugal',
+        expected: '+351 912 345 678'
+      },
+      {
+        description: 'Argentinian phone number',
+        input: '1123456789',
+        country: 'argentina',
+        expected: '+54 (11) 2345-6789'
+      },
+      {
+        description: 'Italian phone number',
+        input: '3201234567',
+        country: 'italy',
+        expected: '+39 320 123 4567'
+      },
+      {
+        description: 'Swiss phone number',
+        input: '791234567',
+        country: 'switzerland',
+        expected: '+41 79 123 45 67'
+      },
+      {
+        description: 'French phone number',
+        input: '123456789',
+        country: 'france',
+        expected: '+33 1 23 45 67 89'
+      },
+      {
+        description: 'Chinese phone number',
+        input: '13812345678',
+        country: 'china',
+        expected: '+86 138 1234 5678'
+      },
+      {
+        description: 'Russian phone number',
+        input: '9123456789',
+        country: 'russia',
+        expected: '+7 (912) 345-67-89'
+      },
+      {
+        description: 'Canadian phone number',
+        input: '4165551234',
+        country: 'canada',
+        expected: '+1 (416) 555-1234'
+      },
+      {
+        description: 'Mexican phone number',
+        input: '5512345678',
+        country: 'mexico',
+        expected: '+52 (55) 1234-5678'
+      },
+      {
+        description: 'Chilean phone number',
+        input: '123456789',
+        country: 'chile',
+        expected: '+56 1 2345 6789'
+      }
+    ];
+
+    phoneFormattingTestCases.forEach(({ description, input, country, expected }) => {
+      test(`should format ${description} correctly`, () => {
+        const result = formatPhoneWithCountryCode(input, country);
+        expect(result).toBe(expected);
+      });
     });
 
-    test('should format Brazilian landline phone number correctly (10 digits)', () => {
-      const result = formatPhoneWithCountryCode('1134567890', 'brazil');
-      expect(result).toBe('+55 (11) 3456-7890');
-    });
+    const aliasTestCases = [
+      {
+        description: 'swiss as alias for switzerland',
+        input: '791234567',
+        country: 'swiss',
+        expected: '+41 79 123 45 67'
+      },
+      {
+        description: 'usa as alias for us',
+        input: '2125551234',
+        country: 'usa',
+        expected: '+1 (212) 555-1234'
+      }
+    ];
 
-    test('should format US phone number correctly', () => {
-      const result = formatPhoneWithCountryCode('2125551234', 'us');
-      expect(result).toBe('+1 (212) 555-1234');
-    });
-
-    test('should format Spanish phone number correctly', () => {
-      const result = formatPhoneWithCountryCode('612345678', 'spain');
-      expect(result).toBe('+34 612 345 678');
-    });
-
-    test('should format Portuguese phone number correctly', () => {
-      const result = formatPhoneWithCountryCode('912345678', 'portugal');
-      expect(result).toBe('+351 912 345 678');
-    });
-
-    test('should format Argentinian phone number correctly', () => {
-      const result = formatPhoneWithCountryCode('1123456789', 'argentina');
-      expect(result).toBe('+54 (11) 2345-6789');
-    });
-
-    test('should format Italian phone number correctly', () => {
-      const result = formatPhoneWithCountryCode('3201234567', 'italy');
-      expect(result).toBe('+39 320 123 4567');
-    });
-
-    test('should format Swiss phone number correctly', () => {
-      const result = formatPhoneWithCountryCode('791234567', 'switzerland');
-      expect(result).toBe('+41 79 123 45 67');
-    });
-
-    test('should format French phone number correctly', () => {
-      const result = formatPhoneWithCountryCode('123456789', 'france');
-      expect(result).toBe('+33 1 23 45 67 89');
-    });
-
-    test('should format Chinese phone number correctly', () => {
-      const result = formatPhoneWithCountryCode('13812345678', 'china');
-      expect(result).toBe('+86 138 1234 5678');
-    });
-
-    test('should format Russian phone number correctly', () => {
-      const result = formatPhoneWithCountryCode('9123456789', 'russia');
-      expect(result).toBe('+7 (912) 345-67-89');
-    });
-
-    test('should format Canadian phone number correctly', () => {
-      const result = formatPhoneWithCountryCode('4165551234', 'canada');
-      expect(result).toBe('+1 (416) 555-1234');
-    });
-
-    test('should format Mexican phone number correctly', () => {
-      const result = formatPhoneWithCountryCode('5512345678', 'mexico');
-      expect(result).toBe('+52 (55) 1234-5678');
-    });
-
-    test('should format Chilean phone number correctly', () => {
-      const result = formatPhoneWithCountryCode('123456789', 'chile');
-      expect(result).toBe('+56 1 2345 6789');
-    });
-
-    test('should handle swiss as alias for switzerland', () => {
-      const result = formatPhoneWithCountryCode('791234567', 'swiss');
-      expect(result).toBe('+41 79 123 45 67');
-    });
-
-    test('should handle usa as alias for us', () => {
-      const result = formatPhoneWithCountryCode('2125551234', 'usa');
-      expect(result).toBe('+1 (212) 555-1234');
+    aliasTestCases.forEach(({ description, input, country, expected }) => {
+      test(`should handle ${description}`, () => {
+        const result = formatPhoneWithCountryCode(input, country);
+        expect(result).toBe(expected);
+      });
     });
 
     test('should handle case insensitive country names', () => {
@@ -99,96 +135,129 @@ describe('Phone Number Formatting with Country Codes', () => {
       expect(result).toBe('+55 (11) 98765-4321');
     });
 
-    test('should throw error for unsupported country', () => {
-      expect(() => {
-        formatPhoneWithCountryCode('1234567890', 'invalid-country');
-      }).toThrow('Country \'invalid-country\' is not supported');
+    const errorTestCases = [
+      {
+        description: 'unsupported country',
+        input: '1234567890',
+        country: 'invalid-country',
+        expectedError: 'Country \'invalid-country\' is not supported'
+      },
+      {
+        description: 'empty phone number',
+        input: '',
+        country: 'brazil',
+        expectedError: 'Phone number is required'
+      },
+      {
+        description: 'wrong digit count',
+        input: '123',
+        country: 'brazil',
+        expectedError: 'Phone number for brazil should have 11 or 10 digits, but got 3'
+      }
+    ];
+
+    errorTestCases.forEach(({ description, input, country, expectedError }) => {
+      test(`should throw error for ${description}`, () => {
+        expect(() => {
+          formatPhoneWithCountryCode(input, country);
+        }).toThrow(expectedError);
+      });
     });
 
-    test('should throw error for empty phone number', () => {
-      expect(() => {
-        formatPhoneWithCountryCode('', 'brazil');
-      }).toThrow('Phone number is required');
-    });
+    const preFormattedTestCases = [
+      {
+        description: 'already formatted Brazilian mobile number',
+        input: '(11) 98765-4321',
+        country: 'brazil',
+        expected: '+55 (11) 98765-4321'
+      },
+      {
+        description: 'already formatted Brazilian landline number',
+        input: '(11) 3456-7890',
+        country: 'brazil',
+        expected: '+55 (11) 3456-7890'
+      },
+      {
+        description: 'already formatted US number',
+        input: '(212) 555-1234',
+        country: 'us',
+        expected: '+1 (212) 555-1234'
+      },
+      {
+        description: 'already formatted Spanish number',
+        input: '612 345 678',
+        country: 'spain',
+        expected: '+34 612 345 678'
+      },
+      {
+        description: 'number with dashes and spaces',
+        input: '320-123-4567',
+        country: 'italy',
+        expected: '+39 320 123 4567'
+      },
+      {
+        description: 'number with dots',
+        input: '320.123.4567',
+        country: 'italy',
+        expected: '+39 320 123 4567'
+      },
+      {
+        description: 'number with mixed formatting',
+        input: '+55 (11) 98765-4321',
+        country: 'brazil',
+        expected: '+55 (11) 98765-4321'
+      },
+      {
+        description: 'number with country code prefix',
+        input: '55 11 987654321',
+        country: 'brazil',
+        expected: '+55 (11) 98765-4321'
+      },
+      {
+        description: 'Mexican number with formatting',
+        input: '(55) 1234-5678',
+        country: 'mexico',
+        expected: '+52 (55) 1234-5678'
+      },
+      {
+        description: 'Swiss number with formatting',
+        input: '79 123 45 67',
+        country: 'switzerland',
+        expected: '+41 79 123 45 67'
+      },
+      {
+        description: 'Russian number with formatting',
+        input: '(912) 345-67-89',
+        country: 'russia',
+        expected: '+7 (912) 345-67-89'
+      },
+      {
+        description: 'Chinese number with formatting',
+        input: '138 1234 5678',
+        country: 'china',
+        expected: '+86 138 1234 5678'
+      }
+    ];
 
-    test('should throw error for wrong digit count', () => {
-      expect(() => {
-        formatPhoneWithCountryCode('123', 'brazil');
-      }).toThrow('Phone number for brazil should have 11 or 10 digits, but got 3');
-    });
-
-    test('should handle already formatted Brazilian mobile number', () => {
-      const result = formatPhoneWithCountryCode('(11) 98765-4321', 'brazil');
-      expect(result).toBe('+55 (11) 98765-4321');
-    });
-
-    test('should handle already formatted Brazilian landline number', () => {
-      const result = formatPhoneWithCountryCode('(11) 3456-7890', 'brazil');
-      expect(result).toBe('+55 (11) 3456-7890');
-    });
-
-    test('should handle already formatted US number', () => {
-      const result = formatPhoneWithCountryCode('(212) 555-1234', 'us');
-      expect(result).toBe('+1 (212) 555-1234');
-    });
-
-    test('should handle already formatted Spanish number', () => {
-      const result = formatPhoneWithCountryCode('612 345 678', 'spain');
-      expect(result).toBe('+34 612 345 678');
-    });
-
-    test('should handle number with dashes and spaces', () => {
-      const result = formatPhoneWithCountryCode('320-123-4567', 'italy');
-      expect(result).toBe('+39 320 123 4567');
-    });
-
-    test('should handle number with dots', () => {
-      const result = formatPhoneWithCountryCode('320.123.4567', 'italy');
-      expect(result).toBe('+39 320 123 4567');
-    });
-
-    test('should handle number with mixed formatting', () => {
-      const result = formatPhoneWithCountryCode('+55 (11) 98765-4321', 'brazil');
-      expect(result).toBe('+55 (11) 98765-4321');
-    });
-
-    test('should handle number with country code prefix', () => {
-      const result = formatPhoneWithCountryCode('55 11 987654321', 'brazil');
-      expect(result).toBe('+55 (11) 98765-4321');
-    });
-
-    test('should handle Mexican number with formatting', () => {
-      const result = formatPhoneWithCountryCode('(55) 1234-5678', 'mexico');
-      expect(result).toBe('+52 (55) 1234-5678');
-    });
-
-    test('should handle Swiss number with formatting', () => {
-      const result = formatPhoneWithCountryCode('79 123 45 67', 'switzerland');
-      expect(result).toBe('+41 79 123 45 67');
-    });
-
-    test('should handle Russian number with formatting', () => {
-      const result = formatPhoneWithCountryCode('(912) 345-67-89', 'russia');
-      expect(result).toBe('+7 (912) 345-67-89');
-    });
-
-    test('should handle Chinese number with formatting', () => {
-      const result = formatPhoneWithCountryCode('138 1234 5678', 'china');
-      expect(result).toBe('+86 138 1234 5678');
+    preFormattedTestCases.forEach(({ description, input, country, expected }) => {
+      test(`should handle ${description}`, () => {
+        const result = formatPhoneWithCountryCode(input, country);
+        expect(result).toBe(expected);
+      });
     });
   });
 
   describe('getCountryCode', () => {
-    test('should return correct country code for Brazil', () => {
-      expect(getCountryCode('brazil')).toBe('+55');
-    });
+    const countryCodeTestCases = [
+      { country: 'brazil', expected: '+55' },
+      { country: 'us', expected: '+1' },
+      { country: 'spain', expected: '+34' }
+    ];
 
-    test('should return correct country code for US', () => {
-      expect(getCountryCode('us')).toBe('+1');
-    });
-
-    test('should return correct country code for Spain', () => {
-      expect(getCountryCode('spain')).toBe('+34');
+    countryCodeTestCases.forEach(({ country, expected }) => {
+      test(`should return correct country code for ${country}`, () => {
+        expect(getCountryCode(country)).toBe(expected);
+      });
     });
 
     test('should throw error for unsupported country', () => {
@@ -220,50 +289,83 @@ describe('Phone Number Formatting with Country Codes', () => {
   });
 
   describe('isValidPhoneNumber', () => {
-    test('should return true for valid phone numbers', () => {
-      expect(isValidPhoneNumber('11987654321', 'brazil')).toBe(true);
-      expect(isValidPhoneNumber('1134567890', 'brazil')).toBe(true);
-      expect(isValidPhoneNumber('2125551234', 'us')).toBe(true);
-      expect(isValidPhoneNumber('612345678', 'spain')).toBe(true);
+    const validPhoneTestCases = [
+      { input: '11987654321', country: 'brazil', description: 'Brazilian mobile' },
+      { input: '1134567890', country: 'brazil', description: 'Brazilian landline' },
+      { input: '2125551234', country: 'us', description: 'US number' },
+      { input: '612345678', country: 'spain', description: 'Spanish number' }
+    ];
+
+    validPhoneTestCases.forEach(({ input, country, description }) => {
+      test(`should return true for valid ${description}`, () => {
+        expect(isValidPhoneNumber(input, country)).toBe(true);
+      });
     });
 
-    test('should return false for invalid phone numbers', () => {
-      expect(isValidPhoneNumber('123', 'brazil')).toBe(false);
-      expect(isValidPhoneNumber('1234567890', 'invalid-country')).toBe(false);
-      expect(isValidPhoneNumber('', 'brazil')).toBe(false);
+    const invalidPhoneTestCases = [
+      { input: '123', country: 'brazil', description: 'too short number' },
+      { input: '1234567890', country: 'invalid-country', description: 'invalid country' },
+      { input: '', country: 'brazil', description: 'empty number' }
+    ];
+
+    invalidPhoneTestCases.forEach(({ input, country, description }) => {
+      test(`should return false for ${description}`, () => {
+        expect(isValidPhoneNumber(input, country)).toBe(false);
+      });
     });
 
-    test('should return true for valid formatted phone numbers', () => {
-      expect(isValidPhoneNumber('(11) 98765-4321', 'brazil')).toBe(true);
-      expect(isValidPhoneNumber('(11) 3456-7890', 'brazil')).toBe(true);
-      expect(isValidPhoneNumber('(212) 555-1234', 'us')).toBe(true);
-      expect(isValidPhoneNumber('612 345 678', 'spain')).toBe(true);
-      expect(isValidPhoneNumber('320-123-4567', 'italy')).toBe(true);
-      expect(isValidPhoneNumber('79 123 45 67', 'switzerland')).toBe(true);
+    const validFormattedTestCases = [
+      { input: '(11) 98765-4321', country: 'brazil', description: 'Brazilian formatted mobile' },
+      { input: '(11) 3456-7890', country: 'brazil', description: 'Brazilian formatted landline' },
+      { input: '(212) 555-1234', country: 'us', description: 'US formatted' },
+      { input: '612 345 678', country: 'spain', description: 'Spanish formatted' },
+      { input: '320-123-4567', country: 'italy', description: 'Italian with dashes' },
+      { input: '79 123 45 67', country: 'switzerland', description: 'Swiss with spaces' }
+    ];
+
+    validFormattedTestCases.forEach(({ input, country, description }) => {
+      test(`should return true for ${description}`, () => {
+        expect(isValidPhoneNumber(input, country)).toBe(true);
+      });
     });
 
-    test('should return true for numbers with country code prefix', () => {
-      expect(isValidPhoneNumber('+55 11 987654321', 'brazil')).toBe(true);
-      expect(isValidPhoneNumber('55 11 34567890', 'brazil')).toBe(true);
-      expect(isValidPhoneNumber('+1 212 555 1234', 'us')).toBe(true);
+    const validCountryCodeTestCases = [
+      { input: '+55 11 987654321', country: 'brazil', description: 'Brazilian with country code' },
+      { input: '55 11 34567890', country: 'brazil', description: 'Brazilian without plus' },
+      { input: '+1 212 555 1234', country: 'us', description: 'US with country code' }
+    ];
+
+    validCountryCodeTestCases.forEach(({ input, country, description }) => {
+      test(`should return true for ${description}`, () => {
+        expect(isValidPhoneNumber(input, country)).toBe(true);
+      });
     });
 
-    test('should return true for numbers with mixed formatting', () => {
-      expect(isValidPhoneNumber('+55(11)98765-4321', 'brazil')).toBe(true);
-      expect(isValidPhoneNumber('320.123.4567', 'italy')).toBe(true);
-      expect(isValidPhoneNumber('(55) 1234-5678', 'mexico')).toBe(true);
+    const validMixedFormattingTestCases = [
+      { input: '+55(11)98765-4321', country: 'brazil', description: 'Brazilian mixed formatting' },
+      { input: '320.123.4567', country: 'italy', description: 'Italian with dots' },
+      { input: '(55) 1234-5678', country: 'mexico', description: 'Mexican formatted' }
+    ];
+
+    validMixedFormattingTestCases.forEach(({ input, country, description }) => {
+      test(`should return true for ${description}`, () => {
+        expect(isValidPhoneNumber(input, country)).toBe(true);
+      });
     });
   });
 
   describe('getValidDigitCounts', () => {
-    test('should return multiple digit counts for Brazil', () => {
-      const counts = getValidDigitCounts('brazil');
-      expect(counts).toEqual([11, 10]);
-    });
+    const digitCountTestCases = [
+      { country: 'brazil', expected: [11, 10], description: 'multiple digit counts for Brazil' },
+      { country: 'us', expected: [10], description: 'single digit count for US' },
+      { country: 'spain', expected: [9], description: 'single digit count for Spain' }
+    ];
 
-    test('should return single digit count for other countries', () => {
-      expect(getValidDigitCounts('us')).toEqual([10]);
-      expect(getValidDigitCounts('spain')).toEqual([9]);
+    digitCountTestCases.forEach(({ country, expected, description }) => {
+      test(`should return ${description}`, () => {
+        const counts = getValidDigitCounts(country);
+        expect(counts).toEqual(expected);
+      });
     });
 
     test('should throw error for unsupported country', () => {
