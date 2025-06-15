@@ -533,4 +533,134 @@ describe('Phone Number Formatting with Country Codes', () => {
       }).toThrow('Country \'invalid-country\' is not supported');
     });
   });
+
+  describe('formatPhoneWithCountryCode with WhatsApp Remote JID formats', () => {
+    const whatsappJidTestCases = [
+      {
+        description: 'WhatsApp JID with @s.whatsapp.net suffix (individual chat)',
+        input: '5511987654321@s.whatsapp.net',
+        country: 'brazil',
+        expected: '+55 (11) 98765-4321'
+      },
+      {
+        description: 'WhatsApp JID with @g.us suffix (group chat)',
+        input: '5511987654321@g.us',
+        country: 'brazil',
+        expected: '+55 (11) 98765-4321'
+      },
+      {
+        description: 'WhatsApp JID with @c.us suffix (contact)',
+        input: '5511987654321@c.us',
+        country: 'brazil',
+        expected: '+55 (11) 98765-4321'
+      },
+      {
+        description: 'US WhatsApp JID with @s.whatsapp.net',
+        input: '12125551234@s.whatsapp.net',
+        country: 'us',
+        expected: '+1 (212) 555-1234'
+      },
+      {
+        description: 'Spanish WhatsApp JID with @s.whatsapp.net',
+        input: '34612345678@s.whatsapp.net',
+        country: 'spain',
+        expected: '+34 612 345 678'
+      },
+      {
+        description: 'WhatsApp JID with multiple @ symbols (malformed but should handle gracefully)',
+        input: '5511987654321@test@s.whatsapp.net',
+        country: 'brazil',
+        expected: '+55 (11) 98765-4321'
+      },
+      {
+        description: 'WhatsApp JID with country code already included',
+        input: '5511987654321@s.whatsapp.net',
+        country: 'brazil',
+        expected: '+55 (11) 98765-4321'
+      },
+      {
+        description: 'WhatsApp JID without country code in number',
+        input: '11987654321@s.whatsapp.net',
+        country: 'brazil',
+        expected: '+55 (11) 98765-4321'
+      },
+      {
+        description: 'WhatsApp JID with landline number (10 digits)',
+        input: '551134567890@s.whatsapp.net',
+        country: 'brazil',
+        expected: '+55 (11) 3456-7890'
+      },
+      {
+        description: 'WhatsApp JID with landline number (10 digits)',
+        input: '553181007753@s.whatsapp.net',
+        country: 'brazil',
+        expected: '+55 (31) 8100-7753'
+      },
+      {
+        description: 'WhatsApp JID with invalid suffix but valid number',
+        input: '5511987654321@invalid.suffix',
+        country: 'brazil',
+        expected: '+55 (11) 98765-4321'
+      },
+      {
+        description: 'WhatsApp JID with extra characters and spaces',
+        input: ' 55 11 98765-4321 @s.whatsapp.net ',
+        country: 'brazil',
+        expected: '+55 (11) 98765-4321'
+      }
+    ];
+
+    whatsappJidTestCases.forEach(({ description, input, country, expected }) => {
+      test(description, () => {
+        const result = formatPhoneWithCountryCode(input, country);
+        expect(result).toBe(expected);
+      });
+    });
+
+    test('Should handle WhatsApp JID with throwsErrorOnValidation=true for valid numbers', () => {
+      const validJid = '5511987654321@s.whatsapp.net';
+      const result = formatPhoneWithCountryCode(validJid, 'brazil', true);
+      expect(result).toBe('+55 (11) 98765-4321');
+    });
+
+    test('Should handle invalid WhatsApp JID gracefully with throwsErrorOnValidation=false', () => {
+      const invalidJid = '5511987654321000@s.whatsapp.net'; // Too many digits
+      const result = formatPhoneWithCountryCode(invalidJid, 'brazil', false);
+      expect(result).toBe('+55 (31) 99090-9090'); // Default fallback
+    });
+
+    test('Should throw error for invalid WhatsApp JID with throwsErrorOnValidation=true', () => {
+      const invalidJid = '5511987654321000@s.whatsapp.net'; // Too many digits
+      expect(() => {
+        formatPhoneWithCountryCode(invalidJid, 'brazil', true);
+      }).toThrow('Phone number for brazil should have 11 or 10 digits, but got 14');
+    });
+
+    test('Should handle empty WhatsApp JID suffix', () => {
+      const jidWithEmptySuffix = '5511987654321@';
+      const result = formatPhoneWithCountryCode(jidWithEmptySuffix, 'brazil');
+      expect(result).toBe('+55 (11) 98765-4321');
+    });
+
+    test('Should handle WhatsApp JID with only @ symbol', () => {
+      const jidWithOnlyAt = '5511987654321@';
+      const result = formatPhoneWithCountryCode(jidWithOnlyAt, 'brazil');
+      expect(result).toBe('+55 (11) 98765-4321');
+    });
+
+    test('Should handle multiple countries with WhatsApp JIDs', () => {
+      const multiCountryTests = [
+        { jid: '12125551234@s.whatsapp.net', country: 'us', expected: '+1 (212) 555-1234' },
+        { jid: '34612345678@s.whatsapp.net', country: 'spain', expected: '+34 612 345 678' },
+        { jid: '351912345678@s.whatsapp.net', country: 'portugal', expected: '+351 912 345 678' },
+        { jid: '541123456789@s.whatsapp.net', country: 'argentina', expected: '+54 (11) 2345-6789' },
+        { jid: '391234567890@s.whatsapp.net', country: 'italy', expected: '+39 123 456 7890' }
+      ];
+
+      multiCountryTests.forEach(({ jid, country, expected }) => {
+        const result = formatPhoneWithCountryCode(jid, country);
+        expect(result).toBe(expected);
+      });
+    });
+  });
 });
