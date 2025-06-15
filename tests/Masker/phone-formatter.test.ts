@@ -3,7 +3,8 @@ import {
   getCountryCode, 
   getSupportedCountries, 
   isValidPhoneNumber,
-  getValidDigitCounts
+  getValidDigitCounts,
+  predictCountryFromPhone
 } from '../../src/Masker';
 
 describe('Phone Number Formatting with Country Codes', () => {
@@ -661,6 +662,211 @@ describe('Phone Number Formatting with Country Codes', () => {
         const result = formatPhoneWithCountryCode(jid, country);
         expect(result).toBe(expected);
       });
+    });
+  });
+
+  describe('predictCountryFromPhone', () => {
+    const countryPredictionTestCases = [
+      { phoneNumber: '5511987654321', expectedCountry: 'brazil', description: 'Brazilian number with country code' },
+      { phoneNumber: '+55 11 987654321', expectedCountry: 'brazil', description: 'Brazilian number with formatted country code' },
+      { phoneNumber: '12125551234', expectedCountry: 'us', description: 'US number with country code' },
+      { phoneNumber: '+1 212 555 1234', expectedCountry: 'us', description: 'US number with formatted country code' },
+      { phoneNumber: '34612345678', expectedCountry: 'spain', description: 'Spanish number with country code' },
+      { phoneNumber: '+34 612 345 678', expectedCountry: 'spain', description: 'Spanish number with formatted country code' },
+      { phoneNumber: '351912345678', expectedCountry: 'portugal', description: 'Portuguese number with country code' },
+      { phoneNumber: '4979123456789', expectedCountry: 'germany', description: 'German number with country code' },
+      { phoneNumber: '447701234567', expectedCountry: 'uk', description: 'UK number with country code' },
+      { phoneNumber: '8613812345678', expectedCountry: 'china', description: 'Chinese number with country code' },
+      { phoneNumber: '819012345678', expectedCountry: 'japan', description: 'Japanese number with country code' },
+      { phoneNumber: '919876543210', expectedCountry: 'india', description: 'Indian number with country code' },
+      { phoneNumber: '27821234567', expectedCountry: 'southafrica', description: 'South African number with country code' },
+      { phoneNumber: '61412345678', expectedCountry: 'australia', description: 'Australian number with country code' }
+    ];
+
+    countryPredictionTestCases.forEach(({ phoneNumber, expectedCountry, description }) => {
+      test(`should predict ${expectedCountry} for ${description}`, () => {
+        const result = predictCountryFromPhone(phoneNumber);
+        expect(result).toBe(expectedCountry);
+      });
+    });
+
+    test('should return null for invalid or unpredictable phone numbers', () => {
+      const invalidNumbers = [
+        '',
+        '123',
+        '99999999999999',
+        '000000000000',
+        'abcdefghijk'
+      ];
+
+      invalidNumbers.forEach(number => {
+        expect(predictCountryFromPhone(number)).toBeNull();
+      });
+    });
+
+    test('should handle numbers without country codes', () => {
+      // Numbers without country codes should return null
+      expect(predictCountryFromPhone('11987654321')).toBeNull(); // Brazilian without country code (starts with 1 but not US format)
+      expect(predictCountryFromPhone('987654321')).toBeNull(); // Random 9-digit number
+      expect(predictCountryFromPhone('123456789')).toBeNull(); // Random 9-digit number
+    });
+
+    test('should prioritize longer country codes', () => {
+      // Portugal (+351) should be detected instead of Spain (+34) for 351 prefix
+      expect(predictCountryFromPhone('351912345678')).toBe('portugal');
+      
+      // UAE (+971) should be detected instead of Russia (+7) for 971 prefix
+      expect(predictCountryFromPhone('971501234567')).toBe('uae');
+    });
+  });
+
+  describe('formatPhoneWithCountryCode with automatic country prediction', () => {
+    const autoPredictionTestCases = [
+      {
+        description: 'Brazilian number with country code (no country provided)',
+        input: '5511987654321',
+        expected: '+55 (11) 98765-4321'
+      },
+      {
+        description: 'Brazilian number with country code (no country provided)',
+        input: '553181007753',
+        expected: '+55 (31) 8100-7753'
+      },
+      {
+        description: 'Brazilian number with country code (no country provided)',
+        input: '5531981007753',
+        expected: '+55 (31) 98100-7753'
+      },
+      {
+        description: 'US number with country code (no country provided)',
+        input: '12125551234',
+        expected: '+1 (212) 555-1234'
+      },
+      {
+        description: 'Spanish number with country code (no country provided)',
+        input: '34612345678',
+        expected: '+34 612 345 678'
+      },
+      {
+        description: 'German number with country code (no country provided)',
+        input: '4917012345678',
+        expected: '+49 1701 2345678'
+      },
+      {
+        description: 'Chinese number with country code (no country provided)',
+        input: '8613812345678',
+        expected: '+86 138 1234 5678'
+      },
+      {
+        description: 'Portuguese number with country code (no country provided)',
+        input: '351912345678',
+        expected: '+351 912 345 678'
+      },
+      {
+        description: 'Portuguese number with country code (no country provided)',
+        input: '351 926 247 229',
+        expected: '+351 926 247 229'
+      },
+      {
+        description: 'Portuguese number with country code (no country provided)',
+        input: '351 918 176 655',
+        expected: '+351 918 176 655'
+      },
+      {
+        description: 'Formatted Brazilian number with country code (no country provided)',
+        input: '+55 (11) 98765-4321',
+        expected: '+55 (11) 98765-4321'
+      },
+      {
+        description: 'Brazilian landline with country code (no country provided)',
+        input: '551134567890',
+        expected: '+55 (11) 3456-7890'
+      }
+    ];
+
+    autoPredictionTestCases.forEach(({ description, input, expected }) => {
+      test(`should auto-predict and format ${description}`, () => {
+        const result = formatPhoneWithCountryCode(input);
+        expect(result).toBe(expected);
+      });
+    });
+
+    test('should return default formatting when prediction fails and throwsErrorOnValidation is false', () => {
+      const unpredictableNumbers = [
+        '987654321',  // Random number without country code
+        '123456789',  // Random number without country code
+        '99987654321' // Random number that doesn't match any country pattern
+      ];
+
+      unpredictableNumbers.forEach(number => {
+        const result = formatPhoneWithCountryCode(number);
+        expect(result).toBe('+55 (31) 99090-9090');
+      });
+    });
+
+    test('should throw error when prediction fails and throwsErrorOnValidation is true', () => {
+      expect(() => {
+        formatPhoneWithCountryCode('987654321', undefined, true);
+      }).toThrow('Could not predict country from phone number and no country was provided');
+
+      expect(() => {
+        formatPhoneWithCountryCode('123456789', undefined, true);
+      }).toThrow('Could not predict country from phone number and no country was provided');
+    });
+
+    test('should work when country is explicitly provided (backward compatibility)', () => {
+      // Should work the same as before when country is provided
+      expect(formatPhoneWithCountryCode('11987654321', 'brazil')).toBe('+55 (11) 98765-4321');
+      expect(formatPhoneWithCountryCode('2125551234', 'us')).toBe('+1 (212) 555-1234');
+    });
+
+    test('should prioritize explicit country over prediction', () => {
+      // Even if the number has a country code, explicit country should take precedence
+      const result = formatPhoneWithCountryCode('5511987654321', 'us', false);
+      // Should fail validation for US but return default since throwsErrorOnValidation is false
+      expect(result).toBe('+55 (31) 99090-9090');
+    });
+  });
+
+  describe('isValidPhoneNumber with automatic country prediction', () => {
+    test('should validate numbers with automatic country prediction', () => {
+      const validNumbers = [
+        '553181007753',  // Brazilian mobile
+        '553175439236',  // Brazilian mobile
+        '5511987654321',  // Brazilian mobile
+        '551134567890',   // Brazilian landline
+        '12125551234',    // US
+        '34612345678',    // Spanish
+        '351912345678',   // Portuguese
+        '351918176655',   // Portuguese
+        '351926247229',   // Portuguese
+        '4917012345678'   // German
+      ];
+
+      validNumbers.forEach(number => {
+        expect(isValidPhoneNumber(number)).toBe(true);
+      });
+    });
+
+    test('should return false for unpredictable or invalid numbers', () => {
+      const invalidNumbers = [
+        '987654321',     // Random number without country code
+        '123456789',     // Random number without country code  
+        '123',           // Too short
+        '99999999999999', // Too long
+        '',              // Empty
+        'abcdefg'        // Non-numeric
+      ];
+
+      invalidNumbers.forEach(number => {
+        expect(isValidPhoneNumber(number)).toBe(false);
+      });
+    });
+
+    test('should work with explicit country (backward compatibility)', () => {
+      expect(isValidPhoneNumber('11987654321', 'brazil')).toBe(true);
+      expect(isValidPhoneNumber('2125551234', 'us')).toBe(true);
+      expect(isValidPhoneNumber('123', 'brazil')).toBe(false);
     });
   });
 });
