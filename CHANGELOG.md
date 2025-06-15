@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.44.0](https://github.com/igortrinidad/lazyfy/compare/v2.43.1...v2.44.0) (2025-06-15)
+
+
+### Features (feat:)
+
+* **PhoneFormatter:** enhance phone formatting with support for additional countries and validation options ([eefc4ed](https://github.com/igortrinidad/lazyfy/commit/eefc4ed0d1ea366f708188166f21a797cdb06dfb))
+
 ### [2.43.1](https://github.com/igortrinidad/lazyfy/compare/v2.43.0...v2.43.1) (2025-06-15)
 
 ## [2.43.0](https://github.com/igortrinidad/lazyfy/compare/v2.42.0...v2.43.0) (2025-06-15)
