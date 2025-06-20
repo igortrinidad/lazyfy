@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.46.0](https://github.com/igortrinidad/lazyfy/compare/v2.45.0...v2.46.0) (2025-06-20)
+
+
+### Features (feat:)
+
+* **FileUploadService:** add file_url property and update upload method to retrieve file URL from API response ([cbda93e](https://github.com/igortrinidad/lazyfy/commit/cbda93ebcb1f87a278b1bd9cda522ec3eee0a271))
+
 ## [2.45.0](https://github.com/igortrinidad/lazyfy/compare/v2.44.1...v2.45.0) (2025-06-15)
 
 
