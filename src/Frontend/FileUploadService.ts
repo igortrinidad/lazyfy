@@ -31,6 +31,7 @@ export class FileUploadService {
 
   public file_path: string = ''
   public file_name: string = ''
+  public file_url: string = ''
   public get_presigned_url: string = ''
   public presigned_url: string = ''
   public isLoading: boolean = false
@@ -151,6 +152,7 @@ export class FileUploadService {
       const { data } = await this.axiosInstance.post(get_presigned_url, { folder_path, extension, name, ContentType, ACL })
       this.file_path = data.file_path
       this.file_name = data.file_name
+      this.file_url = data.file_url
       this.presigned_url = data.presigned_url
     } catch (err) {
       console.error(err)
