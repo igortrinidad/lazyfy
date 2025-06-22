@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.47.0](https://github.com/igortrinidad/lazyfy/compare/v2.46.0...v2.47.0) (2025-06-22)
+
+
+### Features (feat:)
+
+* **formatters:** implement formatFileSize function and add tests for various input scenarios ([2e7c5dd](https://github.com/igortrinidad/lazyfy/commit/2e7c5dd2cf3b317dde5011e70a7319f72405f072))
+
 ## [2.46.0](https://github.com/igortrinidad/lazyfy/compare/v2.45.0...v2.46.0) (2025-06-20)
 
 
