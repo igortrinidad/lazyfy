@@ -4,8 +4,11 @@ import {
   getSupportedCountries, 
   isValidPhoneNumber,
   getValidDigitCounts,
-  predictCountryFromPhone
+  predictCountryFromPhone,
+  mask
 } from '../../src/Masker';
+import { DEFAULT_PHONE_DDI, DEFAULT_PHONE_MASK, DEFAULT_PHONE_MASK_WITH_DDI } from '../../src/mask/enums'
+
 
 describe('Phone Number Formatting with Country Codes', () => {
   
@@ -251,17 +254,17 @@ describe('Phone Number Formatting with Country Codes', () => {
   describe('formatPhoneWithCountryCode with throwsErrorOnValidation parameter', () => {
     test('should return default formatting when throwsErrorOnValidation is false (default) for invalid phone', () => {
       const result = formatPhoneWithCountryCode('123', 'brazil');
-      expect(result).toBe('+55 (31) 99090-9090');
+      expect(result).toBe(mask('123', DEFAULT_PHONE_MASK_WITH_DDI));
     });
 
     test('should return default formatting when throwsErrorOnValidation is false for unsupported country', () => {
       const result = formatPhoneWithCountryCode('1234567890', 'invalidcountry');
-      expect(result).toBe('+55 (31) 99090-9090');
+      expect(result).toBe(mask('1234567890', DEFAULT_PHONE_MASK_WITH_DDI));
     });
 
     test('should return default formatting when throwsErrorOnValidation is false for empty phone', () => {
       const result = formatPhoneWithCountryCode('', 'brazil');
-      expect(result).toBe('+55 (31) 99090-9090');
+      expect(result).toBe(mask('', DEFAULT_PHONE_MASK_WITH_DDI));
     });
 
     test('should throw error when throwsErrorOnValidation is true for invalid phone', () => {
@@ -627,7 +630,7 @@ describe('Phone Number Formatting with Country Codes', () => {
     test('Should handle invalid WhatsApp JID gracefully with throwsErrorOnValidation=false', () => {
       const invalidJid = '5511987654321000@s.whatsapp.net'; // Too many digits
       const result = formatPhoneWithCountryCode(invalidJid, 'brazil', false);
-      expect(result).toBe('+55 (31) 99090-9090'); // Default fallback
+      expect(result).toBe(mask(invalidJid, DEFAULT_PHONE_MASK_WITH_DDI)); // Default fallback
     });
 
     test('Should throw error for invalid WhatsApp JID with throwsErrorOnValidation=true', () => {
@@ -800,7 +803,7 @@ describe('Phone Number Formatting with Country Codes', () => {
 
       unpredictableNumbers.forEach(number => {
         const result = formatPhoneWithCountryCode(number);
-        expect(result).toBe('+55 (31) 99090-9090');
+        expect(result).toBe(mask(number, DEFAULT_PHONE_MASK_WITH_DDI));
       });
     });
 
@@ -824,7 +827,7 @@ describe('Phone Number Formatting with Country Codes', () => {
       // Even if the number has a country code, explicit country should take precedence
       const result = formatPhoneWithCountryCode('5511987654321', 'us', false);
       // Should fail validation for US but return default since throwsErrorOnValidation is false
-      expect(result).toBe('+55 (31) 99090-9090');
+      expect(result).toBe(mask('5511987654321', DEFAULT_PHONE_MASK_WITH_DDI));
     });
   });
 

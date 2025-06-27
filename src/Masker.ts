@@ -196,7 +196,7 @@ export const formatPhoneWithCountryCode = (phoneNumber: string, country?: string
     if (throwsErrorOnValidation) {
       throw new Error('Phone number is required');
     }
-    return masker('+55 (31) 99090-9090', DEFAULT_PHONE_MASK_WITH_DDI, true);
+    return masker(phoneNumber, DEFAULT_PHONE_MASK_WITH_DDI, true);
   }
 
   // If no country is provided, try to predict it from the phone number
@@ -209,7 +209,7 @@ export const formatPhoneWithCountryCode = (phoneNumber: string, country?: string
       if (throwsErrorOnValidation) {
         throw new Error('Could not predict country from phone number and no country was provided');
       }
-      return masker('+55 (31) 99090-9090', DEFAULT_PHONE_MASK_WITH_DDI, true);
+      return masker(phoneNumber, DEFAULT_PHONE_MASK_WITH_DDI, true);
     }
   }
 
@@ -220,7 +220,7 @@ export const formatPhoneWithCountryCode = (phoneNumber: string, country?: string
     if (throwsErrorOnValidation) {
       throw new Error(`Country '${finalCountry}' is not supported. Supported countries: ${Object.keys(PHONE_FORMATS).join(', ')}`);
     }
-    return masker('+55 (31) 99090-9090', DEFAULT_PHONE_MASK_WITH_DDI, true);
+    return masker(phoneNumber, DEFAULT_PHONE_MASK_WITH_DDI, true);
   }
 
   // Remove all non-numeric characters
@@ -240,7 +240,7 @@ export const formatPhoneWithCountryCode = (phoneNumber: string, country?: string
       if (throwsErrorOnValidation) {
         throw new Error(`Phone number for ${finalCountry} should have ${config.digitCount.join(' or ')} digits, but got ${cleanNumber.length}`);
       }
-      return masker('+55 (31) 99090-9090', DEFAULT_PHONE_MASK_WITH_DDI, true);
+      return masker(phoneNumber, DEFAULT_PHONE_MASK_WITH_DDI, true);
     }
     
     const selectedMask = Array.isArray(config.mask) ? config.mask[validIndex] : config.mask;
@@ -252,7 +252,7 @@ export const formatPhoneWithCountryCode = (phoneNumber: string, country?: string
       if (throwsErrorOnValidation) {
         throw new Error(`Phone number for ${finalCountry} should have ${config.digitCount} digits, but got ${cleanNumber.length}`);
       }
-      return masker('+55 (31) 99090-9090', DEFAULT_PHONE_MASK_WITH_DDI, true);
+      return masker(phoneNumber, DEFAULT_PHONE_MASK_WITH_DDI, true);
     }
     
     const selectedMask = Array.isArray(config.mask) ? config.mask[0] : config.mask;
