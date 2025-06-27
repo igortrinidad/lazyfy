@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.47.2](https://github.com/igortrinidad/lazyfy/compare/v2.47.1...v2.47.2) (2025-06-27)
+
+
+### Bug Fixes (fix:)
+
+* **formatters:** update formatPhoneWithCountryCode to use provided phoneNumber instead of hardcoded value ([720e6ac](https://github.com/igortrinidad/lazyfy/commit/720e6ac136131aafe8ae78be348877b1af3a1733))
+
 ### [2.47.1](https://github.com/igortrinidad/lazyfy/compare/v2.47.0...v2.47.1) (2025-06-22)
 
 ## [2.47.0](https://github.com/igortrinidad/lazyfy/compare/v2.46.0...v2.47.0) (2025-06-22)
