@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.49.0](https://github.com/igortrinidad/lazyfy/compare/v2.48.0...v2.49.0) (2025-09-04)
+
+
+### Features (feat:)
+
+* **masker:** enhance extractCountryCodeAndPhone to return country code for incomplete numbers and add comprehensive tests ([d262636](https://github.com/igortrinidad/lazyfy/commit/d2626369e24554e4b4f69087ba7981f7bfdf1a77))
+
 ## [2.48.0](https://github.com/igortrinidad/lazyfy/compare/v2.47.2...v2.48.0) (2025-09-04)
 
 
