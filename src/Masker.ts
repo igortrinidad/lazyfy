@@ -325,6 +325,109 @@ export const getValidDigitCounts = (country: string): number[] => {
   return Array.isArray(config.digitCount) ? config.digitCount : [config.digitCount];
 };
 
+/**
+ * Extracts the country code and phone number from a formatted phone number
+ * @param phoneNumber - The phone number to extract from (can be formatted or unformatted)
+ * @returns Object containing countryCode and phoneNumber, or null if extraction fails
+ */
+export const extractCountryCodeAndPhone = (phoneNumber: string): { countryCode: string; phoneNumber: string; country?: string } | null => {
+  if (!phoneNumber) return null;
+  
+  // Check if the original input contains letters mixed with numbers (invalid phone number)
+  const hasLetters = /[a-zA-Z]/.test(phoneNumber);
+  const hasNumbers = /\d/.test(phoneNumber);
+  
+  // If there are both letters and numbers, it's an invalid phone number
+  if (hasLetters && hasNumbers) {
+    // Allow specific cases like WhatsApp JIDs
+    const isWhatsAppJid = /@(s\.whatsapp\.net|g\.us|c\.us)$/i.test(phoneNumber);
+    if (!isWhatsAppJid) {
+      return null;
+    }
+  }
+  
+  // Remove all non-numeric characters except the plus sign
+  const cleanNumber = phoneNumber.replace(/[^\d+]/g, '');
+  
+  // If the number starts with +, extract country code from it
+  if (cleanNumber.startsWith('+')) {
+    const numberWithoutPlus = cleanNumber.slice(1);
+    
+    // Try to find matching country code
+    const sortedCountryCodes = Object.keys(COUNTRY_CODE_MAP).sort((a, b) => b.length - a.length);
+    
+    for (const countryCode of sortedCountryCodes) {
+      if (numberWithoutPlus.startsWith(countryCode)) {
+        const remainingNumber = numberWithoutPlus.slice(countryCode.length);
+        const countryName = COUNTRY_CODE_MAP[countryCode];
+        const config = PHONE_FORMATS[countryName];
+        
+        if (config) {
+          const expectedCounts = Array.isArray(config.digitCount) ? config.digitCount : [config.digitCount];
+          
+          // Validate if the remaining number has the correct length for this country
+          if (expectedCounts.includes(remainingNumber.length)) {
+            // Additional validation for single-digit country codes
+            if (countryCode.length === 1) {
+              if (countryCode === '1' && remainingNumber.length === 10) {
+                const areaCode = remainingNumber.substring(0, 3);
+                if (areaCode[0] !== '0' && areaCode[0] !== '1') {
+                  return {
+                    countryCode: config.countryCode,
+                    phoneNumber: remainingNumber,
+                    country: countryName
+                  };
+                }
+              } else if (countryCode === '7' && remainingNumber.length === 10) {
+                return {
+                  countryCode: config.countryCode,
+                  phoneNumber: remainingNumber,
+                  country: countryName
+                };
+              }
+            } else {
+              return {
+                countryCode: config.countryCode,
+                phoneNumber: remainingNumber,
+                country: countryName
+              };
+            }
+          }
+        }
+      }
+    }
+  } else {
+    // If no + sign, try to predict country from the number
+    const predictedCountry = predictCountryFromPhoneNumber(cleanNumber);
+    
+    if (predictedCountry) {
+      const config = PHONE_FORMATS[predictedCountry];
+      const countryCodeDigits = config.countryCode.replace(/\D/g, '');
+      
+      if (cleanNumber.startsWith(countryCodeDigits)) {
+        const phoneWithoutCountryCode = cleanNumber.slice(countryCodeDigits.length);
+        return {
+          countryCode: config.countryCode,
+          phoneNumber: phoneWithoutCountryCode,
+          country: predictedCountry
+        };
+      } else {
+        // Number without country code
+        const expectedCounts = Array.isArray(config.digitCount) ? config.digitCount : [config.digitCount];
+        if (expectedCounts.includes(cleanNumber.length)) {
+          return {
+            countryCode: config.countryCode,
+            phoneNumber: cleanNumber,
+            country: predictedCountry
+          };
+        }
+      }
+    }
+  }
+  
+  return null;
+};
+
 export const mask = (value: any, mask: any) => {
   return masker(value, mask, true)
 }
@@ -344,5 +447,6 @@ export const Masker = {
   getSupportedCountries,
   isValidPhoneNumber,
   getValidDigitCounts,
-  predictCountryFromPhone
+  predictCountryFromPhone,
+  extractCountryCodeAndPhone
 }
