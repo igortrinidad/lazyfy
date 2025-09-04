@@ -7,77 +7,77 @@ describe('extractCountryCodeAndPhone', () => {
       {
         description: 'Brazilian mobile number with + prefix',
         input: '+5511987654321',
-        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil' }
+        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] }
       },
       {
         description: 'Brazilian landline number with + prefix',
         input: '+551134567890',
-        expected: { countryCode: '+55', phoneNumber: '1134567890', country: 'brazil' }
+        expected: { countryCode: '+55', phoneNumber: '1134567890', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] }
       },
       {
         description: 'US number with + prefix',
         input: '+12125551234',
-        expected: { countryCode: '+1', phoneNumber: '2125551234', country: 'us' }
+        expected: { countryCode: '+1', phoneNumber: '2125551234', country: 'us', mask: '(###) ###-####' }
       },
       {
         description: 'Spanish number with + prefix',
         input: '+34612345678',
-        expected: { countryCode: '+34', phoneNumber: '612345678', country: 'spain' }
+        expected: { countryCode: '+34', phoneNumber: '612345678', country: 'spain', mask: '### ### ###' }
       },
       {
         description: 'Portuguese number with + prefix',
         input: '+351912345678',
-        expected: { countryCode: '+351', phoneNumber: '912345678', country: 'portugal' }
+        expected: { countryCode: '+351', phoneNumber: '912345678', country: 'portugal', mask: '### ### ###' }
       },
       {
         description: 'German number with + prefix',
         input: '+4917012345678',
-        expected: { countryCode: '+49', phoneNumber: '17012345678', country: 'germany' }
+        expected: { countryCode: '+49', phoneNumber: '17012345678', country: 'germany', mask: '#### ########' }
       },
       {
         description: 'UK number with + prefix',
         input: '+447701234567',
-        expected: { countryCode: '+44', phoneNumber: '7701234567', country: 'uk' }
+        expected: { countryCode: '+44', phoneNumber: '7701234567', country: 'uk', mask: '#### ### ####' }
       },
       {
         description: 'Chinese number with + prefix',
         input: '+8613812345678',
-        expected: { countryCode: '+86', phoneNumber: '13812345678', country: 'china' }
+        expected: { countryCode: '+86', phoneNumber: '13812345678', country: 'china', mask: '### #### ####' }
       },
       {
         description: 'Japanese number with + prefix',
         input: '+819012345678',
-        expected: { countryCode: '+81', phoneNumber: '9012345678', country: 'japan' }
+        expected: { countryCode: '+81', phoneNumber: '9012345678', country: 'japan', mask: '##-####-####' }
       },
       {
         description: 'Russian number with + prefix',
         input: '+79123456789',
-        expected: { countryCode: '+7', phoneNumber: '9123456789', country: 'russia' }
+        expected: { countryCode: '+7', phoneNumber: '9123456789', country: 'russia', mask: '(###) ###-##-##' }
       },
       {
         description: 'Indian number with + prefix',
         input: '+919876543210',
-        expected: { countryCode: '+91', phoneNumber: '9876543210', country: 'india' }
+        expected: { countryCode: '+91', phoneNumber: '9876543210', country: 'india', mask: '##### #####' }
       },
       {
         description: 'South African number with + prefix',
         input: '+27821234567',
-        expected: { countryCode: '+27', phoneNumber: '821234567', country: 'southafrica' }
+        expected: { countryCode: '+27', phoneNumber: '821234567', country: 'southafrica', mask: '## ### ####' }
       },
       {
         description: 'Australian number with + prefix',
         input: '+61412345678',
-        expected: { countryCode: '+61', phoneNumber: '412345678', country: 'australia' }
+        expected: { countryCode: '+61', phoneNumber: '412345678', country: 'australia', mask: '### ### ###' }
       },
       {
         description: 'UAE number with + prefix',
         input: '+971501234567',
-        expected: { countryCode: '+971', phoneNumber: '501234567', country: 'uae' }
+        expected: { countryCode: '+971', phoneNumber: '501234567', country: 'uae', mask: '##-### ####' }
       },
       {
         description: 'Israeli number with + prefix',
         input: '+972501234567',
-        expected: { countryCode: '+972', phoneNumber: '501234567', country: 'israel' }
+        expected: { countryCode: '+972', phoneNumber: '501234567', country: 'israel', mask: '##-###-####' }
       }
     ];
 
@@ -94,52 +94,52 @@ describe('extractCountryCodeAndPhone', () => {
       {
         description: 'Formatted Brazilian mobile number',
         input: '+55 (11) 98765-4321',
-        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil' }
+        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] }
       },
       {
         description: 'Formatted Brazilian landline number',
         input: '+55 (11) 3456-7890',
-        expected: { countryCode: '+55', phoneNumber: '1134567890', country: 'brazil' }
+        expected: { countryCode: '+55', phoneNumber: '1134567890', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] }
       },
       {
         description: 'Formatted US number',
         input: '+1 (212) 555-1234',
-        expected: { countryCode: '+1', phoneNumber: '2125551234', country: 'us' }
+        expected: { countryCode: '+1', phoneNumber: '2125551234', country: 'us', mask: '(###) ###-####' }
       },
       {
         description: 'Formatted Spanish number',
         input: '+34 612 345 678',
-        expected: { countryCode: '+34', phoneNumber: '612345678', country: 'spain' }
+        expected: { countryCode: '+34', phoneNumber: '612345678', country: 'spain', mask: '### ### ###' }
       },
       {
         description: 'Formatted Portuguese number',
         input: '+351 912 345 678',
-        expected: { countryCode: '+351', phoneNumber: '912345678', country: 'portugal' }
+        expected: { countryCode: '+351', phoneNumber: '912345678', country: 'portugal', mask: '### ### ###' }
       },
       {
         description: 'Formatted German number',
         input: '+49 1701 2345678',
-        expected: { countryCode: '+49', phoneNumber: '17012345678', country: 'germany' }
+        expected: { countryCode: '+49', phoneNumber: '17012345678', country: 'germany', mask: '#### ########' }
       },
       {
         description: 'Formatted Chinese number',
         input: '+86 138 1234 5678',
-        expected: { countryCode: '+86', phoneNumber: '13812345678', country: 'china' }
+        expected: { countryCode: '+86', phoneNumber: '13812345678', country: 'china', mask: '### #### ####' }
       },
       {
         description: 'Formatted Japanese number',
         input: '+81 90-1234-5678',
-        expected: { countryCode: '+81', phoneNumber: '9012345678', country: 'japan' }
+        expected: { countryCode: '+81', phoneNumber: '9012345678', country: 'japan', mask: '##-####-####' }
       },
       {
         description: 'Formatted Swiss number',
         input: '+41 79 123 45 67',
-        expected: { countryCode: '+41', phoneNumber: '791234567', country: 'switzerland' }
+        expected: { countryCode: '+41', phoneNumber: '791234567', country: 'switzerland', mask: '## ### ## ##' }
       },
       {
         description: 'Formatted French number',
         input: '+33 1 23 45 67 89',
-        expected: { countryCode: '+33', phoneNumber: '123456789', country: 'france' }
+        expected: { countryCode: '+33', phoneNumber: '123456789', country: 'france', mask: '# ## ## ## ##' }
       }
     ];
 
@@ -156,42 +156,42 @@ describe('extractCountryCodeAndPhone', () => {
       {
         description: 'Brazilian mobile number without + prefix',
         input: '5511987654321',
-        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil' }
+        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] }
       },
       {
         description: 'Brazilian landline number without + prefix',
         input: '551134567890',
-        expected: { countryCode: '+55', phoneNumber: '1134567890', country: 'brazil' }
+        expected: { countryCode: '+55', phoneNumber: '1134567890', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] }
       },
       {
         description: 'US number without + prefix',
         input: '12125551234',
-        expected: { countryCode: '+1', phoneNumber: '2125551234', country: 'us' }
+        expected: { countryCode: '+1', phoneNumber: '2125551234', country: 'us', mask: '(###) ###-####' }
       },
       {
         description: 'Spanish number without + prefix',
         input: '34612345678',
-        expected: { countryCode: '+34', phoneNumber: '612345678', country: 'spain' }
+        expected: { countryCode: '+34', phoneNumber: '612345678', country: 'spain', mask: '### ### ###' }
       },
       {
         description: 'Portuguese number without + prefix',
         input: '351912345678',
-        expected: { countryCode: '+351', phoneNumber: '912345678', country: 'portugal' }
+        expected: { countryCode: '+351', phoneNumber: '912345678', country: 'portugal', mask: '### ### ###' }
       },
       {
         description: 'German number without + prefix',
         input: '4917012345678',
-        expected: { countryCode: '+49', phoneNumber: '17012345678', country: 'germany' }
+        expected: { countryCode: '+49', phoneNumber: '17012345678', country: 'germany', mask: '#### ########' }
       },
       {
         description: 'Chinese number without + prefix',
         input: '8613812345678',
-        expected: { countryCode: '+86', phoneNumber: '13812345678', country: 'china' }
+        expected: { countryCode: '+86', phoneNumber: '13812345678', country: 'china', mask: '### #### ####' }
       },
       {
         description: 'UAE number without + prefix',
         input: '971501234567',
-        expected: { countryCode: '+971', phoneNumber: '501234567', country: 'uae' }
+        expected: { countryCode: '+971', phoneNumber: '501234567', country: 'uae', mask: '##-### ####' }
       }
     ];
 
@@ -208,37 +208,37 @@ describe('extractCountryCodeAndPhone', () => {
       {
         description: 'Brazilian WhatsApp JID with @s.whatsapp.net',
         input: '5511987654321@s.whatsapp.net',
-        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil' }
+        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] }
       },
       {
         description: 'Brazilian WhatsApp JID with @g.us',
         input: '551134567890@g.us',
-        expected: { countryCode: '+55', phoneNumber: '1134567890', country: 'brazil' }
+        expected: { countryCode: '+55', phoneNumber: '1134567890', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] }
       },
       {
         description: 'US WhatsApp JID with @s.whatsapp.net',
         input: '12125551234@s.whatsapp.net',
-        expected: { countryCode: '+1', phoneNumber: '2125551234', country: 'us' }
+        expected: { countryCode: '+1', phoneNumber: '2125551234', country: 'us', mask: '(###) ###-####' }
       },
       {
         description: 'Spanish WhatsApp JID with @c.us',
         input: '34612345678@c.us',
-        expected: { countryCode: '+34', phoneNumber: '612345678', country: 'spain' }
+        expected: { countryCode: '+34', phoneNumber: '612345678', country: 'spain', mask: '### ### ###' }
       },
       {
         description: 'Portuguese WhatsApp JID with @s.whatsapp.net',
         input: '351912345678@s.whatsapp.net',
-        expected: { countryCode: '+351', phoneNumber: '912345678', country: 'portugal' }
+        expected: { countryCode: '+351', phoneNumber: '912345678', country: 'portugal', mask: '### ### ###' }
       },
       {
         description: 'WhatsApp JID with mixed formatting',
         input: '55 (11) 98765-4321@s.whatsapp.net',
-        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil' }
+        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] }
       },
       {
         description: 'WhatsApp JID with spaces and dashes',
         input: '55-11-98765-4321@s.whatsapp.net',
-        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil' }
+        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] }
       }
     ];
 
@@ -260,17 +260,17 @@ describe('extractCountryCodeAndPhone', () => {
       {
         description: 'Brazilian landline number without country code (but matches US incomplete)',
         input: '1134567890',
-        expected: { countryCode: '+1', country: 'us' } // This now matches as incomplete US number
+        expected: { countryCode: '+1', country: 'us', mask: '(###) ###-####' } // This now matches as incomplete US number
       },
       {
         description: 'US number without country code (but matches Morocco incomplete)',
         input: '2125551234',
-        expected: { countryCode: '+212', country: 'morocco' } // This now matches as incomplete Morocco number
+        expected: { countryCode: '+212', country: 'morocco', mask: '###-######' } // This now matches as incomplete Morocco number
       },
       {
         description: 'Spanish number without country code (but matches Australia incomplete)',
         input: '612345678',
-        expected: { countryCode: '+61', country: 'australia' } // This now matches as incomplete Australia number
+        expected: { countryCode: '+61', country: 'australia', mask: '### ### ###' } // This now matches as incomplete Australia number
       },
       {
         description: 'Random 9-digit number',
@@ -280,7 +280,7 @@ describe('extractCountryCodeAndPhone', () => {
       {
         description: 'Random 10-digit number (but matches US incomplete)',
         input: '1234567890',
-        expected: { countryCode: '+1', country: 'us' } // This now matches as incomplete US number
+        expected: { countryCode: '+1', country: 'us', mask: '(###) ###-####' } // This now matches as incomplete US number
       }
     ];
 
@@ -322,7 +322,7 @@ describe('extractCountryCodeAndPhone', () => {
       {
         description: 'too short number (now returns Brazil country code)',
         input: '+55123',
-        expected: { countryCode: '+55', country: 'brazil' } // This now returns incomplete Brazil number
+        expected: { countryCode: '+55', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] } // This now returns incomplete Brazil number
       },
       {
         description: 'too long number',
@@ -378,7 +378,8 @@ describe('extractCountryCodeAndPhone', () => {
         expect(result).toEqual({
           countryCode: '+1',
           phoneNumber: number.slice(2),
-          country: 'us'
+          country: 'us',
+          mask: '(###) ###-####'
         });
       });
     });
@@ -407,7 +408,8 @@ describe('extractCountryCodeAndPhone', () => {
         expect(result).toEqual({
           countryCode: '+7',
           phoneNumber: number.slice(2),
-          country: 'russia'
+          country: 'russia',
+          mask: '(###) ###-##-##'
         });
       });
     });
@@ -420,7 +422,8 @@ describe('extractCountryCodeAndPhone', () => {
       expect(result).toEqual({
         countryCode: '+351',
         phoneNumber: '912345678',
-        country: 'portugal'
+        country: 'portugal',
+        mask: '### ### ###'
       });
     });
 
@@ -429,7 +432,8 @@ describe('extractCountryCodeAndPhone', () => {
       expect(result).toEqual({
         countryCode: '+971',
         phoneNumber: '501234567',
-        country: 'uae'
+        country: 'uae',
+        mask: '##-### ####'
       });
     });
 
@@ -438,7 +442,8 @@ describe('extractCountryCodeAndPhone', () => {
       expect(result).toEqual({
         countryCode: '+358',
         phoneNumber: '401234567',
-        country: 'finland'
+        country: 'finland',
+        mask: '## ### ####'
       });
     });
   });
@@ -448,37 +453,37 @@ describe('extractCountryCodeAndPhone', () => {
       {
         description: 'number with dots',
         input: '+55.11.98765.4321',
-        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil' }
+        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] }
       },
       {
         description: 'number with dashes',
         input: '+55-11-98765-4321',
-        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil' }
+        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] }
       },
       {
         description: 'number with parentheses',
         input: '+55(11)98765-4321',
-        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil' }
+        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] }
       },
       {
         description: 'number with spaces',
         input: '+55 11 98765 4321',
-        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil' }
+        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] }
       },
       {
         description: 'number with mixed formatting',
         input: '+55 (11) 98765-4321',
-        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil' }
+        expected: { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] }
       },
       {
         description: 'US number with mixed formatting',
         input: '+1 (212) 555-1234',
-        expected: { countryCode: '+1', phoneNumber: '2125551234', country: 'us' }
+        expected: { countryCode: '+1', phoneNumber: '2125551234', country: 'us', mask: '(###) ###-####' }
       },
       {
         description: 'German number with spaces',
         input: '+49 1701 2345678',
-        expected: { countryCode: '+49', phoneNumber: '17012345678', country: 'germany' }
+        expected: { countryCode: '+49', phoneNumber: '17012345678', country: 'germany', mask: '#### ########' }
       }
     ];
 
@@ -501,11 +506,11 @@ describe('extractCountryCodeAndPhone', () => {
       ];
 
       const expectedResults = [
-        { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil' },
-        { countryCode: '+1', phoneNumber: '2125551234', country: 'us' },
-        { countryCode: '+34', phoneNumber: '612345678', country: 'spain' },
-        { countryCode: '+351', phoneNumber: '912345678', country: 'portugal' },
-        { countryCode: '+49', phoneNumber: '17012345678', country: 'germany' }
+        { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] },
+        { countryCode: '+1', phoneNumber: '2125551234', country: 'us', mask: '(###) ###-####' },
+        { countryCode: '+34', phoneNumber: '612345678', country: 'spain', mask: '### ### ###' },
+        { countryCode: '+351', phoneNumber: '912345678', country: 'portugal', mask: '### ### ###' },
+        { countryCode: '+49', phoneNumber: '17012345678', country: 'germany', mask: '#### ########' }
       ];
 
       contactNumbers.forEach((number, index) => {
@@ -520,24 +525,24 @@ describe('extractCountryCodeAndPhone', () => {
           source: 'WhatsApp',
           numbers: ['5511987654321@s.whatsapp.net', '12125551234@s.whatsapp.net'],
           expected: [
-            { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil' },
-            { countryCode: '+1', phoneNumber: '2125551234', country: 'us' }
+            { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] },
+            { countryCode: '+1', phoneNumber: '2125551234', country: 'us', mask: '(###) ###-####' }
           ]
         },
         {
           source: 'International format',
           numbers: ['+55 11 98765-4321', '+1 212 555 1234'],
           expected: [
-            { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil' },
-            { countryCode: '+1', phoneNumber: '2125551234', country: 'us' }
+            { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] },
+            { countryCode: '+1', phoneNumber: '2125551234', country: 'us', mask: '(###) ###-####' }
           ]
         },
         {
           source: 'Raw numbers',
           numbers: ['5511987654321', '12125551234'],
           expected: [
-            { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil' },
-            { countryCode: '+1', phoneNumber: '2125551234', country: 'us' }
+            { countryCode: '+55', phoneNumber: '11987654321', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] },
+            { countryCode: '+1', phoneNumber: '2125551234', country: 'us', mask: '(###) ###-####' }
           ]
         }
       ];
@@ -556,52 +561,52 @@ describe('extractCountryCodeAndPhone', () => {
       {
         description: 'Brazilian number with country code but incomplete phone',
         input: '+5511',
-        expected: { countryCode: '+55', country: 'brazil' }
+        expected: { countryCode: '+55', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] }
       },
       {
         description: 'Brazilian number with country code and partial phone',
         input: '+551198765',
-        expected: { countryCode: '+55', country: 'brazil' }
+        expected: { countryCode: '+55', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] }
       },
       {
         description: 'US number with country code but incomplete phone',
         input: '+1212',
-        expected: { countryCode: '+1', country: 'us' }
+        expected: { countryCode: '+1', country: 'us', mask: '(###) ###-####' }
       },
       {
         description: 'US number with country code and partial phone',
         input: '+121255512',
-        expected: { countryCode: '+1', country: 'us' }
+        expected: { countryCode: '+1', country: 'us', mask: '(###) ###-####' }
       },
       {
         description: 'Spanish number with country code but incomplete phone',
         input: '+3461',
-        expected: { countryCode: '+34', country: 'spain' }
+        expected: { countryCode: '+34', country: 'spain', mask: '### ### ###' }
       },
       {
         description: 'Portuguese number with country code but incomplete phone',
         input: '+35191',
-        expected: { countryCode: '+351', country: 'portugal' }
+        expected: { countryCode: '+351', country: 'portugal', mask: '### ### ###' }
       },
       {
         description: 'German number with country code but incomplete phone',
         input: '+491701',
-        expected: { countryCode: '+49', country: 'germany' }
+        expected: { countryCode: '+49', country: 'germany', mask: '#### ########' }
       },
       {
         description: 'Chinese number with country code but incomplete phone',
         input: '+86138',
-        expected: { countryCode: '+86', country: 'china' }
+        expected: { countryCode: '+86', country: 'china', mask: '### #### ####' }
       },
       {
         description: 'UAE number with country code but incomplete phone',
         input: '+97150',
-        expected: { countryCode: '+971', country: 'uae' }
+        expected: { countryCode: '+971', country: 'uae', mask: '##-### ####' }
       },
       {
         description: 'Israeli number with country code but incomplete phone',
         input: '+97250',
-        expected: { countryCode: '+972', country: 'israel' }
+        expected: { countryCode: '+972', country: 'israel', mask: '##-###-####' }
       }
     ];
 
@@ -618,37 +623,37 @@ describe('extractCountryCodeAndPhone', () => {
       {
         description: 'Brazilian incomplete number without + prefix',
         input: '5511',
-        expected: { countryCode: '+55', country: 'brazil' }
+        expected: { countryCode: '+55', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] }
       },
       {
         description: 'Brazilian partial number without + prefix',
         input: '551198765',
-        expected: { countryCode: '+55', country: 'brazil' }
+        expected: { countryCode: '+55', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] }
       },
       {
         description: 'US incomplete number without + prefix',
         input: '1212',
-        expected: { countryCode: '+1', country: 'us' }
+        expected: { countryCode: '+1', country: 'us', mask: '(###) ###-####' }
       },
       {
         description: 'Spanish incomplete number without + prefix',
         input: '3461',
-        expected: { countryCode: '+34', country: 'spain' }
+        expected: { countryCode: '+34', country: 'spain', mask: '### ### ###' }
       },
       {
         description: 'Portuguese incomplete number without + prefix',
         input: '35191',
-        expected: { countryCode: '+351', country: 'portugal' }
+        expected: { countryCode: '+351', country: 'portugal', mask: '### ### ###' }
       },
       {
         description: 'German incomplete number without + prefix',
         input: '491701',
-        expected: { countryCode: '+49', country: 'germany' }
+        expected: { countryCode: '+49', country: 'germany', mask: '#### ########' }
       },
       {
         description: 'Chinese incomplete number without + prefix',
         input: '86138',
-        expected: { countryCode: '+86', country: 'china' }
+        expected: { countryCode: '+86', country: 'china', mask: '### #### ####' }
       }
     ];
 
@@ -687,19 +692,19 @@ describe('extractCountryCodeAndPhone', () => {
       const formattedIncompleteTestCases = [
         {
           input: '+55 (11) 98765',
-          expected: { countryCode: '+55', country: 'brazil' }
+          expected: { countryCode: '+55', country: 'brazil', mask: ['(##) #####-####', '(##) ####-####'] }
         },
         {
           input: '+1 (212) 555',
-          expected: { countryCode: '+1', country: 'us' }
+          expected: { countryCode: '+1', country: 'us', mask: '(###) ###-####' }
         },
         {
           input: '+34 612 345',
-          expected: { countryCode: '+34', country: 'spain' }
+          expected: { countryCode: '+34', country: 'spain', mask: '### ### ###' }
         },
         {
           input: '+351 912 345',
-          expected: { countryCode: '+351', country: 'portugal' }
+          expected: { countryCode: '+351', country: 'portugal', mask: '### ### ###' }
         }
       ];
 

@@ -328,9 +328,9 @@ export const getValidDigitCounts = (country: string): number[] => {
 /**
  * Extracts the country code and phone number from a formatted phone number
  * @param phoneNumber - The phone number to extract from (can be formatted or unformatted)
- * @returns Object containing countryCode and phoneNumber (if complete), or only countryCode (if incomplete), or null if extraction fails
+ * @returns Object containing countryCode, phoneNumber (if complete), country, and mask, or only countryCode and country (if incomplete), or null if extraction fails
  */
-export const extractCountryCodeAndPhone = (phoneNumber: string): { countryCode: string; phoneNumber?: string; country?: string } | null => {
+export const extractCountryCodeAndPhone = (phoneNumber: string): { countryCode: string; phoneNumber?: string; country?: string; mask?: string | string[] } | null => {
   if (!phoneNumber) return null;
   
   // Check if the original input contains letters mixed with numbers (invalid phone number)
@@ -375,21 +375,24 @@ export const extractCountryCodeAndPhone = (phoneNumber: string): { countryCode: 
                   return {
                     countryCode: config.countryCode,
                     phoneNumber: remainingNumber,
-                    country: countryName
+                    country: countryName,
+                    mask: config.mask
                   };
                 }
               } else if (countryCode === '7' && remainingNumber.length === 10) {
                 return {
                   countryCode: config.countryCode,
                   phoneNumber: remainingNumber,
-                  country: countryName
+                  country: countryName,
+                  mask: config.mask
                 };
               }
             } else {
               return {
                 countryCode: config.countryCode,
                 phoneNumber: remainingNumber,
-                country: countryName
+                country: countryName,
+                mask: config.mask
               };
             }
           } else {
@@ -398,7 +401,8 @@ export const extractCountryCodeAndPhone = (phoneNumber: string): { countryCode: 
             if (remainingNumber.length > 0 && remainingNumber.length < minExpectedCount) {
               return {
                 countryCode: config.countryCode,
-                country: countryName
+                country: countryName,
+                mask: config.mask
               };
             }
           }
@@ -421,7 +425,8 @@ export const extractCountryCodeAndPhone = (phoneNumber: string): { countryCode: 
           return {
             countryCode: config.countryCode,
             phoneNumber: phoneWithoutCountryCode,
-            country: predictedCountry
+            country: predictedCountry,
+            mask: config.mask
           };
         } else {
           // If phone number is incomplete, return only country code
@@ -429,7 +434,8 @@ export const extractCountryCodeAndPhone = (phoneNumber: string): { countryCode: 
           if (phoneWithoutCountryCode.length > 0 && phoneWithoutCountryCode.length < minExpectedCount) {
             return {
               countryCode: config.countryCode,
-              country: predictedCountry
+              country: predictedCountry,
+              mask: config.mask
             };
           }
         }
@@ -440,7 +446,8 @@ export const extractCountryCodeAndPhone = (phoneNumber: string): { countryCode: 
           return {
             countryCode: config.countryCode,
             phoneNumber: cleanNumber,
-            country: predictedCountry
+            country: predictedCountry,
+            mask: config.mask
           };
         }
       }
@@ -463,7 +470,8 @@ export const extractCountryCodeAndPhone = (phoneNumber: string): { countryCode: 
           if (remainingNumber.length > 0 && remainingNumber.length < minExpectedCount) {
             return {
               countryCode: config.countryCode,
-              country: countryName
+              country: countryName,
+              mask: config.mask
             };
           }
         }
