@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.48.0](https://github.com/igortrinidad/lazyfy/compare/v2.47.2...v2.48.0) (2025-09-04)
+
+
+### Features (feat:)
+
+* **masker:** add extractCountryCodeAndPhone function with comprehensive validation and formatting support ([6f28494](https://github.com/igortrinidad/lazyfy/commit/6f284942cf6dd4b7f3a5caf6fc01de52ebde323c))
+
 ### [2.47.2](https://github.com/igortrinidad/lazyfy/compare/v2.47.1...v2.47.2) (2025-06-27)
 
 
