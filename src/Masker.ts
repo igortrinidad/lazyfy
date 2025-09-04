@@ -328,9 +328,9 @@ export const getValidDigitCounts = (country: string): number[] => {
 /**
  * Extracts the country code and phone number from a formatted phone number
  * @param phoneNumber - The phone number to extract from (can be formatted or unformatted)
- * @returns Object containing countryCode and phoneNumber, or null if extraction fails
+ * @returns Object containing countryCode and phoneNumber (if complete), or only countryCode (if incomplete), or null if extraction fails
  */
-export const extractCountryCodeAndPhone = (phoneNumber: string): { countryCode: string; phoneNumber: string; country?: string } | null => {
+export const extractCountryCodeAndPhone = (phoneNumber: string): { countryCode: string; phoneNumber?: string; country?: string } | null => {
   if (!phoneNumber) return null;
   
   // Check if the original input contains letters mixed with numbers (invalid phone number)
@@ -365,7 +365,7 @@ export const extractCountryCodeAndPhone = (phoneNumber: string): { countryCode: 
         if (config) {
           const expectedCounts = Array.isArray(config.digitCount) ? config.digitCount : [config.digitCount];
           
-          // Validate if the remaining number has the correct length for this country
+          // If the remaining number has the correct length, return complete information
           if (expectedCounts.includes(remainingNumber.length)) {
             // Additional validation for single-digit country codes
             if (countryCode.length === 1) {
@@ -392,6 +392,15 @@ export const extractCountryCodeAndPhone = (phoneNumber: string): { countryCode: 
                 country: countryName
               };
             }
+          } else {
+            // If the remaining number is shorter than expected, return only country code
+            const minExpectedCount = Math.min(...expectedCounts);
+            if (remainingNumber.length > 0 && remainingNumber.length < minExpectedCount) {
+              return {
+                countryCode: config.countryCode,
+                country: countryName
+              };
+            }
           }
         }
       }
@@ -406,11 +415,24 @@ export const extractCountryCodeAndPhone = (phoneNumber: string): { countryCode: 
       
       if (cleanNumber.startsWith(countryCodeDigits)) {
         const phoneWithoutCountryCode = cleanNumber.slice(countryCodeDigits.length);
-        return {
-          countryCode: config.countryCode,
-          phoneNumber: phoneWithoutCountryCode,
-          country: predictedCountry
-        };
+        const expectedCounts = Array.isArray(config.digitCount) ? config.digitCount : [config.digitCount];
+        
+        if (expectedCounts.includes(phoneWithoutCountryCode.length)) {
+          return {
+            countryCode: config.countryCode,
+            phoneNumber: phoneWithoutCountryCode,
+            country: predictedCountry
+          };
+        } else {
+          // If phone number is incomplete, return only country code
+          const minExpectedCount = Math.min(...expectedCounts);
+          if (phoneWithoutCountryCode.length > 0 && phoneWithoutCountryCode.length < minExpectedCount) {
+            return {
+              countryCode: config.countryCode,
+              country: predictedCountry
+            };
+          }
+        }
       } else {
         // Number without country code
         const expectedCounts = Array.isArray(config.digitCount) ? config.digitCount : [config.digitCount];
@@ -420,6 +442,30 @@ export const extractCountryCodeAndPhone = (phoneNumber: string): { countryCode: 
             phoneNumber: cleanNumber,
             country: predictedCountry
           };
+        }
+      }
+    }
+    
+    // Check if it's a partial number that could match a country code
+    const sortedCountryCodes = Object.keys(COUNTRY_CODE_MAP).sort((a, b) => b.length - a.length);
+    
+    for (const countryCode of sortedCountryCodes) {
+      if (cleanNumber.startsWith(countryCode)) {
+        const remainingNumber = cleanNumber.slice(countryCode.length);
+        const countryName = COUNTRY_CODE_MAP[countryCode];
+        const config = PHONE_FORMATS[countryName];
+        
+        if (config) {
+          const expectedCounts = Array.isArray(config.digitCount) ? config.digitCount : [config.digitCount];
+          const minExpectedCount = Math.min(...expectedCounts);
+          
+          // If we have some digits but not enough for a complete number
+          if (remainingNumber.length > 0 && remainingNumber.length < minExpectedCount) {
+            return {
+              countryCode: config.countryCode,
+              country: countryName
+            };
+          }
         }
       }
     }

@@ -258,19 +258,19 @@ describe('extractCountryCodeAndPhone', () => {
         expected: null as any
       },
       {
-        description: 'Brazilian landline number without country code',
+        description: 'Brazilian landline number without country code (but matches US incomplete)',
         input: '1134567890',
-        expected: null as any
+        expected: { countryCode: '+1', country: 'us' } // This now matches as incomplete US number
       },
       {
-        description: 'US number without country code',
+        description: 'US number without country code (but matches Morocco incomplete)',
         input: '2125551234',
-        expected: null as any
+        expected: { countryCode: '+212', country: 'morocco' } // This now matches as incomplete Morocco number
       },
       {
-        description: 'Spanish number without country code',
+        description: 'Spanish number without country code (but matches Australia incomplete)',
         input: '612345678',
-        expected: null as any
+        expected: { countryCode: '+61', country: 'australia' } // This now matches as incomplete Australia number
       },
       {
         description: 'Random 9-digit number',
@@ -278,16 +278,16 @@ describe('extractCountryCodeAndPhone', () => {
         expected: null as any
       },
       {
-        description: 'Random 10-digit number',
+        description: 'Random 10-digit number (but matches US incomplete)',
         input: '1234567890',
-        expected: null as any
+        expected: { countryCode: '+1', country: 'us' } // This now matches as incomplete US number
       }
     ];
 
     numbersWithoutCountryCodeTestCases.forEach(({ description, input, expected }) => {
       test(`should return null for ${description}`, () => {
         const result = extractCountryCodeAndPhone(input);
-        expect(result).toBe(expected);
+        expect(result).toEqual(expected);
       });
     });
   });
@@ -320,9 +320,9 @@ describe('extractCountryCodeAndPhone', () => {
         expected: null as any
       },
       {
-        description: 'too short number',
+        description: 'too short number (now returns Brazil country code)',
         input: '+55123',
-        expected: null as any
+        expected: { countryCode: '+55', country: 'brazil' } // This now returns incomplete Brazil number
       },
       {
         description: 'too long number',
@@ -359,7 +359,7 @@ describe('extractCountryCodeAndPhone', () => {
     invalidCasesTestCases.forEach(({ description, input, expected }) => {
       test(`should return null for ${description}`, () => {
         const result = extractCountryCodeAndPhone(input);
-        expect(result).toBe(expected);
+        expect(result).toEqual(expected);
       });
     });
   });
@@ -547,6 +547,165 @@ describe('extractCountryCodeAndPhone', () => {
           const result = extractCountryCodeAndPhone(number);
           expect(result).toEqual(expected[index]);
         });
+      });
+    });
+  });
+
+  describe('Incomplete numbers (return only country code)', () => {
+    const incompleteNumbersTestCases = [
+      {
+        description: 'Brazilian number with country code but incomplete phone',
+        input: '+5511',
+        expected: { countryCode: '+55', country: 'brazil' }
+      },
+      {
+        description: 'Brazilian number with country code and partial phone',
+        input: '+551198765',
+        expected: { countryCode: '+55', country: 'brazil' }
+      },
+      {
+        description: 'US number with country code but incomplete phone',
+        input: '+1212',
+        expected: { countryCode: '+1', country: 'us' }
+      },
+      {
+        description: 'US number with country code and partial phone',
+        input: '+121255512',
+        expected: { countryCode: '+1', country: 'us' }
+      },
+      {
+        description: 'Spanish number with country code but incomplete phone',
+        input: '+3461',
+        expected: { countryCode: '+34', country: 'spain' }
+      },
+      {
+        description: 'Portuguese number with country code but incomplete phone',
+        input: '+35191',
+        expected: { countryCode: '+351', country: 'portugal' }
+      },
+      {
+        description: 'German number with country code but incomplete phone',
+        input: '+491701',
+        expected: { countryCode: '+49', country: 'germany' }
+      },
+      {
+        description: 'Chinese number with country code but incomplete phone',
+        input: '+86138',
+        expected: { countryCode: '+86', country: 'china' }
+      },
+      {
+        description: 'UAE number with country code but incomplete phone',
+        input: '+97150',
+        expected: { countryCode: '+971', country: 'uae' }
+      },
+      {
+        description: 'Israeli number with country code but incomplete phone',
+        input: '+97250',
+        expected: { countryCode: '+972', country: 'israel' }
+      }
+    ];
+
+    incompleteNumbersTestCases.forEach(({ description, input, expected }) => {
+      test(`should return only country code for ${description}`, () => {
+        const result = extractCountryCodeAndPhone(input);
+        expect(result).toEqual(expected);
+      });
+    });
+  });
+
+  describe('Incomplete numbers without + prefix', () => {
+    const incompleteWithoutPlusTestCases = [
+      {
+        description: 'Brazilian incomplete number without + prefix',
+        input: '5511',
+        expected: { countryCode: '+55', country: 'brazil' }
+      },
+      {
+        description: 'Brazilian partial number without + prefix',
+        input: '551198765',
+        expected: { countryCode: '+55', country: 'brazil' }
+      },
+      {
+        description: 'US incomplete number without + prefix',
+        input: '1212',
+        expected: { countryCode: '+1', country: 'us' }
+      },
+      {
+        description: 'Spanish incomplete number without + prefix',
+        input: '3461',
+        expected: { countryCode: '+34', country: 'spain' }
+      },
+      {
+        description: 'Portuguese incomplete number without + prefix',
+        input: '35191',
+        expected: { countryCode: '+351', country: 'portugal' }
+      },
+      {
+        description: 'German incomplete number without + prefix',
+        input: '491701',
+        expected: { countryCode: '+49', country: 'germany' }
+      },
+      {
+        description: 'Chinese incomplete number without + prefix',
+        input: '86138',
+        expected: { countryCode: '+86', country: 'china' }
+      }
+    ];
+
+    incompleteWithoutPlusTestCases.forEach(({ description, input, expected }) => {
+      test(`should return only country code for ${description}`, () => {
+        const result = extractCountryCodeAndPhone(input);
+        expect(result).toEqual(expected);
+      });
+    });
+  });
+
+  describe('Edge cases for incomplete numbers', () => {
+    test('should return null for just country code with no additional digits', () => {
+      const justCountryCodes = ['+55', '+1', '+34', '+351', '+49'];
+      
+      justCountryCodes.forEach(code => {
+        const result = extractCountryCodeAndPhone(code);
+        expect(result).toBeNull();
+      });
+    });
+
+    test('should return null for too long incomplete numbers', () => {
+      // Numbers that are longer than expected for the country but still incomplete
+      const tooLongIncomplete = [
+        '+55119876543210000', // Way too long for Brazil
+        '+1212555123400000'   // Way too long for US
+      ];
+      
+      tooLongIncomplete.forEach(number => {
+        const result = extractCountryCodeAndPhone(number);
+        expect(result).toBeNull();
+      });
+    });
+
+    test('should handle formatted incomplete numbers', () => {
+      const formattedIncompleteTestCases = [
+        {
+          input: '+55 (11) 98765',
+          expected: { countryCode: '+55', country: 'brazil' }
+        },
+        {
+          input: '+1 (212) 555',
+          expected: { countryCode: '+1', country: 'us' }
+        },
+        {
+          input: '+34 612 345',
+          expected: { countryCode: '+34', country: 'spain' }
+        },
+        {
+          input: '+351 912 345',
+          expected: { countryCode: '+351', country: 'portugal' }
+        }
+      ];
+
+      formattedIncompleteTestCases.forEach(({ input, expected }) => {
+        const result = extractCountryCodeAndPhone(input);
+        expect(result).toEqual(expected);
       });
     });
   });
