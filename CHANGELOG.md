@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.51.0](https://github.com/igortrinidad/lazyfy/compare/v2.50.0...v2.51.0) (2025-09-08)
+
+
+### Features (feat:)
+
+* **formatters:** add getWhatsappJidAndNumberValidated function and corresponding tests ([257a854](https://github.com/igortrinidad/lazyfy/commit/257a854f288af211ac4a5ab98e146dc45c1a4595))
+
 ## [2.50.0](https://github.com/igortrinidad/lazyfy/compare/v2.49.0...v2.50.0) (2025-09-04)
 
 
