@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.52.0](https://github.com/igortrinidad/lazyfy/compare/v2.51.0...v2.52.0) (2025-09-10)
+
+
+### Features (feat:)
+
+* **formatters:** update getWhatsappJidAndNumberValidated to handle Brazilian number formatting and improve tests ([3f7cb56](https://github.com/igortrinidad/lazyfy/commit/3f7cb56cc4fb09272b5e1bc291b96c2f7fc92a43))
+
 ## [2.51.0](https://github.com/igortrinidad/lazyfy/compare/v2.50.0...v2.51.0) (2025-09-08)
 
 
