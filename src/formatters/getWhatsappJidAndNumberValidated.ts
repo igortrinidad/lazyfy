@@ -1,11 +1,19 @@
 
 export const getWhatsappJidAndNumberValidated = (phone: string ): { jid: string, number: string } => {
   let jid = formatPhoneNumberToWhatsappRemoteJid(phone)
+
+
   if(typeof jid === 'string') {
     jid = jid.replace(/:\d+(?=@)/, '')
   }
   validateRemoteJid(jid, phone)
-  const number = jid.replace(/\D/g, '')
+  let number = jid.replace(/\D/g, '')
+  
+  // Remove character at index 4 for Brazilian numbers with more than 12 digits
+  if (number.length > 12 && number.startsWith('55')) {
+    number = number.slice(0, 4) + number.slice(5)
+  }
+  
   return {
     jid,
     number

@@ -1,18 +1,34 @@
 import { getWhatsappJidAndNumberValidated } from '../../src'
 describe('getWhatsappJidAndNumberValidated', () => {
+
+  const knownNumbers = [
+    {
+      input: '5531981007753',
+      expectedJid: '553181007753@s.whatsapp.net',
+      expectedNumber: '553181007753'
+    },
+    {
+      input: '5513991964962',
+      expectedJid: '5513991964962@s.whatsapp.net',
+      expectedNumber: '551391964962'
+    },
+    {
+      input: '553189231495:14@s.whatsapp.net',
+      expectedJid: '553189231495@s.whatsapp.net',
+      expectedNumber: '553189231495'
+    },
+
+  ]
   
   // Basic phone number formatting tests
   test('should format basic US number', () => {
-    const result = getWhatsappJidAndNumberValidated('5531981007753')
-    expect(result.jid).toBe('553181007753@s.whatsapp.net')
-    expect(result.number).toBe('553181007753')
+    for(const {input, expectedJid, expectedNumber} of knownNumbers) {
+      const result = getWhatsappJidAndNumberValidated(input)
+      expect(result.jid).toBe(expectedJid)
+      expect(result.number).toBe(expectedNumber)
+    }
   })
   
-  test('should format basic US number', () => {
-    const result = getWhatsappJidAndNumberValidated('553189231495:14@s.whatsapp.net')
-    expect(result.jid).toBe('553189231495@s.whatsapp.net')
-    expect(result.number).toBe('553189231495')
-  })
 
   test('should format US number with country code', () => {
     const result = getWhatsappJidAndNumberValidated('11234567890')
@@ -36,7 +52,7 @@ describe('getWhatsappJidAndNumberValidated', () => {
   test('should format Brazilian mobile number correctly', () => {
     const result = getWhatsappJidAndNumberValidated('5511987654321')
     expect(result.jid).toBe('5511987654321@s.whatsapp.net')
-    expect(result.number).toBe('5511987654321')
+    expect(result.number).toBe('551187654321')
   })
 
   test('should format Brazilian landline number correctly', () => {
@@ -48,13 +64,13 @@ describe('getWhatsappJidAndNumberValidated', () => {
   test('should handle Brazilian number with low DDD', () => {
     const result = getWhatsappJidAndNumberValidated('5521987654321')
     expect(result.jid).toBe('5521987654321@s.whatsapp.net')
-    expect(result.number).toBe('5521987654321')
+    expect(result.number).toBe('552187654321')
   })
 
   test('should handle Brazilian number with low joker digit', () => {
     const result = getWhatsappJidAndNumberValidated('5511687654321')
     expect(result.jid).toBe('5511687654321@s.whatsapp.net')
-    expect(result.number).toBe('5511687654321')
+    expect(result.number).toBe('551187654321')
   })
 
   // Mexican number formatting tests
@@ -139,7 +155,7 @@ describe('getWhatsappJidAndNumberValidated', () => {
     const complexNumber = '+55 (11) 9 8765-4321'
     const result = getWhatsappJidAndNumberValidated(complexNumber)
     expect(result.jid).toBe('5511987654321@s.whatsapp.net')
-    expect(result.number).toBe('5511987654321')
+    expect(result.number).toBe('551187654321')
   })
 
   // Number type conversion test
@@ -331,7 +347,7 @@ describe('getWhatsappJidAndNumberValidated', () => {
   test('should handle Brazilian edge case with DDD 11 and mobile digit 9', () => {
     const result = getWhatsappJidAndNumberValidated('5511912345678')
     expect(result.jid).toBe('5511912345678@s.whatsapp.net')
-    expect(result.number).toBe('5511912345678')
+    expect(result.number).toBe('551112345678')
   })
 
 })
