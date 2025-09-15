@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.52.1](https://github.com/igortrinidad/lazyfy/compare/v2.52.0...v2.52.1) (2025-09-15)
+
 ## [2.52.0](https://github.com/igortrinidad/lazyfy/compare/v2.51.0...v2.52.0) (2025-09-10)
 
 
