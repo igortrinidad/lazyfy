@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.54.0](https://github.com/igortrinidad/lazyfy/compare/v2.53.0...v2.54.0) (2025-10-15)
+
+
+### Features (feat:)
+
+* **tests:** add additional tests for getRandomWeithedElementsInArrays to handle weight normalization and edge cases ([def3f98](https://github.com/igortrinidad/lazyfy/commit/def3f98360bea9f2a282c83d45693139ffae6a1d))
+
 ## [2.53.0](https://github.com/igortrinidad/lazyfy/compare/v2.52.1...v2.53.0) (2025-10-15)
 
 
