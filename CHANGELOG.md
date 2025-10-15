@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.53.0](https://github.com/igortrinidad/lazyfy/compare/v2.52.1...v2.53.0) (2025-10-15)
+
+
+### Features (feat:)
+
+* **ArrayHelpers:** add getRandomWeithedElementsInArrays function and corresponding tests ([56ab8d5](https://github.com/igortrinidad/lazyfy/commit/56ab8d56548cbdf6b04c7e09975e1bff2e058cde))
+
 ### [2.52.1](https://github.com/igortrinidad/lazyfy/compare/v2.52.0...v2.52.1) (2025-09-15)
 
 ## [2.52.0](https://github.com/igortrinidad/lazyfy/compare/v2.51.0...v2.52.0) (2025-09-10)
