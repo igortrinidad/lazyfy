@@ -131,6 +131,78 @@ export const chunkArray = (arr: any[], size: number): any[][] => {
   return chunks
 }
 
+export const getRandomWeithedElementsInArrays = (lists: any[][], weights: number[], count: number): any[] => {
+  if (lists.length !== weights.length) {
+    throw new Error('Lists and weights arrays must have the same length')
+  }
+  
+  if (lists.length === 0 || weights.length === 0 || count <= 0) {
+    return []
+  }
+
+  // Criar cópias das listas para não modificar as originais
+  const availableLists = lists.map(list => [...list])
+  const availableWeights = [...weights]
+
+  // Normalizar os pesos para criar uma distribuição de probabilidade
+  const normalizeWeights = (weights: number[]) => {
+    const totalWeight = weights.reduce((sum, weight) => sum + weight, 0)
+    if (totalWeight === 0) return weights.map(() => 0)
+    return weights.map(weight => weight / totalWeight)
+  }
+
+  const result: any[] = []
+  
+  for (let i = 0; i < count; i++) {
+    // Verificar se ainda existem listas com itens
+    const listsWithItems = availableLists
+      .map((list, index) => ({ list, index, weight: availableWeights[index] }))
+      .filter(item => item.list.length > 0)
+    
+    if (listsWithItems.length === 0) {
+      break // Não há mais itens disponíveis
+    }
+
+    // Recalcular pesos apenas para listas que ainda têm itens
+    const activeWeights = listsWithItems.map(item => item.weight)
+    const normalizedWeights = normalizeWeights(activeWeights)
+    
+    // Criar intervalos acumulativos para seleção por peso
+    const cumulativeWeights = []
+    let cumulative = 0
+    for (const weight of normalizedWeights) {
+      cumulative += weight
+      cumulativeWeights.push(cumulative)
+    }
+
+    const random = Math.random()
+    
+    // Encontrar qual lista deve ser selecionada baseado no peso
+    let selectedListIndex = 0
+    for (let j = 0; j < cumulativeWeights.length; j++) {
+      if (random <= cumulativeWeights[j]) {
+        selectedListIndex = j
+        break
+      }
+    }
+    
+    // Pegar o índice real da lista original
+    const realListIndex = listsWithItems[selectedListIndex].index
+    const selectedList = availableLists[realListIndex]
+    
+    if (selectedList.length > 0) {
+      const element = getRandomElement(selectedList)
+      result.push(element)
+      
+      // Remover o elemento selecionado da lista para evitar repetição
+      const elementIndex = selectedList.indexOf(element)
+      selectedList.splice(elementIndex, 1)
+    }
+  }
+  
+  return result
+}
+
 export const ArrayHelpers = {
   findByObj,
   findByString,
@@ -145,6 +217,7 @@ export const ArrayHelpers = {
   compareArray,
   shuffle,
   getRandomElement,
-  chunkArray
+  chunkArray,
+  getRandomWeithedElementsInArrays
 }
 
