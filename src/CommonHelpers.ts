@@ -67,11 +67,26 @@ export const clearBrowserCacheListener = (hotKey: string = 'KeyX', removeCookies
   }
 }
 
+export const debounce = <T extends (...args: any[]) => any>(
+  callback: T, 
+  timeout: number = 300
+): ((...args: Parameters<T>) => void) => {
+  let timer: NodeJS.Timeout | number
+  
+  return (...args: Parameters<T>) => {
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+      callback(...args)
+    }, timeout)
+  }
+}
+
 export const CommonHelpers = {
   downloadRawData,
   copyToClipboard,
   getLetterByNumber,
   clearBrowserCache,
   clearBrowserCacheListener,
-  removeAllCookies
+  removeAllCookies,
+  debounce
 }
