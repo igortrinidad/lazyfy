@@ -46,11 +46,20 @@ function levenshtein(a: string, b: string) {
   return matrix[b.length][a.length]
 }
 
+const removeAccents = (str: string): string => {
+  return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+}
+
 export const checkStringSimilarity = (base: string, stringToCompare: string, caseInsensitive: boolean = true): number => {
   if(caseInsensitive) {
     base = base.toLowerCase()
     stringToCompare = stringToCompare.toLowerCase()
   }
+  
+  // Remove acentos para comparação
+  base = removeAccents(base)
+  stringToCompare = removeAccents(stringToCompare)
+  
   const distance = levenshtein(base, stringToCompare)
   const maxLen = Math.max(base.length, stringToCompare.length)
   const similarity = 1 - distance / maxLen
