@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.56.0](https://github.com/igortrinidad/lazyfy/compare/v2.55.0...v2.56.0) (2025-10-17)
+
+
+### Features (feat:)
+
+* add accent normalization to string similarity checks ([28edf78](https://github.com/igortrinidad/lazyfy/commit/28edf78735f7e45293db883533c6d52a4f46c408))
+
 ## [2.55.0](https://github.com/igortrinidad/lazyfy/compare/v2.54.0...v2.55.0) (2025-10-17)
 
 
