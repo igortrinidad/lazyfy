@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.55.0](https://github.com/igortrinidad/lazyfy/compare/v2.54.0...v2.55.0) (2025-10-17)
+
+
+### Features (feat:)
+
+* Added debounce method ([d2b8dba](https://github.com/igortrinidad/lazyfy/commit/d2b8dba1ac128e05441cef0bd25dbb09e2d4b8da))
+
 ## [2.54.0](https://github.com/igortrinidad/lazyfy/compare/v2.53.0...v2.54.0) (2025-10-15)
 
 
