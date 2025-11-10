@@ -46,9 +46,21 @@ export const getFileIcon = (path: string, provider: string = 'solar') => {
     if(provider === 'solar') {
       return 'solar:clipboard-list-line-duotone'
     }
-  } else if (['.png', '.jpg', '.jpeg', '.gif', '.mp4', '.mpeg', '.webm', '.webp', '.svg'].includes(extension)) {
+  } else if (['.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg'].includes(extension)) {
     if(provider === 'solar') {
       return 'solar:gallery-bold-duotone'
+    }
+  } else if(['.zip', '.rar', '.7z', '.tar', '.gz'].includes(extension)) {
+    if(provider === 'solar') {
+      return 'solar:archive-line-duotone'
+    }
+  } else if(['.mp3', '.wav', '.flac', '.aac', '.ogg'].includes(extension)) {
+    if(provider === 'solar') {
+      return 'solar:microphone-2-line-duotone'
+    }
+  } else if(['.mp4', '.webm', '.mov', '.avi', '.mpeg', '.mpg'].includes(extension)) {
+    if(provider === 'solar') {
+      return 'solar:chat-round-video-line-duotone'
     }
   }
   if(provider === 'solar') {
