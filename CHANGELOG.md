@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.57.0](https://github.com/igortrinidad/lazyfy/compare/v2.56.0...v2.57.0) (2025-11-10)
+
+
+### Features (feat:)
+
+* enhance getFileIcon to support additional file types ([939070c](https://github.com/igortrinidad/lazyfy/commit/939070c5bc54b08b3c83b7e7b8d2243624e9e0e1))
+
+
+### Bug Fixes (fix:)
+
+* streamline getFileIcon return statement for default case ([d60b6c8](https://github.com/igortrinidad/lazyfy/commit/d60b6c82ba928571dc31411c9fdd085437a453c6))
+
 ## [2.56.0](https://github.com/igortrinidad/lazyfy/compare/v2.55.0...v2.56.0) (2025-10-17)
 
 
