@@ -63,7 +63,5 @@ export const getFileIcon = (path: string, provider: string = 'solar') => {
       return 'solar:chat-round-video-line-duotone'
     }
   }
-  if(provider === 'solar') {
-    return 'solar:file-line-duotone'
-  }
+  return 'solar:file-line-duotone'
 }
