@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.58.1](https://github.com/igortrinidad/lazyfy/compare/v2.58.0...v2.58.1) (2026-04-14)
+
+
+### Bug Fixes (fix:)
+
+* remove NODE_AUTH_TOKEN from production deploy workflow ([a1a3ca4](https://github.com/igortrinidad/lazyfy/commit/a1a3ca4fb0de4d821caf1d98d3499e481770a847))
+
 ## [2.58.0](https://github.com/igortrinidad/lazyfy/compare/v2.57.0...v2.58.0) (2026-04-14)
 
 
