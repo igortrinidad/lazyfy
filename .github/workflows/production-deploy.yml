@@ -10,14 +10,14 @@ jobs:
 
   build-test-release-and-publish-npm:
     runs-on: ubuntu-latest
-
+    environment: npm
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: '22.12.0'
+          node-version: '16.18.1'
           registry-url: 'https://registry.npmjs.org'
           scope: '@igortrindade'
           always-auth: true
