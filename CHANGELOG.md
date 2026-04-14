@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.58.0](https://github.com/igortrinidad/lazyfy/compare/v2.57.0...v2.58.0) (2026-04-14)
+
+
+### Features (feat:)
+
+* add titleCaseToSnakeCase to StringHelpers ([0d7b448](https://github.com/igortrinidad/lazyfy/commit/0d7b448c716af04fa240d4bf18bbfcee0255d024))
+
 ## [2.57.0](https://github.com/igortrinidad/lazyfy/compare/v2.56.0...v2.57.0) (2025-11-10)
 
 
