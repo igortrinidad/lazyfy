@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.59.0](https://github.com/igortrinidad/lazyfy/compare/v2.58.2...v2.59.0) (2026-04-14)
+
+
+### Features (feat:)
+
+* Enhance phone number handling and formatting ([8007ff1](https://github.com/igortrinidad/lazyfy/commit/8007ff1d941a5d34c75b4c6e58dfac0ab0a6ac90))
+
 ### [2.58.2](https://github.com/igortrinidad/lazyfy/compare/v2.58.1...v2.58.2) (2026-04-14)
 
 
