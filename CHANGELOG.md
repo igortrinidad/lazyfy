@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.58.2](https://github.com/igortrinidad/lazyfy/compare/v2.58.1...v2.58.2) (2026-04-14)
+
+
+### Bug Fixes (fix:)
+
+* revert node version to 16.18.1 in production deploy workflow ([1d23059](https://github.com/igortrinidad/lazyfy/commit/1d23059baec608baa5f67db5f0de59f08558230a))
+
 ### [2.58.1](https://github.com/igortrinidad/lazyfy/compare/v2.58.0...v2.58.1) (2026-04-14)
 
 
