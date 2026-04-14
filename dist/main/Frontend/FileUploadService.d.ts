@@ -1,7 +1,15 @@
+type S3ACL = 'public-read' | 'private' | 'public-read-write' | 'authenticated-read' | 'aws-exec-read' | 'bucket-owner-read' | 'bucket-owner-full-control' | 'log-delivery-write';
+type FileUploadServiceInput = [
+    axiosInstance: any,
+    get_presigned_url: string,
+    folder?: string,
+    ACL?: S3ACL,
+    should_convert_image_to_webp?: boolean
+];
 export declare class FileUploadService {
     folder: string;
     name: string;
-    ACL: string;
+    ACL: S3ACL;
     ContentType: string;
     extension: string;
     size: number;
@@ -16,11 +24,12 @@ export declare class FileUploadService {
     fileContentBlob: any;
     file_path: string;
     file_name: string;
+    file_url: string;
     get_presigned_url: string;
     presigned_url: string;
     isLoading: boolean;
     axiosInstance: any;
-    constructor(axiosInstance: any, get_presigned_url: string, folder?: string, ACL?: string, should_convert_image_to_webp?: boolean);
+    constructor(...args: FileUploadServiceInput);
     get color(): "#ef4444" | "#3b82f6" | "#22c55e" | "#eab308" | "#6b7280";
     get formatted_name(): string;
     get formatted_size(): string;
@@ -38,3 +47,4 @@ export declare class FileUploadService {
     private convertImageToWebp;
     protected uploadFileToAws(multipart_chunk?: any): Promise<void>;
 }
+export {};

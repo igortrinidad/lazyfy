@@ -9,3 +9,5 @@ export * from './RegexHelpers';
 export * from './Masker';
 export * from './GraphQL';
 export * from './types/NumberFormatOptions';
+export * from './helpers/file-helpers';
+export * from './formatters/getWhatsappJidAndNumberValidated';

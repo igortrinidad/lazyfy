@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ObjectHelpers = exports.checkSameStructure = exports.deepSearchKey = exports.deleteNestedObjectByKey = exports.setNestedObjectByKey = exports.getNestedObjectByKey = exports.deepMergeObject = exports.isObject = exports.defineProperty = exports.initClassData = exports.checkIsEqual = exports.checkObjMatch = exports.filterObjectKeys = void 0;
+exports.ObjectHelpers = exports.getObjectMapped = exports.checkSameStructure = exports.deepSearchKey = exports.deleteNestedObjectByKey = exports.setNestedObjectByKey = exports.getNestedObjectByKey = exports.deepMergeObject = exports.isObject = exports.defineProperty = exports.initClassData = exports.checkIsEqual = exports.checkObjMatch = exports.filterObjectKeys = void 0;
 const Util_1 = require("./Util");
 const filterObjectKeys = (allowed, object) => {
     return allowed.reduce((acc, allowedAttribute) => {
@@ -228,6 +228,12 @@ const checkSameStructure = (baseObj, compareObj) => {
     return true;
 };
 exports.checkSameStructure = checkSameStructure;
+const getObjectMapped = (object = {}) => {
+    return Object.keys(object).map((key) => {
+        return Object.assign(Object.assign({}, object[key]), { key: key });
+    });
+};
+exports.getObjectMapped = getObjectMapped;
 exports.ObjectHelpers = {
     filterObjectKeys: exports.filterObjectKeys,
     checkObjMatch: exports.checkObjMatch,
@@ -239,5 +245,6 @@ exports.ObjectHelpers = {
     getNestedObjectByKey: exports.getNestedObjectByKey,
     setNestedObjectByKey: exports.setNestedObjectByKey,
     deleteNestedObjectByKey: exports.deleteNestedObjectByKey,
-    deepSearchKey: exports.deepSearchKey
+    deepSearchKey: exports.deepSearchKey,
+    getObjectMapped: exports.getObjectMapped
 };

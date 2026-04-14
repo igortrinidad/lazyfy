@@ -25,3 +25,5 @@ __exportStar(require("./RegexHelpers"), exports);
 __exportStar(require("./Masker"), exports);
 __exportStar(require("./GraphQL"), exports);
 __exportStar(require("./types/NumberFormatOptions"), exports);
+__exportStar(require("./helpers/file-helpers"), exports);
+__exportStar(require("./formatters/getWhatsappJidAndNumberValidated"), exports);

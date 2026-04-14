@@ -5,6 +5,14 @@ export declare const checkStringSimilarity: (base: string, stringToCompare: stri
 export declare const checkStringIsSimilar: (base: string, stringToCompare: string, threshold?: number, caseInsensitive?: boolean) => boolean;
 export declare const ensureStartsWithUpperCase: (str?: string) => string;
 export declare const truncateText: (text?: string, max?: number) => string;
+export interface SimilarSearchOptions {
+    threshold?: number;
+    caseInsensitive?: boolean;
+    splitWords?: boolean;
+    searchKeys?: string[];
+}
+export declare const findSimilarItems: <T>(items: T[], searchText: string, options?: SimilarSearchOptions) => T[];
+export declare const titleCaseToSnakeCase: (str: string) => string;
 export declare const StringHelpers: {
     titleCaseString: (str: string) => string;
     randomString: (length: number) => string;
@@ -13,4 +21,6 @@ export declare const StringHelpers: {
     checkStringIsSimilar: (base: string, stringToCompare: string, threshold?: number, caseInsensitive?: boolean) => boolean;
     ensureStartsWithUpperCase: (str?: string) => string;
     truncateText: (text?: string, max?: number) => string;
+    findSimilarItems: <T>(items: T[], searchText: string, options?: SimilarSearchOptions) => T[];
+    titleCaseToSnakeCase: (str: string) => string;
 };

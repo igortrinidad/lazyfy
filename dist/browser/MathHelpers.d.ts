@@ -7,7 +7,7 @@ export declare const getAmountOfPercentage: (amount: number, percentage: number 
  *
  * get the % of a given amount and value
  */
-export declare const getPercentageOfAmount: (amount: number, value: number, percentageSign?: boolean, digits?: number) => number | string;
+export declare const getPercentageOfAmount: (amount: number, value: number, percentageSign?: boolean, digits?: number, returnWhenAmountIsZero?: null | string | number) => number | string;
 export declare const round: (value: number, decimals?: number) => number;
 export declare const randomInt: (max: number, min?: number) => number;
 /**
@@ -21,7 +21,7 @@ export declare const addPercentage: (value: number, percentage: string | number)
 export declare const getValueOrMinPercentage: (amount: number, value: number, percentage?: number) => number;
 export declare const MathHelpers: {
     getAmountOfPercentage: (amount: number, percentage: number | string) => number;
-    getPercentageOfAmount: (amount: number, value: number, percentageSign?: boolean, digits?: number) => number | string;
+    getPercentageOfAmount: (amount: number, value: number, percentageSign?: boolean, digits?: number, returnWhenAmountIsZero?: null | string | number) => number | string;
     round: (value: number, decimals?: number) => number;
     randomInt: (max: number, min?: number) => number;
     addPercentage: (value: number, percentage: string | number) => number;

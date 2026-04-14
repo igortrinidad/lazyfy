@@ -11,6 +11,8 @@ export declare const toggleInArray: (arr: any[], obj: any) => any[];
 export declare const compareArray: (arrFrom: any[], arrToCompare: any[], key?: string) => boolean;
 export declare const shuffle: (array: any[]) => any[];
 export declare const getRandomElement: (list: any[]) => any;
+export declare const chunkArray: (arr: any[], size: number) => any[][];
+export declare const getRandomWeithedElementsInArrays: (lists: any[][], weights: number[], count: number) => any[];
 export declare const ArrayHelpers: {
     findByObj: (arr: any[], obj: any, asBoolean?: boolean) => any;
     findByString: (arr: any[], item: any, asBoolean?: boolean) => any;
@@ -25,4 +27,6 @@ export declare const ArrayHelpers: {
     compareArray: (arrFrom: any[], arrToCompare: any[], key?: string) => boolean;
     shuffle: (array: any[]) => any[];
     getRandomElement: (list: any[]) => any;
+    chunkArray: (arr: any[], size: number) => any[][];
+    getRandomWeithedElementsInArrays: (lists: any[][], weights: number[], count: number) => any[];
 };

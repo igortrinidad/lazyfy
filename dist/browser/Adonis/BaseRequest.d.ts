@@ -14,7 +14,7 @@ export declare abstract class BaseRequest {
     instance: any;
     idColumn: string;
     constructor(ctx: HttpContext, Model: any);
-    validate(): Promise<void>;
+    validate(): void;
     /**
      * This method is used to delete the blank _path keys on the data object to avoid clearing
      * the _path on the instance object when we don't want to update them or didn't passed the path again.

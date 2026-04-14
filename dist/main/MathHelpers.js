@@ -15,8 +15,11 @@ exports.getAmountOfPercentage = getAmountOfPercentage;
  *
  * get the % of a given amount and value
  */
-const getPercentageOfAmount = (amount, value, percentageSign = false, digits = 2) => {
+const getPercentageOfAmount = (amount, value, percentageSign = false, digits = 2, returnWhenAmountIsZero = '--') => {
     const amt = getParsedValue(amount);
+    if (amt === 0 && typeof returnWhenAmountIsZero !== 'undefined') {
+        return returnWhenAmountIsZero;
+    }
     const result = Number(100 / amt * value);
     if (!percentageSign)
         return result;

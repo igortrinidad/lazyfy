@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CommonHelpers = exports.clearBrowserCacheListener = exports.clearBrowserCache = exports.removeAllCookies = exports.getLetterByNumber = exports.copyToClipboard = exports.downloadRawData = void 0;
+exports.CommonHelpers = exports.debounce = exports.clearBrowserCacheListener = exports.clearBrowserCache = exports.removeAllCookies = exports.getLetterByNumber = exports.copyToClipboard = exports.downloadRawData = void 0;
 const downloadRawData = (data, fileName = 'file.txt') => {
     if (!window)
         throw new Error(`Method downloadRawData must run in "window" context.`);
@@ -72,11 +72,22 @@ const clearBrowserCacheListener = (hotKey = 'KeyX', removeCookies = true, cb = n
     }
 };
 exports.clearBrowserCacheListener = clearBrowserCacheListener;
+const debounce = (callback, timeout = 300) => {
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            callback(...args);
+        }, timeout);
+    };
+};
+exports.debounce = debounce;
 exports.CommonHelpers = {
     downloadRawData: exports.downloadRawData,
     copyToClipboard: exports.copyToClipboard,
     getLetterByNumber: exports.getLetterByNumber,
     clearBrowserCache: exports.clearBrowserCache,
     clearBrowserCacheListener: exports.clearBrowserCacheListener,
-    removeAllCookies: exports.removeAllCookies
+    removeAllCookies: exports.removeAllCookies,
+    debounce: exports.debounce
 };

@@ -30,14 +30,12 @@ class BaseRequest {
         }
     }
     validate() {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (!this.entity) {
-                throw new Error('Entity is required.');
-            }
-            if (this.entity !== new this.Model().constructor.name) {
-                throw new Error('Invalid entity.');
-            }
-        });
+        if (!this.entity) {
+            throw new Error('Entity is required.');
+        }
+        if (this.entity !== new this.Model().constructor.name) {
+            throw new Error('Invalid entity: The entity differs from the model name.');
+        }
     }
     /**
      * This method is used to delete the blank _path keys on the data object to avoid clearing
@@ -130,6 +128,7 @@ class BaseRequest {
     }
     afterUpdate() {
         return __awaiter(this, void 0, void 0, function* () {
+            yield this.onAfterUpdate();
         });
     }
     onAfterUpdate() {

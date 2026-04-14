@@ -20,12 +20,12 @@ class BaseRequest {
             throw new Error('Model is required.');
         }
     }
-    async validate() {
+    validate() {
         if (!this.entity) {
             throw new Error('Entity is required.');
         }
         if (this.entity !== new this.Model().constructor.name) {
-            throw new Error('Invalid entity.');
+            throw new Error('Invalid entity: The entity differs from the model name.');
         }
     }
     /**
@@ -102,6 +102,7 @@ class BaseRequest {
         this.instance = await this.Model.create(data);
     }
     async afterUpdate() {
+        await this.onAfterUpdate();
     }
     async onAfterUpdate() {
     }

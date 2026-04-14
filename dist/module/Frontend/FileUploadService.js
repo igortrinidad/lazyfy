@@ -12,10 +12,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.FileUploadService = void 0;
 const file_helpers_1 = require("../helpers/file-helpers");
 class FileUploadService {
-    constructor(axiosInstance, get_presigned_url, folder = '', ACL = 'public-read', should_convert_image_to_webp = true) {
+    constructor(...args) {
         this.folder = '';
         this.name = '';
-        this.ACL = 'private';
+        this.ACL = 'public-read';
         this.ContentType = '';
         this.extension = '';
         this.size = 0;
@@ -30,14 +30,16 @@ class FileUploadService {
         this.fileContentBlob = null;
         this.file_path = '';
         this.file_name = '';
+        this.file_url = '';
         this.get_presigned_url = '';
         this.presigned_url = '';
         this.isLoading = false;
+        const [axiosInstance, get_presigned_url, folder, ACL, should_convert_image_to_webp] = args;
         this.axiosInstance = axiosInstance;
         this.get_presigned_url = get_presigned_url;
-        this.folder = folder;
-        this.ACL = ACL;
-        this.should_convert_image_to_webp = should_convert_image_to_webp;
+        this.folder = folder !== null && folder !== void 0 ? folder : '';
+        this.ACL = ACL !== null && ACL !== void 0 ? ACL : 'public-read';
+        this.should_convert_image_to_webp = should_convert_image_to_webp !== null && should_convert_image_to_webp !== void 0 ? should_convert_image_to_webp : true;
     }
     get color() {
         return (0, file_helpers_1.formatFileColor)(this.name);
@@ -153,6 +155,7 @@ class FileUploadService {
                 const { data } = yield this.axiosInstance.post(get_presigned_url, { folder_path, extension, name, ContentType, ACL });
                 this.file_path = data.file_path;
                 this.file_name = data.file_name;
+                this.file_url = data.file_url;
                 this.presigned_url = data.presigned_url;
             }
             catch (err) {
@@ -170,7 +173,7 @@ class FileUploadService {
                     this.fileContentBlob = yield this.convertImageToWebp(event.target.result);
                 }
                 else {
-                    this.fileContentBlob = event.target.result;
+                    this.fileContentBlob = new Blob([event.target.result], { type: this.ContentType });
                 }
                 try {
                     yield this.uploadFileToAws();
@@ -185,7 +188,7 @@ class FileUploadService {
                 this.status = 'Error';
                 reject(error);
             };
-            if (this.getFileIsImage) {
+            if (this.getFileIsImage && this.should_convert_image_to_webp) {
                 reader.readAsDataURL(this.source);
             }
             else {

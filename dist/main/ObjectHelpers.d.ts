@@ -11,6 +11,7 @@ export declare const deleteNestedObjectByKey: (obj: any, key: string, ignoreNonE
 type AnyObject = Record<string, any>;
 export declare const deepSearchKey: (obj: AnyObject, targetKey: string, returnAll?: boolean) => any[] | any;
 export declare const checkSameStructure: (baseObj: AnyObject, compareObj: AnyObject) => boolean;
+export declare const getObjectMapped: (object?: any) => any[];
 export declare const ObjectHelpers: {
     filterObjectKeys: (allowed: any[], object: any) => any;
     checkObjMatch: (item: any, query: any, ignoreEmptyArray?: boolean) => any;
@@ -23,5 +24,6 @@ export declare const ObjectHelpers: {
     setNestedObjectByKey: (obj: any, key: string, value: any, allowNonExistingArrayIndex?: boolean) => any;
     deleteNestedObjectByKey: (obj: any, key: string, ignoreNonExisting?: boolean) => any;
     deepSearchKey: (obj: AnyObject, targetKey: string, returnAll?: boolean) => any[] | any;
+    getObjectMapped: (object?: any) => any[];
 };
 export {};

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ArrayHelpers = exports.getRandomElement = exports.shuffle = exports.compareArray = exports.toggleInArray = exports.objArrayToCsv = exports.uniqueByKey = exports.remove = exports.removeAll = exports.findAll = exports.findIndex = exports.find = exports.findByString = exports.findByObj = void 0;
+exports.ArrayHelpers = exports.getRandomWeithedElementsInArrays = exports.chunkArray = exports.getRandomElement = exports.shuffle = exports.compareArray = exports.toggleInArray = exports.objArrayToCsv = exports.uniqueByKey = exports.remove = exports.removeAll = exports.findAll = exports.findIndex = exports.find = exports.findByString = exports.findByObj = void 0;
 const ObjectHelpers_1 = require("./ObjectHelpers");
 const Util_1 = require("./Util");
 const findByObj = (arr, obj, asBoolean = false) => {
@@ -145,6 +145,73 @@ const shuffle = (array) => {
 exports.shuffle = shuffle;
 const getRandomElement = (list) => list[Math.floor(Math.random() * list.length)];
 exports.getRandomElement = getRandomElement;
+const chunkArray = (arr, size) => {
+    const chunks = [];
+    for (let i = 0; i < arr.length; i += size) {
+        chunks.push(arr.slice(i, i + size));
+    }
+    return chunks;
+};
+exports.chunkArray = chunkArray;
+const getRandomWeithedElementsInArrays = (lists, weights, count) => {
+    if (lists.length !== weights.length) {
+        throw new Error('Lists and weights arrays must have the same length');
+    }
+    if (lists.length === 0 || weights.length === 0 || count <= 0) {
+        return [];
+    }
+    // Criar cópias das listas para não modificar as originais
+    const availableLists = lists.map(list => [...list]);
+    const availableWeights = [...weights];
+    // Normalizar os pesos para criar uma distribuição de probabilidade
+    const normalizeWeights = (weights) => {
+        const totalWeight = weights.reduce((sum, weight) => sum + weight, 0);
+        if (totalWeight === 0)
+            return weights.map(() => 0);
+        return weights.map(weight => weight / totalWeight);
+    };
+    const result = [];
+    for (let i = 0; i < count; i++) {
+        // Verificar se ainda existem listas com itens
+        const listsWithItems = availableLists
+            .map((list, index) => ({ list, index, weight: availableWeights[index] }))
+            .filter(item => item.list.length > 0);
+        if (listsWithItems.length === 0) {
+            break; // Não há mais itens disponíveis
+        }
+        // Recalcular pesos apenas para listas que ainda têm itens
+        const activeWeights = listsWithItems.map(item => item.weight);
+        const normalizedWeights = normalizeWeights(activeWeights);
+        // Criar intervalos acumulativos para seleção por peso
+        const cumulativeWeights = [];
+        let cumulative = 0;
+        for (const weight of normalizedWeights) {
+            cumulative += weight;
+            cumulativeWeights.push(cumulative);
+        }
+        const random = Math.random();
+        // Encontrar qual lista deve ser selecionada baseado no peso
+        let selectedListIndex = 0;
+        for (let j = 0; j < cumulativeWeights.length; j++) {
+            if (random <= cumulativeWeights[j]) {
+                selectedListIndex = j;
+                break;
+            }
+        }
+        // Pegar o índice real da lista original
+        const realListIndex = listsWithItems[selectedListIndex].index;
+        const selectedList = availableLists[realListIndex];
+        if (selectedList.length > 0) {
+            const element = (0, exports.getRandomElement)(selectedList);
+            result.push(element);
+            // Remover o elemento selecionado da lista para evitar repetição
+            const elementIndex = selectedList.indexOf(element);
+            selectedList.splice(elementIndex, 1);
+        }
+    }
+    return result;
+};
+exports.getRandomWeithedElementsInArrays = getRandomWeithedElementsInArrays;
 exports.ArrayHelpers = {
     findByObj: exports.findByObj,
     findByString: exports.findByString,
@@ -158,5 +225,7 @@ exports.ArrayHelpers = {
     toggleInArray: exports.toggleInArray,
     compareArray: exports.compareArray,
     shuffle: exports.shuffle,
-    getRandomElement: exports.getRandomElement
+    getRandomElement: exports.getRandomElement,
+    chunkArray: exports.chunkArray,
+    getRandomWeithedElementsInArrays: exports.getRandomWeithedElementsInArrays
 };
