@@ -209,6 +209,10 @@ export const findSimilarItems = <T>(
   });
 };
 
+export const titleCaseToSnakeCase = (str: string): string => {
+  return str.replace(/([a-z0-9])([A-Z])/g, '$1_$2').toLowerCase()
+}
+
 export const StringHelpers = {
   titleCaseString,
   randomString,
@@ -218,4 +222,5 @@ export const StringHelpers = {
   ensureStartsWithUpperCase,
   truncateText,
   findSimilarItems,
+  titleCaseToSnakeCase,
 }
