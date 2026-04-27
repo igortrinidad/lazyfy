@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.62.1](https://github.com/igortrinidad/lazyfy/compare/v2.62.0...v2.62.1) (2026-04-27)
+
+
+### Routine tasks (chore:)
+
+* update production deploy workflow with permissions and node version ([d8c6b8e](https://github.com/igortrinidad/lazyfy/commit/d8c6b8e70ef19cfa4f5c952782b835881ea1b46c))
+
 ## [2.62.0](https://github.com/igortrinidad/lazyfy/compare/v2.61.0...v2.62.0) (2026-04-27)
 
 
