@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.60.1](https://github.com/igortrinidad/lazyfy/compare/v2.60.0...v2.60.1) (2026-04-15)
+
+
+### Bug Fixes (fix:)
+
+* update stylesheet links to new version for consistency across documentation pages ([e5fbc3c](https://github.com/igortrinidad/lazyfy/commit/e5fbc3c25563b6d4fd3a3d903404a860c02cd1ff))
+
 ## [2.60.0](https://github.com/igortrinidad/lazyfy/compare/v2.59.0...v2.60.0) (2026-04-15)
 
 
