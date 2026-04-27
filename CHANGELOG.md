@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.61.0](https://github.com/igortrinidad/lazyfy/compare/v2.60.1...v2.61.0) (2026-04-27)
+
+
+### Features (feat:)
+
+* add UUID v7 extraction functionality and corresponding tests ([9127bee](https://github.com/igortrinidad/lazyfy/commit/9127beed02410b3e1dd4eda12b81f951bb509d9d))
+
 ### [2.60.1](https://github.com/igortrinidad/lazyfy/compare/v2.60.0...v2.60.1) (2026-04-15)
 
 
