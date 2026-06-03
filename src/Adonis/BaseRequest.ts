@@ -129,7 +129,8 @@ export abstract class BaseRequest {
 
   public async onCreate() {
     const data = this.instance.getFillableKeys(this.data)
-    this.instance = await this.Model.create(data)
+    this.instance.merge({ ...data })
+    await this.instance.save()
   }
 
   protected async afterUpdate() {
