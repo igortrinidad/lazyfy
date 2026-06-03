@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.62.3](https://github.com/igortrinidad/lazyfy/compare/v2.62.2...v2.62.3) (2026-06-03)
+
+
+### Bug Fixes (fix:)
+
+* update onCreate method to merge and save instance data in BaseRequest class ([67c5201](https://github.com/igortrinidad/lazyfy/commit/67c520168d78922ff7154abde7dec16e4cb1399d))
+
 ### [2.62.2](https://github.com/igortrinidad/lazyfy/compare/v2.62.1...v2.62.2) (2026-04-27)
 
 
