@@ -5,6 +5,21 @@ interface UrlImage {
   caption: string
 }
 
+interface UrlVideo {
+  thumbnailUrl: string
+  title: string
+  description: string
+  contentUrl?: string
+  playerUrl?: string
+  duration?: number
+  publicationDate?: string
+  expirationDate?: string
+  rating?: number
+  viewCount?: number
+  familyFriendly?: boolean
+  live?: boolean
+}
+
 type ChangeFreqs = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'anual' | 'never'
 
 interface UrlItemInterface {
@@ -13,6 +28,8 @@ interface UrlItemInterface {
   changeFreq?: ChangeFreqs
   priority?: string
   image?: UrlImage
+  images?: UrlImage[]
+  videos?: UrlVideo[]
 }
 
 export class UrlItem {
@@ -21,7 +38,8 @@ export class UrlItem {
   lastModified: string = new Date().toISOString().substring(0,10)
   changeFreq: ChangeFreqs = 'monthly'
   priority: string = '1.0'
-  image?: UrlImage = null
+  images: UrlImage[] = []
+  videos: UrlVideo[] = []
 
   constructor(urlItem: UrlItemInterface){
     if(!urlItem.url) throw new Error('Url is required')
@@ -29,7 +47,9 @@ export class UrlItem {
     if(urlItem.lastModified ) this.lastModified = urlItem.lastModified
     if(urlItem.changeFreq ) this.changeFreq = urlItem.changeFreq
     if(urlItem.priority ) this.priority = urlItem.priority
-    if(urlItem.image ) this.image = urlItem.image
+    if(urlItem.image ) this.images = [urlItem.image]
+    if(urlItem.images?.length ) this.images = urlItem.images
+    if(urlItem.videos?.length ) this.videos = urlItem.videos
   }
 
   removeFirstSlashFromUrl(url: string) {
@@ -69,16 +89,35 @@ return header
     <lastmod>${item.lastModified}</lastmod>
     <changefreq>${item.changeFreq}</changefreq>`
 
-    if(item.image) {
-      
+    for (const image of item.images) {
       itemResult += 
 `
       <image:image>
-        <image:loc>${item.image.url}</image:loc>
-        <image:caption>${item.image.caption}</image:caption>
-        <image:title>${item.image.title}</image:title>
+        <image:loc>${image.url}</image:loc>
+        <image:caption>${image.caption}</image:caption>
+        <image:title>${image.title}</image:title>
       </image:image>`
     }
+
+    for (const video of item.videos) {
+      itemResult +=
+`
+      <video:video>
+        <video:thumbnail_loc>${video.thumbnailUrl}</video:thumbnail_loc>
+        <video:title>${video.title}</video:title>
+        <video:description>${video.description}</video:description>`
+      if (video.contentUrl) itemResult += `\n        <video:content_loc>${video.contentUrl}</video:content_loc>`
+      if (video.playerUrl) itemResult += `\n        <video:player_loc>${video.playerUrl}</video:player_loc>`
+      if (video.duration != null) itemResult += `\n        <video:duration>${video.duration}</video:duration>`
+      if (video.publicationDate) itemResult += `\n        <video:publication_date>${video.publicationDate}</video:publication_date>`
+      if (video.expirationDate) itemResult += `\n        <video:expiration_date>${video.expirationDate}</video:expiration_date>`
+      if (video.rating != null) itemResult += `\n        <video:rating>${video.rating}</video:rating>`
+      if (video.viewCount != null) itemResult += `\n        <video:view_count>${video.viewCount}</video:view_count>`
+      if (video.familyFriendly != null) itemResult += `\n        <video:family_friendly>${video.familyFriendly ? 'yes' : 'no'}</video:family_friendly>`
+      if (video.live != null) itemResult += `\n        <video:live>${video.live ? 'yes' : 'no'}</video:live>`
+      itemResult += `\n      </video:video>`
+    }
+
     itemResult += 
 `
   </url>
