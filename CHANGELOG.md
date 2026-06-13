@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.63.0](https://github.com/igortrinidad/lazyfy/compare/v2.62.3...v2.63.0) (2026-06-13)
+
+
+### Features (feat:)
+
+* enhance UrlItem to support multiple images and videos in SiteMapGenerator ([c0902fe](https://github.com/igortrinidad/lazyfy/commit/c0902fe77617080c188145a695c4b7f36c020f1c))
+
 ### [2.62.3](https://github.com/igortrinidad/lazyfy/compare/v2.62.2...v2.62.3) (2026-06-03)
 
 
